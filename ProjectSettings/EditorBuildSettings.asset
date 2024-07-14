@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Alpha Phases/Scenes/Loader.unity
+    guid: ea50e1bce4266d94695855e393280766
+  - enabled: 1
+    path: Assets/Alpha Phases/Scenes/Main Menu.unity
+    guid: 3c1b46d2887deb3458e2670007faa614
+  - enabled: 1
+    path: Assets/Alpha Phases/Scenes/Stage 1 Motion Intro.unity
+    guid: fd37ff230ec157a49a26d7ae60517fda
   m_configObjects: {}
