@@ -97,11 +97,11 @@ namespace SSGFE.Alpha.Phases.Games
         {
             JSONNode langs = SharedState.LanguageDefs;
             // Overrides serialized state data or continues with editor serialized values.
-            if (sSQFESaveData != null)
+            if (ssQFESaveData != null)
                 sSQFESaveData = ssQFESaveData;
             //  currentStage = tusomSaveData.current_stage;
 
-            if (currentStage == 1)
+            if (sSQFESaveData.current_stage == 1)
             {
 
                 if (!loadSavesOnce)
@@ -165,58 +165,58 @@ namespace SSGFE.Alpha.Phases.Games
         {
 
             currentStage = sSQFESaveData.current_stage;
-            /*
+          
                         if (currentStage == 1)
                         {
-                            // employeeBadgeCollected = digiWavesSaveData.employee_badge_collected;
-                            //  keyboadCollected = digiWavesSaveData.keyboad_collected;
-                            taskNumber = digiWavesSaveData.task_number;
-                            //   itemsCollected = digiWavesSaveData.items_collected;
-                        }
-
-                        if (currentStage == 2)
-                        {
-                            SceneManager.LoadScene("CrewQuaters");
-                            crewQuarters2StartedAlready = digiWavesSaveData.crew_quaters_2_started_already;
-                            //   phoneCollected = digiWavesSaveData.stage_2_phone_collected;
-                            //   tabletCollected = digiWavesSaveData.stage_2_watch_collected;
-                            //   watchCollected = digiWavesSaveData.stage_2_watch_collected;
-                            stage2ItemsCollected = digiWavesSaveData.stage_2_items_collected;
-                            // stage2LightsOn = digiWavesSaveData.stage_2_lights_on;
-                            taskNumberCrewQuarters = digiWavesSaveData.task_number_crew_quarter;
-                            stage2CodeFound = digiWavesSaveData.stage_2_code_found;
-                            Debug.Log("Loaded Stage 2");
-                        }
-
-                        if (currentStage == 3)
-                        {
-                            commsRoom3StartedAkready = digiWavesSaveData.comms_room_3_started_already;
-                            stage3ConsoleRead = digiWavesSaveData.stage_3_console_read;
-                            //    stage3FolderCollected = digiWavesSaveData.stage_3_folders_collected;
-                            stage3DoorKeyCollected = digiWavesSaveData.stage_3_door_key_collected;
-                            taskNumberCommsRoom = digiWavesSaveData.task_number_comms_room;
-                        }
-
-                        if (currentStage == 4)
-                        {
-                            dockingBay4StartedAlready = digiWavesSaveData.docking_bay_4_started_already;
-                            taskNumberDock = digiWavesSaveData.task_number_dock;
-                        }
-
-                        if (currentStage == 5)
-                        {
-                            aboardTheShip5StartedAlready = digiWavesSaveData.abour_ship_5_started_already;
-                            taskNumberShip = digiWavesSaveData.task_number_ship;
+                            taskNumber = sSQFESaveData.task_number;
+                             SceneManager.LoadScene("Stage 1 Motion Intro");
 
                         }
-            */
+            /*
+                                  if (currentStage == 2)
+                                  {
+                                      SceneManager.LoadScene("CrewQuaters");
+                                      crewQuarters2StartedAlready = digiWavesSaveData.crew_quaters_2_started_already;
+                                      //   phoneCollected = digiWavesSaveData.stage_2_phone_collected;
+                                      //   tabletCollected = digiWavesSaveData.stage_2_watch_collected;
+                                      //   watchCollected = digiWavesSaveData.stage_2_watch_collected;
+                                      stage2ItemsCollected = digiWavesSaveData.stage_2_items_collected;
+                                      // stage2LightsOn = digiWavesSaveData.stage_2_lights_on;
+                                      taskNumberCrewQuarters = digiWavesSaveData.task_number_crew_quarter;
+                                      stage2CodeFound = digiWavesSaveData.stage_2_code_found;
+                                      Debug.Log("Loaded Stage 2");
+                                  }
+
+                                  if (currentStage == 3)
+                                  {
+                                      commsRoom3StartedAkready = digiWavesSaveData.comms_room_3_started_already;
+                                      stage3ConsoleRead = digiWavesSaveData.stage_3_console_read;
+                                      //    stage3FolderCollected = digiWavesSaveData.stage_3_folders_collected;
+                                      stage3DoorKeyCollected = digiWavesSaveData.stage_3_door_key_collected;
+                                      taskNumberCommsRoom = digiWavesSaveData.task_number_comms_room;
+                                  }
+
+                                  if (currentStage == 4)
+                                  {
+                                      dockingBay4StartedAlready = digiWavesSaveData.docking_bay_4_started_already;
+                                      taskNumberDock = digiWavesSaveData.task_number_dock;
+                                  }
+
+                                  if (currentStage == 5)
+                                  {
+                                      aboardTheShip5StartedAlready = digiWavesSaveData.abour_ship_5_started_already;
+                                      taskNumberShip = digiWavesSaveData.task_number_ship;
+
+                                  }
+                      */
             Debug.Log("Loaded Save");
         }
 
         public void SaveStage()
         {
-
+            currentStage = 1;
             sSQFESaveData.current_stage = currentStage;
+            //sSQFESaveData.current_stage = currentStage;
             Save();
             Debug.Log("Forces Saved Fired");
         }
