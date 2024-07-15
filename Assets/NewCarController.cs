@@ -5,7 +5,16 @@ public class NewCarController : MonoBehaviour
 {
     public Rigidbody sphereRB; // declare rigidbody for car
 
-  //  public TextMeshProUGUI speed; // UI textmeshpro for the speed of the car
+    //  public TextMeshProUGUI speed; // UI textmeshpro for the speed of the car
+
+    public AudioSource engineIdle;
+    public bool engineIsIdle;
+    public int startingPitch = 1;
+    public int timeToIncrease = 5;
+    public int timeToDecrease = 1;
+    public float pitchLimitMax = 2.2f;
+    public int pitchLimitMin = 1;
+    //  public AudioClip engineIdleClip;
 
     public float fwdSpeed; // declare float for the fwdspeed of the car
     public float revSpeed; // declare float for the reverse speed of the car
@@ -15,7 +24,7 @@ public class NewCarController : MonoBehaviour
     private float moveInput; // declare for the controls of the car - attached to input.getaxisraw vertical - forward and back
     private float turnInput; // declare float for the turning of the car - attached to the input.getaxisraw horizontal - left and right
     private bool isCarGrounded; // declare bool the check if the car is grounded
-
+   
   //  public GameObject solidWall;
   //  public GameObject breakableWall;
 
@@ -39,7 +48,7 @@ public class NewCarController : MonoBehaviour
     {
         // Detach Sphere from car
         sphereRB.transform.parent = null;
-
+        engineIdle.pitch = startingPitch;
         //normalDrag = sphereRB.drag;
     }
 
@@ -54,11 +63,22 @@ public class NewCarController : MonoBehaviour
         {
             fwdSpeed += acceleration; // move forward / increase forward speed by increments set by the acceleration value
             turnSpeed += turnAcceleration; // increase turn speed by increments set by the turnacceleration value
+            engineIdle.pitch += Time.deltaTime * startingPitch / timeToIncrease;
+            if(engineIdle.pitch > 2.1f)
+            {
+                engineIdle.pitch = pitchLimitMax;
+            }
         }
+
         if (Input.GetKey(KeyCode.S)) // if S is pressed and held
         {
             fwdSpeed -= acceleration; // move backwards by decreasing forward speed by increments set by the acceleration value
             turnSpeed += turnAcceleration; // reduce turn speeed by increments set by the turnacceleration value
+            engineIdle.pitch -= Time.deltaTime * startingPitch / timeToDecrease;
+            if (engineIdle.pitch < 1.1f)
+            {
+                engineIdle.pitch = startingPitch;
+            }
         }
 /*
         if(fwdSpeed > 49)
@@ -77,8 +97,19 @@ public class NewCarController : MonoBehaviour
         {
             fwdSpeed -= acceleration; // reduce forward speed by value set by accelleration value
             turnSpeed -= turnAcceleration; // reduce turn speed by value set by turnacceleration value
+            engineIdle.pitch -= Time.deltaTime * startingPitch / timeToDecrease;
+            if (engineIdle.pitch < 1.1f)
+            {
+                engineIdle.pitch = startingPitch;
+            }
         }
 
+       
+        if (!engineIsIdle)
+        {
+            PlayIdle();
+            engineIsIdle = true;
+        }
         velocity = sphereRB.velocity; // set velocity valye to the cars rigidbody velocity speed
 
         if ( fwdSpeed > maxSpeed) // if forward speed is greated than the max speed
@@ -141,5 +172,10 @@ public class NewCarController : MonoBehaviour
             sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration); // Add Movement
         else
             sphereRB.AddForce(transform.up * -60f); // Add Gravity
+    }
+
+    public void PlayIdle()
+    {
+        engineIdle.Play();
     }
 }
