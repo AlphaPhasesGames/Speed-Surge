@@ -8,11 +8,7 @@ namespace SSGFE.Alpha.Phases.Games
 
         SSQREMain ssqfeMain;
 
-        private void Awake()
-        {
-         
-          //  
-        }
+
         // Start is called before the first frame update
         void Start()
         {
