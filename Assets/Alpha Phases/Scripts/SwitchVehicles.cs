@@ -7,7 +7,7 @@ namespace SSGFE.Alpha.Phases.Games
     public class SwitchVehicles : MonoBehaviour
     {
         public bool hasScrolled;
-
+        public NewCarController newCarCont;
         public GameObject currentModel;
         public int arrayPos;
         public int maxLengthArray;
@@ -27,7 +27,7 @@ namespace SSGFE.Alpha.Phases.Games
         // Start is called before the first frame update
         void Start()
         {
-            arrayPos = 0; // on start set array pos to 0
+            arrayPos = 4; // on start set array pos to 0
             currentModel = modelArray[arrayPos]; // the current object we have selected is the building brick assigned by the arrayPos
             maxLengthArray = modelArray.Length; // max length of array is the length of the buildingBricks array
             carButton.onClick.AddListener(ChooseCar);
@@ -39,9 +39,10 @@ namespace SSGFE.Alpha.Phases.Games
         // Update is called once per frame
         void Update()
         {
+
             if (!hasScrolled)
             {
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     modelArray[i].SetActive(i == arrayPos);
                     Debug.Log("Do We SCroll Forever");
@@ -62,7 +63,7 @@ namespace SSGFE.Alpha.Phases.Games
                         arrayPos = 0;
                     }
             */
-            if (arrayPos == 4)
+            if (arrayPos == 5)
             {
                 hasScrolled = false;
                 arrayPos = 0;
@@ -104,7 +105,7 @@ namespace SSGFE.Alpha.Phases.Games
             arrayPos = 0;
             hasScrolled = false;
             panalOpen = false;
-
+            newCarCont.engineIsIdle = true;
         }
 
         public void ChooseSkate()

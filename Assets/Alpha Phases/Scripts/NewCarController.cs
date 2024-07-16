@@ -106,10 +106,10 @@ namespace SSGFE.Alpha.Phases.Games
             }
 
 
-            if (!engineIsIdle)
+            if (engineIsIdle)
             {
                 PlayIdle();
-                engineIsIdle = true;
+                engineIsIdle = false;
             }
             velocity = sphereRB.velocity; // set velocity valye to the cars rigidbody velocity speed
 

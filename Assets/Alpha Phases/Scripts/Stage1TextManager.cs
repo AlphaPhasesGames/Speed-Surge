@@ -9,7 +9,7 @@ namespace SSGFE.Alpha.Phases.Games
     {
 
         public bool hasScrolled;
-
+        public SwitchVehicles switchVehicles;
         public GameObject currentTextSection;
         public int arrayPos;
         public int maxLengthArray;
@@ -22,19 +22,26 @@ namespace SSGFE.Alpha.Phases.Games
         public bool runOnce;
         public bool runOnce2;
 
+        public GameObject forwardParent;
         public Button forwardButton;
         public Button backwardsButton;
+
+        public bool restrictionBool1;
+        public bool restrictionBool2;
+        public bool restrictionBool3;
+
 
         private void Awake()
         {
             forwardButton.onClick.AddListener(ProgressTextForward);
             backwardsButton.onClick.AddListener(ProgressTextBack);
+            StartCoroutine(StartLevelText());
         }
         // Start is called before the first frame update
 
         void Start()
         {
-            arrayPos = 0; // on start set array pos to 0
+            //arrayPos = 0; // on start set array pos to 0
             currentTextSection = modelArray[arrayPos]; // the current object we have selected is the building brick assigned by the arrayPos
             maxLengthArray = modelArray.Length; // max length of array is the length of the buildingBricks array
         
@@ -44,7 +51,7 @@ namespace SSGFE.Alpha.Phases.Games
         {
             if (!hasScrolled)
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 22; i++)
                 {
                     modelArray[i].SetActive(i == arrayPos);
                     Debug.Log("Do We SCroll Forever");
@@ -66,11 +73,48 @@ namespace SSGFE.Alpha.Phases.Games
                         hasScrolled = false;
                         arrayPos = 0;
                     }
-            */
-            if (arrayPos == 10)
+            
+            if (arrayPos == 24)
             {
                 hasScrolled = false;
                 arrayPos = 0;
+            }
+             
+            if (arrayPos <= -0)
+            {
+                arrayPos = 0;
+                hasScrolled = false;
+                Debug.Log("Is this running forever");
+            }
+            */
+
+            if (!restrictionBool1)
+            {
+                if (arrayPos == 4)
+                {
+                    HideButton();
+                    switchVehicles.panalOpen = true;
+                    restrictionBool1 = true;
+
+                }
+            }
+
+            if (!restrictionBool2)
+            {
+                if (arrayPos == 0)
+                {
+                    backwardsButton.gameObject.SetActive(false);
+                    restrictionBool2 = true;
+                }
+            }
+
+            if (!restrictionBool3)
+            {
+                if (arrayPos != 0)
+                {
+                    backwardsButton.gameObject.SetActive(true);
+                    restrictionBool3 = true;
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.B))
@@ -124,18 +168,28 @@ namespace SSGFE.Alpha.Phases.Games
 
         public void HideButton()
         {
-            forwardButton.gameObject.SetActive(false);
+            forwardParent.gameObject.SetActive(false);
         }
 
         public IEnumerator DelayTextButton()
         {
             //forwardButton.gameObject.SetActive(false);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(6);
             forwardButton.gameObject.SetActive(true);
             Debug.Log("This coRoutine Runs");
 
         }
 
-        
+
+        public IEnumerator StartLevelText()
+        {
+            //forwardButton.gameObject.SetActive(false);
+            yield return new WaitForSeconds(2);
+            textPanal.gameObject.SetActive(true);
+            arrayPos = 0;
+            Debug.Log("This coRoutine Runs");
+
+        }
+
     }
 }
