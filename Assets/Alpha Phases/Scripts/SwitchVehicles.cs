@@ -6,19 +6,25 @@ namespace SSGFE.Alpha.Phases.Games
 {
     public class SwitchVehicles : MonoBehaviour
     {
-        public bool hasScrolled;
+       // public bool hasScrolled;
         public NewCarController newCarCont;
-        public GameObject currentModel;
-        public int arrayPos;
-        public int maxLengthArray;
-        public int minLengthArray = 1;
+      //  public GameObject currentModel;
+      //  public int arrayPos;
+      //  public int maxLengthArray;
+      //  public int minLengthArray = 1;
 
-        public GameObject[] modelArray;
+      //  public GameObject[] modelArray;
 
         public Button carButton;
         public Button skateBoardButton;
         public Button toiletButton;
         public Button toyCarButton;
+
+        public GameObject carModel;
+        public GameObject skateModel;
+        public GameObject toiletModel;
+        public GameObject toyCarModel;
+
 
         public GameObject selectionPanal;
         public bool panalOpen;
@@ -27,9 +33,9 @@ namespace SSGFE.Alpha.Phases.Games
         // Start is called before the first frame update
         void Start()
         {
-            arrayPos = 4; // on start set array pos to 0
-            currentModel = modelArray[arrayPos]; // the current object we have selected is the building brick assigned by the arrayPos
-            maxLengthArray = modelArray.Length; // max length of array is the length of the buildingBricks array
+        //    arrayPos = 4; // on start set array pos to 0
+       //     currentModel = modelArray[arrayPos]; // the current object we have selected is the building brick assigned by the arrayPos
+       //     maxLengthArray = modelArray.Length; // max length of array is the length of the buildingBricks array
             carButton.onClick.AddListener(ChooseCar);
             skateBoardButton.onClick.AddListener(ChooseSkate);
             toiletButton.onClick.AddListener(ChooseToilet);
@@ -39,7 +45,7 @@ namespace SSGFE.Alpha.Phases.Games
         // Update is called once per frame
         void Update()
         {
-
+            /*
             if (!hasScrolled)
             {
                 for (int i = 0; i < 5; i++)
@@ -62,7 +68,7 @@ namespace SSGFE.Alpha.Phases.Games
                         hasScrolled = false;
                         arrayPos = 0;
                     }
-            */
+         
             if (arrayPos == 5)
             {
                 hasScrolled = false;
@@ -97,38 +103,51 @@ namespace SSGFE.Alpha.Phases.Games
                 }
 
             }
+               */
         }
 
 
         public void ChooseCar()
         {
+
+            carModel.gameObject.SetActive(true);
+            /*
             arrayPos = 0;
             hasScrolled = false;
             panalOpen = false;
             newCarCont.engineIsIdle = true;
+            */
         }
 
         public void ChooseSkate()
         {
-
-            arrayPos = 2;
-            hasScrolled = false;
-            panalOpen = false;
+            skateModel.gameObject.SetActive(true);
+            /*
+           arrayPos = 2;
+           hasScrolled = false;
+           panalOpen = false;
+             */
         }
 
         public void ChooseToilet()
         {
+
+            toiletModel.gameObject.SetActive(true);
+            /*
             arrayPos = 1;
             hasScrolled = false;
             panalOpen = false;
+             */
         }
 
         public void ChooseToyCar()
         {
-
-            arrayPos = 3;
-            hasScrolled = false;
-            panalOpen = false;
+            toyCarModel.gameObject.SetActive(true);
+            /*
+           arrayPos = 3;
+           hasScrolled = false;
+           panalOpen = false;
+             */
         }
     }
 }
