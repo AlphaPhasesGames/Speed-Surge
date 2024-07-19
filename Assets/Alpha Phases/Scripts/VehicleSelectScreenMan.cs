@@ -13,11 +13,17 @@ namespace SSGFE.Alpha.Phases.Games
         public Button skateBoardButton;
         public Button toiletButton;
         public Button toyCarButton;
+        public Button bathButton;
+        public Button bedButton;
+
 
         public GameObject car;
         public GameObject skateBoard;
         public GameObject toilet;
         public GameObject toyCar;
+        public GameObject bath;
+        public GameObject bed;
+
 
         public GameObject selectionPanal;
         public bool panalOpen;
@@ -28,6 +34,8 @@ namespace SSGFE.Alpha.Phases.Games
             skateBoardButton.onClick.AddListener(ChooseSkate);
             toiletButton.onClick.AddListener(ChooseToilet);
             toyCarButton.onClick.AddListener(ChooseToyCar);
+            bedButton.onClick.AddListener(ChooseBed);
+            bathButton.onClick.AddListener(ChooseBath);
         }
 
         // Update is called once per frame
@@ -103,5 +111,37 @@ namespace SSGFE.Alpha.Phases.Games
             //switchVeh.hasScrolled = false;
             panalOpen = false;
         }
+
+        public void ChooseBed()
+        {
+            //    car.gameObject.SetActive(true);
+            //    skateBoard.gameObject.SetActive(false);
+            //    toilet.gameObject.SetActive(false);
+            //     toilet.gameObject.SetActive(false);
+            // NewCarController.
+            // newCarCont.isCarActive = true;
+            stage1TextMan.hasScrolled = false;
+            stage1TextMan.arrayPos = 5;
+            stage1TextMan.forwardParent.gameObject.SetActive(true);
+            bed.gameObject.SetActive(true);
+            //switchVeh.hasScrolled = false;
+            panalOpen = false;
+            Debug.Log("This runs");
+
+        }
+
+        public void ChooseBath()
+        {
+
+            stage1TextMan.hasScrolled = false;
+            stage1TextMan.arrayPos = 5;
+            stage1TextMan.forwardParent.gameObject.SetActive(true);
+            bath.gameObject.SetActive(true);
+            //switchVeh.hasScrolled = false;
+            panalOpen = false;
+            Debug.Log("This runs");
+
+        }
+
     }
 }

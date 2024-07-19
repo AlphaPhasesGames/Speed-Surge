@@ -114,13 +114,10 @@ namespace SSGFE.Alpha.Phases.Games
                     }
                 }
 
-
-                if (engineIsIdle)
-                {
-                    PlayIdle();
-                    engineIsIdle = false;
-                }
+                    
+                
               
+
 
                 if (fwdSpeed > maxSpeed) // if forward speed is greated than the max speed
                 {
@@ -171,8 +168,16 @@ namespace SSGFE.Alpha.Phases.Games
                 {
                     sphereRB.drag = airDrag;
                 }
-             
+
+                if (!engineIsIdle)
+                {
+                    PlayIdle();
+                    Debug.Log("Audio starts once");
+                    engineIsIdle = true;
+                }
             }
+
+            
 
             if (Input.GetKeyDown(KeyCode.Q))
             {

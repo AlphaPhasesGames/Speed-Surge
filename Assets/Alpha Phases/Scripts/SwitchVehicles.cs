@@ -111,11 +111,12 @@ namespace SSGFE.Alpha.Phases.Games
         {
 
             carModel.gameObject.SetActive(true);
+          //  newCarCont.engineIsIdle = true;
             /*
             arrayPos = 0;
             hasScrolled = false;
             panalOpen = false;
-            newCarCont.engineIsIdle = true;
+           
             */
         }
 
