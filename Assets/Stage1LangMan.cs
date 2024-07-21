@@ -51,7 +51,7 @@ namespace SSGFE.Alpha.Phases.Games
             JSONNode defs = SharedState.LanguageDefs;
 
             stage1AssesMotion.text = defs["motionAssTitle"];
-            stage1AssesFriction.text = defs["motionAssTitle"];
+            stage1AssesFriction.text = defs["frictionAssTitle"];
 
             vehicleTitleText.text = defs["vehicleTitle"];
             carText.text = defs["carName"];
