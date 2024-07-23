@@ -73,7 +73,7 @@ namespace SSGFE.Alpha.Phases.Games
                 if (Input.GetKey(KeyCode.W)) // if W is pressed
                 {
                     fwdSpeed += acceleration; // move forward / increase forward speed by increments set by the acceleration value
-                    turnSpeed -= turnAcceleration; // increase turn speed by increments set by the turnacceleration value
+                   // turnSpeed -= turnAcceleration; // increase turn speed by increments set by the turnacceleration value
                     engineIdle.pitch += Time.deltaTime * startingPitch / timeToIncrease;
                     if (engineIdle.pitch > 2.1f)
                     {
@@ -84,7 +84,7 @@ namespace SSGFE.Alpha.Phases.Games
                 if (Input.GetKey(KeyCode.S)) // if S is pressed and held
                 {
                     fwdSpeed -= acceleration; // move backwards by decreasing forward speed by increments set by the acceleration value
-                    turnSpeed += turnAcceleration; // reduce turn speeed by increments set by the turnacceleration value
+                   // turnSpeed += turnAcceleration; // reduce turn speeed by increments set by the turnacceleration value
                     engineIdle.pitch -= Time.deltaTime * startingPitch / timeToDecrease;
                     if (engineIdle.pitch < 1.1f)
                     {
@@ -107,7 +107,7 @@ namespace SSGFE.Alpha.Phases.Games
                 if (moveInput == 0) // if moveinput is 0 --- MAY BE REDUNDNANT SOON
                 {
                     fwdSpeed -= acceleration; // reduce forward speed by value set by accelleration value
-                    turnSpeed -= turnAcceleration; // reduce turn speed by value set by turnacceleration value
+                   // turnSpeed -= turnAcceleration; // reduce turn speed by value set by turnacceleration value
                     engineIdle.pitch -= Time.deltaTime * startingPitch / timeToDecrease;
                     if (engineIdle.pitch < 1.1f)
                     {
