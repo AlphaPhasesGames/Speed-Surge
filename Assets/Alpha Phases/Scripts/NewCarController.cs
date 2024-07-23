@@ -5,7 +5,7 @@ namespace SSGFE.Alpha.Phases.Games
     public class NewCarController : MonoBehaviour
     {
         public Rigidbody sphereRB; // declare rigidbody for car
-
+        public Rigidbody carRB;
         //  public TextMeshProUGUI speed; // UI textmeshpro for the speed of the car
 
         public AudioSource engineIdle;
@@ -51,6 +51,7 @@ namespace SSGFE.Alpha.Phases.Games
         {
             // Detach Sphere from car
             sphereRB.transform.parent = null;
+            carRB.transform.parent = null;
             engineIdle.pitch = startingPitch;
             //normalDrag = sphereRB.drag;
          
@@ -114,11 +115,6 @@ namespace SSGFE.Alpha.Phases.Games
                     }
                 }
 
-                    
-                
-              
-
-
                 if (fwdSpeed > maxSpeed) // if forward speed is greated than the max speed
                 {
                     fwdSpeed = maxSpeed; // keep car at full speed until slowing down or stopping
@@ -153,8 +149,8 @@ namespace SSGFE.Alpha.Phases.Games
 
                 // Rotate Car to align with ground
                 /* Quaternion toRotateTo*/
-                transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
-                // transform.rotation = Quaternion.Slerp(transform.rotation, toRotateTo, alignToGroundTime * Time.deltaTime);
+                Quaternion toRotateTo = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+                transform.rotation = Quaternion.Slerp(transform.rotation, toRotateTo, alignToGroundTime * Time.deltaTime);
                 //transform.rotation = Quaternion.FromToRotation(transform.rotation, toRotateTo, alignToGroundTime * Time.deltaTime);
                 // Calculate Movement Direction
                 moveInput *= moveInput > 0 ? fwdSpeed : revSpeed;
@@ -169,15 +165,17 @@ namespace SSGFE.Alpha.Phases.Games
                     sphereRB.drag = airDrag;
                 }
 
-                if (!engineIsIdle)
+                if (engineIsIdle)
                 {
                     PlayIdle();
                     Debug.Log("Audio starts once");
-                    engineIsIdle = true;
+                    engineIsIdle = false;
                 }
+
             }
 
-            
+         
+
 
             if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -196,6 +194,7 @@ namespace SSGFE.Alpha.Phases.Games
                     sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration); // Add Movement
                 else
                     sphereRB.AddForce(transform.up * -60f); // Add Gravity
+                carRB.rotation = transform.rotation;
             }
            
         }

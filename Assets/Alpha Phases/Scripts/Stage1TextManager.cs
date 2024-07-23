@@ -289,6 +289,7 @@ namespace SSGFE.Alpha.Phases.Games
                     forwardParent.gameObject.SetActive(false);
                     StartCoroutine(MoveToBlankInvislbePanal());
                     newCarCont.isCarActive = true;
+                    newCarCont.engineIsIdle = true;
                     LOLSDK.Instance.SpeakText("stage1MissionText12");
                     textBool12 = true;
                 }
