@@ -740,7 +740,7 @@ namespace SSGFE.Alpha.Phases.Games
         public IEnumerator ChangeScene()
         {
             yield return new WaitForSeconds(5);
-            SceneManager.LoadScene("Main Menu");
+            SceneManager.LoadScene("Stage 2 Energy");
         }
     }
 

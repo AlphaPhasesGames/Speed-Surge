@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Alpha Phases/Scenes/Stage 1 Motion Intro.unity
     guid: fd37ff230ec157a49a26d7ae60517fda
+  - enabled: 1
+    path: Assets/Alpha Phases/Scenes/Stage 2 Energy.unity
+    guid: 28c44e3c60bac8a4e893a32a7f5205d5
   m_configObjects: {}
