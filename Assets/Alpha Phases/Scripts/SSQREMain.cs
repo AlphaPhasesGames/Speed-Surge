@@ -113,44 +113,44 @@ namespace SSGFE.Alpha.Phases.Games
                 }
 
             }
-            /*
+           
             if (sSQFESaveData.current_stage == 2)
             {
                 if (!loadSavesOnce)
                 {
-                    SceneManager.LoadScene("CrewQuaters");
-                    taskNumberCrewQuarters = sSQFESaveData.task_number_crew_quarter;
+                    SceneManager.LoadScene("Stage 2 Energy");
+                 //   taskNumberCrewQuarters = sSQFESaveData.task_number_crew_quarter;
                     Debug.Log("Stage 2 update runs - load save data from save");
                     loadSavesOnce = true;
                 }
             }
+            /*
 
+           if (sSQFESaveData.current_stage == 3)
+           {
+               SceneManager.LoadScene("CommsRoom");
+               if (!loadSavesOnce)
+               {
+                   taskNumberCommsRoom = sSQFESaveData.task_number_comms_room;
 
-            if (sSQFESaveData.current_stage == 3)
-            {
-                SceneManager.LoadScene("CommsRoom");
-                if (!loadSavesOnce)
-                {
-                    taskNumberCommsRoom = sSQFESaveData.task_number_comms_room;
+                   loadSavesOnce = true;
+                   Debug.Log("Stage 3 update runs - load save data from save");
 
-                    loadSavesOnce = true;
-                    Debug.Log("Stage 3 update runs - load save data from save");
+               }
+           }
 
-                }
-            }
-
-            if (sSQFESaveData.current_stage == 4)
-            {
-                SceneManager.LoadScene("Stage4DockingBay");
-                if (!loadSavesOnce)
-                {
-                    taskNumberDock = sSQFESaveData.task_number_dock;
-                    // currentStage = tusomSaveData.current_stage;
-                    loadSavesOnce = true;
-                    Debug.Log("Stage 4 update runs - load save data from save");
-                }
-            }
-            */
+           if (sSQFESaveData.current_stage == 4)
+           {
+               SceneManager.LoadScene("Stage4DockingBay");
+               if (!loadSavesOnce)
+               {
+                   taskNumberDock = sSQFESaveData.task_number_dock;
+                   // currentStage = tusomSaveData.current_stage;
+                   loadSavesOnce = true;
+                   Debug.Log("Stage 4 update runs - load save data from save");
+               }
+           }
+           */
             Debug.Log("Load Function Called");
         }
 
@@ -172,49 +172,51 @@ namespace SSGFE.Alpha.Phases.Games
                              SceneManager.LoadScene("Stage 1 Motion Intro");
 
                         }
-            /*
+           
                                   if (currentStage == 2)
                                   {
-                                      SceneManager.LoadScene("CrewQuaters");
-                                      crewQuarters2StartedAlready = digiWavesSaveData.crew_quaters_2_started_already;
-                                      //   phoneCollected = digiWavesSaveData.stage_2_phone_collected;
-                                      //   tabletCollected = digiWavesSaveData.stage_2_watch_collected;
-                                      //   watchCollected = digiWavesSaveData.stage_2_watch_collected;
-                                      stage2ItemsCollected = digiWavesSaveData.stage_2_items_collected;
-                                      // stage2LightsOn = digiWavesSaveData.stage_2_lights_on;
-                                      taskNumberCrewQuarters = digiWavesSaveData.task_number_crew_quarter;
-                                      stage2CodeFound = digiWavesSaveData.stage_2_code_found;
+                                      SceneManager.LoadScene("Stage 2 Energy");
+                                  
                                       Debug.Log("Loaded Stage 2");
                                   }
+            /*
+           if (currentStage == 3)
+           {
+               commsRoom3StartedAkready = digiWavesSaveData.comms_room_3_started_already;
+               stage3ConsoleRead = digiWavesSaveData.stage_3_console_read;
+               //    stage3FolderCollected = digiWavesSaveData.stage_3_folders_collected;
+               stage3DoorKeyCollected = digiWavesSaveData.stage_3_door_key_collected;
+               taskNumberCommsRoom = digiWavesSaveData.task_number_comms_room;
+           }
 
-                                  if (currentStage == 3)
-                                  {
-                                      commsRoom3StartedAkready = digiWavesSaveData.comms_room_3_started_already;
-                                      stage3ConsoleRead = digiWavesSaveData.stage_3_console_read;
-                                      //    stage3FolderCollected = digiWavesSaveData.stage_3_folders_collected;
-                                      stage3DoorKeyCollected = digiWavesSaveData.stage_3_door_key_collected;
-                                      taskNumberCommsRoom = digiWavesSaveData.task_number_comms_room;
-                                  }
+           if (currentStage == 4)
+           {
+               dockingBay4StartedAlready = digiWavesSaveData.docking_bay_4_started_already;
+               taskNumberDock = digiWavesSaveData.task_number_dock;
+           }
 
-                                  if (currentStage == 4)
-                                  {
-                                      dockingBay4StartedAlready = digiWavesSaveData.docking_bay_4_started_already;
-                                      taskNumberDock = digiWavesSaveData.task_number_dock;
-                                  }
+           if (currentStage == 5)
+           {
+               aboardTheShip5StartedAlready = digiWavesSaveData.abour_ship_5_started_already;
+               taskNumberShip = digiWavesSaveData.task_number_ship;
 
-                                  if (currentStage == 5)
-                                  {
-                                      aboardTheShip5StartedAlready = digiWavesSaveData.abour_ship_5_started_already;
-                                      taskNumberShip = digiWavesSaveData.task_number_ship;
-
-                                  }
-                      */
+           }
+*/
             Debug.Log("Loaded Save");
         }
 
         public void SaveStage()
         {
             currentStage = 1;
+            sSQFESaveData.current_stage = currentStage;
+            //sSQFESaveData.current_stage = currentStage;
+            Save();
+            Debug.Log("Forces Saved Fired");
+        }
+
+        public void SaveStage2()
+        {
+            currentStage = 2;
             sSQFESaveData.current_stage = currentStage;
             //sSQFESaveData.current_stage = currentStage;
             Save();
