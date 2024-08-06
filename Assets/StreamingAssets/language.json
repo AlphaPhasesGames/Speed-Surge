@@ -143,6 +143,7 @@
     "stage1MissionText22": "Excellent work. That's the first course tested.",
     "stage1MissionText23": "Let's move on to race track 2.",
     "stage2MissionText1": "Welcome to course 2.",
+    "stage2MissionText1ChooseCar": "Can you please choose a vehicle to drive?",
     "stage2MissionText2": "Before we get testing the course, we need to talk about energy.",
     "stage2MissionText3": "All moving objects contain energy.",
     "stage2MissionText4": "The energy of motion is called kinetic energy.",
@@ -154,6 +155,6 @@
     "stage2MissionText10Correct": "Well done, the kinetic energy we built up through the motion of our vehicle has been transferred into the boxes and cleared them from the course.",
     "stage2MissionText10Correct2": "Let's move on to course 3.",
     "stage2MissionText11Wrong": "Hmm, it's, not on this course. Try again.",
-    "autoSave": "...Auto Saving Complete." 
+    "autoSave": "...Auto Saving Complete"
   }
 }
