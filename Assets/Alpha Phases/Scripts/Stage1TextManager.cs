@@ -329,8 +329,9 @@ namespace SSGFE.Alpha.Phases.Games
                 if (arrayPos == 17)
                 {
                     LOLSDK.Instance.SpeakText("stage1MissionText18Incorrect1");
-                    forwardParent.gameObject.SetActive(false);
-                   // StartCoroutine(ChangeScene());
+                    forwardParent.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(false);
+                    // StartCoroutine(ChangeScene());
                     textBool18 = true;
                 }
             }
@@ -340,9 +341,9 @@ namespace SSGFE.Alpha.Phases.Games
                 if (arrayPos == 18)
                 {
                     LOLSDK.Instance.SpeakText("stage1MissionText19Incorrect2");
-                    StartCoroutine(MoveToBlankInvislbePanal());
+                    StartCoroutine(CorrectAnswerCoRoutine());
                     forwardParent.gameObject.SetActive(false);
-                    backwardsButton.gameObject.SetActive(false);
+                    backwardsButton.gameObject.SetActive(true);
                     textBool19 = true;
                 }
             }
@@ -351,6 +352,7 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 19)
                 {
+                    StartCoroutine(MoveToBlankInvislbePanal());
                     LOLSDK.Instance.SpeakText("stage1MissionText20CorrectNMJ");
                     textBool20 = true;
                 }
@@ -546,7 +548,8 @@ namespace SSGFE.Alpha.Phases.Games
             hasScrolled = false;
             yield return new WaitForSeconds(5);
             textPanal.gameObject.SetActive(true);
-            arrayPos = 22;
+            textBool13 = false;
+            arrayPos = 12;
             Debug.Log("This start coRoutine Runs");
 
         }

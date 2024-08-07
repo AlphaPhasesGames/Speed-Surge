@@ -3022,6 +3022,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a6dee2d579efa478169dd725d4ffee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stopTrigger: {fileID: 1763258755}
+  newCarCont: {fileID: 190987945115997547}
   textMan: {fileID: 288598796}
   motionButt: {fileID: 1827836254}
   frictionButt: {fileID: 1278792274}
@@ -14997,6 +14999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newCarCont: {fileID: 190987945115997547}
   stage1TextMan: {fileID: 288598796}
+  wrongAnswer: 0
 --- !u!65 &1763258756
 BoxCollider:
   m_ObjectHideFlags: 0
