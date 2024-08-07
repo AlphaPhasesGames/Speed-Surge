@@ -6,6 +6,7 @@ namespace SSGFE.Alpha.Phases.Games
     {
         public Rigidbody sphereRB; // declare rigidbody for car
         public Rigidbody carRB;
+        public Rigidbody toiletRB;
         //  public TextMeshProUGUI speed; // UI textmeshpro for the speed of the car
 
         public AudioSource engineIdle;
@@ -39,6 +40,13 @@ namespace SSGFE.Alpha.Phases.Games
         public float minTurn; // declare float for the minimum turn of the car. to stop it going into negative numbers and messing up the turning of the car
         public Vector3 velocity;
 
+        public bool chooseCar;
+        public bool chooseToyCar;
+        public bool chooseToilet;
+        public bool chooseBath;
+        public bool chooseBed;
+        public bool chooseSkate;
+
         // private float normalDrag;
         //public float modifiedDrag;
 
@@ -51,7 +59,7 @@ namespace SSGFE.Alpha.Phases.Games
         {
             // Detach Sphere from car
             sphereRB.transform.parent = null;
-            carRB.transform.parent = null;
+            //carRB.transform.parent = null;
             engineIdle.pitch = startingPitch;
             //normalDrag = sphereRB.drag;
          
@@ -194,7 +202,7 @@ namespace SSGFE.Alpha.Phases.Games
                     sphereRB.AddForce(transform.forward * moveInput, ForceMode.Acceleration); // Add Movement
                 else
                     sphereRB.AddForce(transform.up * -60f); // Add Gravity
-                carRB.rotation = transform.rotation;
+               // carRB.rotation = transform.rotation;
             }
            
         }

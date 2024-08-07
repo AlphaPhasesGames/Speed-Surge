@@ -16,6 +16,12 @@ namespace SSGFE.Alpha.Phases.Games
         public Button bathButton;
         public Button bedButton;
 
+        public GameObject carCol;
+        public GameObject toyCarCol;
+        public GameObject toiletCol;
+        public GameObject bathCol;
+        public GameObject bedCol;
+        public GameObject skateCol;
 
         public GameObject car;
         public GameObject skateBoard;
@@ -66,6 +72,7 @@ namespace SSGFE.Alpha.Phases.Games
             //     toilet.gameObject.SetActive(false);
             // NewCarController.
             // newCarCont.isCarActive = true;
+            carCol.gameObject.SetActive(true);
             stage1TextMan.hasScrolled = false;
             stage1TextMan.arrayPos = 5;
             stage1TextMan.forwardParent.gameObject.SetActive(true);
@@ -82,6 +89,7 @@ namespace SSGFE.Alpha.Phases.Games
             //     skateBoard.gameObject.SetActive(true);
             //     toilet.gameObject.SetActive(false);
             //      toilet.gameObject.SetActive(false);
+            skateCol.gameObject.SetActive(true);
             stage1TextMan.hasScrolled = false;
             stage1TextMan.forwardParent.gameObject.SetActive(true);
             stage1TextMan.arrayPos = 5;
@@ -92,6 +100,7 @@ namespace SSGFE.Alpha.Phases.Games
 
         public void ChooseToilet()
         {
+            toiletCol.gameObject.SetActive(true);
             //    toilet.gameObject.SetActive(true);
             stage1TextMan.hasScrolled = false;
             stage1TextMan.forwardParent.gameObject.SetActive(true);
@@ -103,6 +112,7 @@ namespace SSGFE.Alpha.Phases.Games
 
         public void ChooseToyCar()
         {
+            toyCarCol.gameObject.SetActive(true);
             //    toilet.gameObject.SetActive(true);
             stage1TextMan.hasScrolled = false;
             stage1TextMan.forwardParent.gameObject.SetActive(true);
@@ -114,6 +124,7 @@ namespace SSGFE.Alpha.Phases.Games
 
         public void ChooseBed()
         {
+            bedCol.gameObject.SetActive(true);
             //    car.gameObject.SetActive(true);
             //    skateBoard.gameObject.SetActive(false);
             //    toilet.gameObject.SetActive(false);
@@ -132,7 +143,7 @@ namespace SSGFE.Alpha.Phases.Games
 
         public void ChooseBath()
         {
-
+            bathCol.gameObject.SetActive(true);
             stage1TextMan.hasScrolled = false;
             stage1TextMan.arrayPos = 5;
             stage1TextMan.forwardParent.gameObject.SetActive(true);
