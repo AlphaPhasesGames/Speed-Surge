@@ -30,9 +30,6 @@ namespace SSGFE.Alpha.Phases.Games
         public TextMeshProUGUI introText18;
         public TextMeshProUGUI introText19;
         public TextMeshProUGUI introText20;
-        public TextMeshProUGUI introText21;
-        public TextMeshProUGUI introText22;
-        public TextMeshProUGUI introText23;
 
         public TextMeshProUGUI stage1AssesFriction;
         public TextMeshProUGUI stage1AssesMotion;
@@ -76,15 +73,11 @@ namespace SSGFE.Alpha.Phases.Games
             introText13.text = defs["stage1MissionText13"];
             introText14.text = defs["stage1MissionText14"];
             introText15.text = defs["stage1MissionText15"];
-            introText16.text = defs["stage1MissionText16"];
-            introText17.text = defs["stage1MissionText17Question"];
-            introText18.text = defs["stage1MissionText18Correct"];
-            introText19.text = defs["stage1MissionText19"];
-            introText20.text = defs["stage1MissionText20Incorrect1"];
-            introText21.text = defs["stage1MissionText21Incorrect2"];
-            introText22.text = defs["stage1MissionText22"];
-            introText23.text = defs["stage1MissionText23"];
-
+            introText16.text = defs["stage1MissionText16Correct"];
+            introText17.text = defs["stage1MissionText17"];
+            introText18.text = defs["stage1MissionText18Incorrect1"];
+            introText19.text = defs["stage1MissionText19Incorrect2"];
+            introText20.text = defs["stage1MissionText20CorrectNMJ"];
 
         }
     }

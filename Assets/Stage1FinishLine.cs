@@ -18,18 +18,19 @@ namespace SSGFE.Alpha.Phases.Games
                 {
                     stage1TextMan.hasScrolled = false;
                     stage1TextMan.restrictionBool1 = true;
-                    stage1TextMan.arrayPos = 17;
+                    stage1TextMan.arrayPos = 15;
                    // stage1TextMan.forwardParent.gameObject.SetActive(false);
-                    stage1TextMan.forwardButton.gameObject.SetActive(false);
-                    StartCoroutine(CorrectAnswerCoRoutine());
+                   // stage1TextMan.forwardButton.gameObject.SetActive(false);
+                  //  StartCoroutine(CorrectAnswerCoRoutine());
                 }
-
+                /*
                 if (!stage1TextMan.answerCorrect)
                 {
                     stage1TextMan.restrictionBool2 = true;
                     stage1TextMan.hasScrolled = false;
                     stage1TextMan.arrayPos = 19;
                 }
+                */
             }
         }
 
@@ -40,7 +41,7 @@ namespace SSGFE.Alpha.Phases.Games
             yield return new WaitForSeconds(5);
             stage1TextMan.forwardButton.gameObject.SetActive(true);
             // stage1TextMan.textPanal.gameObject.SetActive(true);
-            stage1TextMan.arrayPos = 21;
+            stage1TextMan.arrayPos = 16;
            // stage1TextMan.hasScrolled = false;
            
             Debug.Log("This start coRoutine Runs");

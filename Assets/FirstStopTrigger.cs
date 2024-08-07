@@ -25,9 +25,11 @@ namespace SSGFE.Alpha.Phases.Games
         {
             if (other.CompareTag("Player"))
             {
-                newCarCont.StartStopCar();
+                //  newCarCont.StartStopCar();
+                newCarCont.isCarActive = true;
+                stage1TextMan.hasScrolled = false;
                 stage1TextMan.textPanal.gameObject.SetActive(true);
-                stage1TextMan.arrayPos = 12;
+                stage1TextMan.arrayPos = 19;
             }
 
         }

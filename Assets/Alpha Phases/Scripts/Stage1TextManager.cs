@@ -17,6 +17,7 @@ namespace SSGFE.Alpha.Phases.Games
 
         public GameObject sphereParent;
         public GameObject resetPosition;
+        public GameObject buttonsPanal;
         public int arrayPos;
         public int maxLengthArray;
         public int minLengthArray = 1;
@@ -61,9 +62,6 @@ namespace SSGFE.Alpha.Phases.Games
         public bool textBool19;
         public bool textBool20;
         public bool textBool21;
-        public bool textBool22;
-        public bool textBool23;
-        public bool textBool24;
 
         public Button textButton1;
         public Button textButton2;
@@ -86,9 +84,6 @@ namespace SSGFE.Alpha.Phases.Games
         public Button textButton19;
         public Button textButton20;
         public Button textButton21;
-        public Button textButton22;
-        public Button textButton23;
-        //public Button textButton24;
 
 
         private void Awake()
@@ -116,8 +111,6 @@ namespace SSGFE.Alpha.Phases.Games
             textButton19.onClick.AddListener(IntroTTSSpeak19);
             textButton20.onClick.AddListener(IntroTTSSpeak20);
             textButton21.onClick.AddListener(IntroTTSSpeak21);
-            textButton22.onClick.AddListener(IntroTTSSpeak22);
-            textButton23.onClick.AddListener(IntroTTSSpeak23);
             StartCoroutine(StartLevelText());
         }
         // Start is called before the first frame update
@@ -134,7 +127,7 @@ namespace SSGFE.Alpha.Phases.Games
         {
             if (!hasScrolled)
             {
-                for (int i = 0; i < 24; i++)
+                for (int i = 0; i < 20; i++)
                 {
                     modelArray[i].SetActive(i == arrayPos);
                     Debug.Log("Do We SCroll Forever");
@@ -259,10 +252,7 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 11)
                 {
-                    forwardParent.gameObject.SetActive(false);
-                    StartCoroutine(MoveToBlankInvislbePanal());
-                    newCarCont.isCarActive = true;
-                    newCarCont.engineIsIdle = true;
+
                     LOLSDK.Instance.SpeakText("stage1MissionText12");
                     textBool12 = true;
                 }
@@ -274,7 +264,8 @@ namespace SSGFE.Alpha.Phases.Games
                 {
                     LOLSDK.Instance.SpeakText("stage1MissionText13");
                     // StartCoroutine(DelayTextButton());
-                    forwardParent.gameObject.SetActive(true);
+                    buttonsPanal.gameObject.SetActive(true);
+                    forwardParent.gameObject.SetActive(false);
                     hasScrolled = false;
                     textBool13 = true;
                 }
@@ -284,6 +275,9 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 13)
                 {
+                    hasScrolled = false;
+                    buttonsPanal.gameObject.SetActive(false);
+                    forwardParent.gameObject.SetActive(true );
                     LOLSDK.Instance.SpeakText("stage1MissionText14");
 
                     textBool14 = true;
@@ -294,6 +288,10 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 14)
                 {
+                    StartCoroutine(MoveToBlankInvislbePanal());
+                    newCarCont.isCarActive = true;
+                    newCarCont.engineIsIdle = true;
+                    forwardParent.gameObject.SetActive(false);
                     LOLSDK.Instance.SpeakText("stage1MissionText15");
                     textBool15 = true;
                 }
@@ -303,8 +301,11 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 15)
                 {
-                   
-                    LOLSDK.Instance.SpeakText("stage1MissionText16");
+                    // StartCoroutine(MoveToBlankInvislbePanal());
+                    forwardParent.gameObject.SetActive(true);
+                    newCarCont.isCarActive = false;
+                    newCarCont.engineIsIdle = true;
+                    LOLSDK.Instance.SpeakText("stage1MissionText16Correct");
                    
                     textBool16 = true;
                 }
@@ -314,9 +315,11 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 16)
                 {
-                    LOLSDK.Instance.SpeakText("stage1MissionText17Question");
-                    HideButton();
-                    newCarCont.isCarActive = true;
+
+                    LOLSDK.Instance.SpeakText("stage1MissionText17");
+                    forwardParent.gameObject.SetActive(false);
+                    StartCoroutine(ChangeScene());
+                    // newCarCont.isCarActive = true;
                     textBool17 = true;
                 }
             }
@@ -325,8 +328,9 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 17)
                 {
-                    LOLSDK.Instance.SpeakText("stage1MissionText18Correct");
+                    LOLSDK.Instance.SpeakText("stage1MissionText18Incorrect1");
                     forwardParent.gameObject.SetActive(false);
+                   // StartCoroutine(ChangeScene());
                     textBool18 = true;
                 }
             }
@@ -335,8 +339,10 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 18)
                 {
-                    LOLSDK.Instance.SpeakText("stage1MissionText19");
-
+                    LOLSDK.Instance.SpeakText("stage1MissionText19Incorrect2");
+                    StartCoroutine(MoveToBlankInvislbePanal());
+                    forwardParent.gameObject.SetActive(false);
+                    backwardsButton.gameObject.SetActive(false);
                     textBool19 = true;
                 }
             }
@@ -345,11 +351,12 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 19)
                 {
-                    LOLSDK.Instance.SpeakText("stage1MissionText20Incorrect1");
+                    LOLSDK.Instance.SpeakText("stage1MissionText20CorrectNMJ");
                     textBool20 = true;
                 }
             }
 
+            /*
             if (!textBool21)
             {
                 if (arrayPos == 20)
@@ -359,17 +366,7 @@ namespace SSGFE.Alpha.Phases.Games
                     textBool21 = true;
                 }
             }
-
-            if (!textBool22)
-            {
-                if (arrayPos == 21)
-                {
-                    hasScrolled = false;
-                    LOLSDK.Instance.SpeakText("stage1MissionText22");
-                   // StartCoroutine(ResetCarAndQuestion());
-                    textBool22 = true;
-                }
-            }
+            
 
             if (!textBool23)
             {
@@ -382,16 +379,8 @@ namespace SSGFE.Alpha.Phases.Games
                     textBool23 = true;
                 }
             }
-            /*
-            if (!textBool24)
-            {
-                if (arrayPos == 23)
-                {
-                    LOLSDK.Instance.SpeakText("stage1MissionText23");
-
-                    textBool24 = true;
-                }
-            }
+           
+           
             */
             if (restrictionBool1)
             {
@@ -409,16 +398,14 @@ namespace SSGFE.Alpha.Phases.Games
             }
             if (restrictionBool2)
             {
-                if (!answerCorrect)
-                {
+                arrayPos = 18;
+                newCarCont.isCarActive = false;
+                sphereParent.transform.position = resetPosition.transform.position;
 
-                    arrayPos = 19;
-                    sphereParent.transform.position = resetPosition.transform.position;
-                    newCarCont.isCarActive = false;
-                    forwardParent.gameObject.SetActive(true);
-                    restrictionBool2 = false;
-                    textBool20 = false;
-                }
+                forwardParent.gameObject.SetActive(true);
+                restrictionBool2 = false;
+                textBool20 = false;
+               
             }
 
         
@@ -545,6 +532,7 @@ namespace SSGFE.Alpha.Phases.Games
         public IEnumerator MoveToBlankInvislbePanal()
         {
             //forwardButton.gameObject.SetActive(false);
+            buttonsPanal.gameObject.SetActive(false);
             yield return new WaitForSeconds(5);
             textPanal.gameObject.SetActive(false);
             arrayPos = 24;
