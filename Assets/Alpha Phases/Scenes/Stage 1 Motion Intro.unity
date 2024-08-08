@@ -493,7 +493,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Carry on to the finish line. test
+  m_text: Please choose a new upgrade for your vehicle! test
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -811,7 +811,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 8}
+  m_AnchoredPosition: {x: -16, y: -5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &63795860
@@ -834,8 +834,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You can accelerate and brake with the up and down arrows or the W and S
-    keys. Use the left and right arrows, or the A and D keys to steer. Test
+  m_text: Let's get started.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1915,7 +1914,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 282, y: 28}
+  m_AnchoredPosition: {x: 298.08304, y: 28}
   m_SizeDelta: {x: 45.7723, y: 43.6363}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &192381097
@@ -2607,8 +2606,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -31.083, y: 0}
+  m_SizeDelta: {x: 398.99, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &264033635
 MonoBehaviour:
@@ -2630,7 +2629,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Let's get started! Test
+  m_text: It's important to know that the energy of motion we use to drive our vehicle
+    is a kind of mechanical energy. Test
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3007,8 +3007,8 @@ MonoBehaviour:
   introText18: {fileID: 1342435041}
   introText19: {fileID: 21868517}
   introText20: {fileID: 1625739935}
-  stage1AssesFriction: {fileID: 2020668974}
-  stage1AssesMotion: {fileID: 1114730912}
+  stage1AssesFriction: {fileID: 232202897}
+  stage1AssesMotion: {fileID: 1983175444}
   vehicleTitleText: {fileID: 1078842649}
   carText: {fileID: 848381451}
   toiletText: {fileID: 747081668}
@@ -4340,8 +4340,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -60, y: 1}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -76.01734, y: 1}
+  m_SizeDelta: {x: 334.5971, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &459958756
 MonoBehaviour:
@@ -4363,7 +4363,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Well done! Before we progress. Test
+  m_text: We are going to need to be going fast to clear the gap in the jump. Choose
+    your upgrade now! test
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4687,8 +4688,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -20, y: -2}
+  m_SizeDelta: {x: 165, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &484823691
 MonoBehaviour:
@@ -4710,7 +4711,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: We will catch up more at the end of the course. Test
+  m_text: Before the vehicle can move we need to choose one of two upgrades. You
+    can increase the motion of the vehicle or increase the friction of the vehicle.
+    test
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4931,7 +4934,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: What is the change in position of an object? Test
+  m_text: Excellent work. That's the first course tested. Lets move onto track 2.
+    test
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5330,7 +5334,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 327, y: 27}
+  m_AnchoredPosition: {x: 343.01733, y: 27}
   m_SizeDelta: {x: 45.7723, y: 43.6363}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &549687447
@@ -6225,8 +6229,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Let's move on. In front of you, there are 2 routes. It's up to you to choose
-    which route to take. test
+  m_text: We will catch up more at the end of the course. Test
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11596,7 +11599,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Each one has the answer to this question. TEst
+  m_text: Well done! Adding an upgrade to increase motion allowed us to clear the
+    gap. Remember motion is the change in the position of an object. test
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11829,7 +11833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 267, y: 28}
+  m_AnchoredPosition: {x: 287, y: 30}
   m_SizeDelta: {x: 45.7723, y: 43.6363}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1284255500
@@ -12207,7 +12211,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Well done! Motion is the change in the position of an object.
+  m_text: Looks like you increased the friction of the car and it slowed us down
+    so much we didnt make the jump.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12704,7 +12709,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 277, y: 20}
+  m_AnchoredPosition: {x: 283, y: 33}
   m_SizeDelta: {x: 45.7723, y: 43.6363}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1405340184
@@ -14081,7 +14086,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: That's not correct. Try again. TEst
+  m_text: Oh looks you made the correct upgrade but didnt quite make the jump. Try
+    again!. test
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15268,8 +15274,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'It''s important to know that the energy of motion we use to drive our
-    vehicle is a kind of mechanical energy. test '
+  m_text: Excellent. You can accelerate and brake with the up and down arrows or
+    the W and S keys. Use the left and right arrows, or the A and D keys to steer.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
