@@ -182,7 +182,7 @@ namespace SSGFE.Alpha.Phases.Games
                 if (arrayPos == 4)
                 {
                     HideButton();
-                    vehSelectMan.panalOpen = true;
+                  //  vehSelectMan.panalOpen = true;
                     vehSelectMan.selectionPanal.gameObject.SetActive(true);
                     LOLSDK.Instance.SpeakText("stage1MissionText5");
                     // hasScrolled = false;
@@ -195,7 +195,7 @@ namespace SSGFE.Alpha.Phases.Games
                 if (arrayPos == 5)
                 {
                     LOLSDK.Instance.SpeakText("stage1MissionText6");
-
+                    vehSelectMan.selectionPanal.gameObject.SetActive(false);
                     textBool6 = true;
                 }
             }
@@ -410,7 +410,7 @@ namespace SSGFE.Alpha.Phases.Games
                
             }
 
-        
+
 
 
             /*
@@ -460,7 +460,7 @@ namespace SSGFE.Alpha.Phases.Games
                 runOnce = false;
                 runOnce2 = false;
             }
-            */
+           
             if (panalOpen)
             {
                 if (!runOnce)
@@ -484,6 +484,7 @@ namespace SSGFE.Alpha.Phases.Games
                 }
 
             }
+             */
         }
 
         public void ProgressTextForward()

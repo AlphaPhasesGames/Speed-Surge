@@ -14,6 +14,8 @@ namespace SSGFE.Alpha.Phases.Games
         public NewCarController newCarCont;
         public GameObject currentTextSection;
 
+        public GameObject sidePanalBoxes;
+
         public GameObject sphereParent;
       //  public GameObject resetPosition;
         public int arrayPos;
@@ -54,6 +56,16 @@ namespace SSGFE.Alpha.Phases.Games
         public bool textBool11;
         public bool textBool12;
         public bool textBool13;
+        public bool textBool14;
+        public bool textBool15;
+        public bool textBool16;
+        public bool textBool17;
+        public bool textBool18;
+        public bool textBool19;
+        public bool textBool20;
+        public bool textBool21;
+        public bool textBool22;
+        public bool textBool23;
 
         public Button textButton1;
         public Button textButton2;
@@ -68,7 +80,15 @@ namespace SSGFE.Alpha.Phases.Games
         public Button textButton11;
         public Button textButton12;
         public Button textButton13;
-
+        public Button textButton14;
+        public Button textButton15;
+        public Button textButton16;
+        public Button textButton17;
+        public Button textButton18;
+        public Button textButton19;
+        public Button textButton20;
+        public Button textButton21;
+        public Button textButton22;
 
         private void Awake()
         {
@@ -87,6 +107,15 @@ namespace SSGFE.Alpha.Phases.Games
             textButton11.onClick.AddListener(IntroTTSSpeak11);
             textButton12.onClick.AddListener(IntroTTSSpeak12);
             textButton13.onClick.AddListener(IntroTTSSpeak13);
+            textButton14.onClick.AddListener(IntroTTSSpeak14);
+            textButton15.onClick.AddListener(IntroTTSSpeak15);
+            textButton16.onClick.AddListener(IntroTTSSpeak16);
+            textButton17.onClick.AddListener(IntroTTSSpeak17);
+            textButton18.onClick.AddListener(IntroTTSSpeak18);
+            textButton19.onClick.AddListener(IntroTTSSpeak19);
+            textButton20.onClick.AddListener(IntroTTSSpeak20);
+            textButton21.onClick.AddListener(IntroTTSSpeak21);
+            textButton22.onClick.AddListener(IntroTTSSpeak22);
             StartCoroutine(StartLevelText());
         }
         // Start is called before the first frame update
@@ -103,7 +132,7 @@ namespace SSGFE.Alpha.Phases.Games
         {
             if (!hasScrolled)
             {
-                for (int i = 0; i < 13; i++)
+                for (int i = 0; i < 23; i++)
                 {
                     modelArray[i].SetActive(i == arrayPos);
                     Debug.Log("Do We SCroll Forever");
@@ -119,7 +148,7 @@ namespace SSGFE.Alpha.Phases.Games
                 if (arrayPos == 0)
                 {
                     LOLSDK.Instance.SpeakText("stage2MissionText1");
-                    // hasScrolled = false;
+                     hasScrolled = false;
                     textBool1 = true;
                 }
             }
@@ -131,7 +160,7 @@ namespace SSGFE.Alpha.Phases.Games
                     HideButton();
                     vehSelectMan.panalOpen = true;
                     vehSelectMan.selectionPanal.gameObject.SetActive(true);
-                    LOLSDK.Instance.SpeakText("stage2MissionText1ChooseCar");
+                    LOLSDK.Instance.SpeakText("stage2MissionText2ChooseCar");
 
                     textBool2 = true;
                 }
@@ -141,7 +170,7 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 2)
                 {
-                    LOLSDK.Instance.SpeakText("stage2MissionText2");
+                    LOLSDK.Instance.SpeakText("stage2MissionText3");
                     textBool3 = true;
                 }
             }
@@ -150,7 +179,7 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 3)
                 {
-                    LOLSDK.Instance.SpeakText("stage2MissionText3");
+                    LOLSDK.Instance.SpeakText("stage2MissionText4");
 
                     textBool4 = true;
                 }
@@ -160,7 +189,7 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 4)
                 {
-                    LOLSDK.Instance.SpeakText("stage2MissionText4");
+                    LOLSDK.Instance.SpeakText("stage2MissionText5");
                     // hasScrolled = false;
                     textBool5 = true;
                 }
@@ -170,7 +199,7 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 5)
                 {
-                    LOLSDK.Instance.SpeakText("stage2MissionText5");
+                    LOLSDK.Instance.SpeakText("stage2MissionText6");
 
                     textBool6 = true;
                 }
@@ -180,7 +209,7 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 6)
                 {
-                    LOLSDK.Instance.SpeakText("stage2MissionText6");
+                    LOLSDK.Instance.SpeakText("stage2MissionText7");
                     textBool7 = true;
                 }
             }
@@ -189,7 +218,7 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 7)
                 {
-                    LOLSDK.Instance.SpeakText("stage2MissionText7");
+                    LOLSDK.Instance.SpeakText("stage2MissionText8");
                     
                     textBool8 = true;
                 }
@@ -199,7 +228,7 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 8)
                 {
-                    LOLSDK.Instance.SpeakText("stage2MissionText8");
+                    LOLSDK.Instance.SpeakText("stage2MissionText9");
                    
                     // hasScrolled = false;
                     textBool9 = true;
@@ -210,10 +239,8 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 9)
                 {
-                    HideButton();
-                    newCarCont.isCarActive = true;
-                    newCarCont.engineIsIdle = true;
-                    LOLSDK.Instance.SpeakText("stage2MissionText9Asses");
+                 
+                    LOLSDK.Instance.SpeakText("stage2MissionText10");
 
                     textBool10 = true;
                 }
@@ -223,7 +250,7 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 10)
                 {
-                    LOLSDK.Instance.SpeakText("stage2MissionText10Correct");
+                    LOLSDK.Instance.SpeakText("stage2MissionText11");
                     textBool11 = true;
                 }
             }
@@ -232,10 +259,9 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 11)
                 {
-                    forwardParent.gameObject.SetActive(false);
-                    StartCoroutine(MoveToBlankInvislbePanal());
-
-                    LOLSDK.Instance.SpeakText("stage2MissionText10Correct2");
+                   
+                    LOLSDK.Instance.SpeakText("stage2MissionText12");
+                    sidePanalBoxes.gameObject.SetActive(true);
                     textBool12 = true;
                 }
             }
@@ -244,11 +270,37 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (arrayPos == 12)
                 {
-                    LOLSDK.Instance.SpeakText("stage2MissionText11Wrong");
+                    LOLSDK.Instance.SpeakText("stage2MissionText13");
                     // StartCoroutine(DelayTextButton());
-                    forwardParent.gameObject.SetActive(true);
-                    hasScrolled = false;
                     textBool13 = true;
+                }
+            }
+
+            if (!textBool14)
+            {
+                if (arrayPos == 13)
+                {
+                  //  HideButton();
+                  
+                 
+
+                    LOLSDK.Instance.SpeakText("stage2MissionText14");
+                    textBool14 = true;
+                }
+            }
+
+            if (!textBool15)
+            {
+                if (arrayPos == 14)
+                {
+                    LOLSDK.Instance.SpeakText("stage2MissionText15");
+                    // StartCoroutine(DelayTextButton());
+                    newCarCont.isCarActive = true;
+                    newCarCont.engineIsIdle = true;
+                    forwardParent.gameObject.SetActive(false);
+                    StartCoroutine(MoveToBlankInvislbePanal());
+                    hasScrolled = false;
+                    textBool15 = true;
                 }
             }
 
@@ -388,75 +440,129 @@ namespace SSGFE.Alpha.Phases.Games
 
         public void IntroTTSSpeak2()
         {
-            LOLSDK.Instance.SpeakText("stage2MissionText1ChooseCar");
+            LOLSDK.Instance.SpeakText("stage2MissionText2ChooseCar");
             Debug.Log("introText2 Button is pressed");
         }
 
         public void IntroTTSSpeak3()
         {
-            LOLSDK.Instance.SpeakText("stage2MissionText2");
+            LOLSDK.Instance.SpeakText("stage2MissionText3");
             Debug.Log("introText3 Button is pressed");
         }
 
         public void IntroTTSSpeak4()
         {
-            LOLSDK.Instance.SpeakText("stage2MissionText3");
+            LOLSDK.Instance.SpeakText("stage2MissionText4");
             Debug.Log("introText2 Button is pressed");
         }
 
         public void IntroTTSSpeak5()
         {
-            LOLSDK.Instance.SpeakText("stage2MissionText4");
+            LOLSDK.Instance.SpeakText("stage2MissionText5");
             Debug.Log("introText3 Button is pressed");
         }
 
         public void IntroTTSSpeak6()
         {
-            LOLSDK.Instance.SpeakText("stage2MissionText5");
+            LOLSDK.Instance.SpeakText("stage2MissionText6");
             Debug.Log(" introText1 Button is pressed");
         }
 
         public void IntroTTSSpeak7()
         {
-            LOLSDK.Instance.SpeakText("stage2MissionText6");
+            LOLSDK.Instance.SpeakText("stage2MissionText7");
             Debug.Log("introText2 Button is pressed");
         }
 
         public void IntroTTSSpeak8()
         {
-            LOLSDK.Instance.SpeakText("stage2MissionText7");
+            LOLSDK.Instance.SpeakText("stage2MissionText8");
             Debug.Log("introText3 Button is pressed");
         }
 
         public void IntroTTSSpeak9()
         {
-            LOLSDK.Instance.SpeakText("stage2MissionText8");
+            LOLSDK.Instance.SpeakText("stage2MissionText9");
             Debug.Log("introText2 Button is pressed");
         }
 
         public void IntroTTSSpeak10()
         {
-            LOLSDK.Instance.SpeakText("stage2MissionText9Asses");
+            LOLSDK.Instance.SpeakText("stage2MissionText10");
             Debug.Log("introText3 Button is pressed");
         }
 
 
         public void IntroTTSSpeak11()
         {
-            LOLSDK.Instance.SpeakText("stage2MissionText10Correct");
+            LOLSDK.Instance.SpeakText("stage2MissionText11");
             Debug.Log(" introText1 Button is pressed");
         }
 
         public void IntroTTSSpeak12()
         {
-            LOLSDK.Instance.SpeakText("stage2MissionText10Correct2");
+            LOLSDK.Instance.SpeakText("stage2MissionText12");
             Debug.Log("introText2 Button is pressed");
         }
 
         public void IntroTTSSpeak13()
         {
-            LOLSDK.Instance.SpeakText("stage2MissionText11Wrong");
+            LOLSDK.Instance.SpeakText("stage2MissionText13");
             Debug.Log("introText3 Button is pressed");
+        }
+
+        public void IntroTTSSpeak14()
+        {
+            LOLSDK.Instance.SpeakText("stage2MissionText14");
+            Debug.Log(" introText1 Button is pressed");
+        }
+
+        public void IntroTTSSpeak15()
+        {
+            LOLSDK.Instance.SpeakText("stage2MissionText15");
+            Debug.Log("introText2 Button is pressed");
+        }
+
+        public void IntroTTSSpeak16()
+        {
+            LOLSDK.Instance.SpeakText("stage2MissionText16");
+            Debug.Log("introText3 Button is pressed");
+        }
+
+        public void IntroTTSSpeak17()
+        {
+            LOLSDK.Instance.SpeakText("stage2MissionText17");
+            Debug.Log("introText2 Button is pressed");
+        }
+
+        public void IntroTTSSpeak18()
+        {
+            LOLSDK.Instance.SpeakText("stage2MissionText18");
+            Debug.Log("introText3 Button is pressed");
+        }
+
+        public void IntroTTSSpeak19()
+        {
+            LOLSDK.Instance.SpeakText("stage2MissionText19");
+            Debug.Log(" introText1 Button is pressed");
+        }
+
+        public void IntroTTSSpeak20()
+        {
+            LOLSDK.Instance.SpeakText("stage2MissionText20");
+            Debug.Log("introText2 Button is pressed");
+        }
+
+        public void IntroTTSSpeak21()
+        {
+            LOLSDK.Instance.SpeakText("stage2MissionText21");
+            Debug.Log("introText3 Button is pressed");
+        }
+
+        public void IntroTTSSpeak22()
+        {
+            LOLSDK.Instance.SpeakText("stage2MissionText22");
+            Debug.Log("introText2 Button is pressed");
         }
 
         public IEnumerator ChangeScene()

@@ -23,9 +23,17 @@ namespace SSGFE.Alpha.Phases.Games
         public TextMeshProUGUI introText11;
         public TextMeshProUGUI introText12;
         public TextMeshProUGUI introText13;
-
-       // public TextMeshProUGUI stage2AssesEnergy;
-       // public TextMeshProUGUI stage2AssesResist;
+        public TextMeshProUGUI introText14;
+        public TextMeshProUGUI introText15;
+        public TextMeshProUGUI introText16;
+        public TextMeshProUGUI introText17;
+        public TextMeshProUGUI introText18;
+        public TextMeshProUGUI introText19;
+        public TextMeshProUGUI introText20;
+        public TextMeshProUGUI introText21;
+        public TextMeshProUGUI introText22;
+        // public TextMeshProUGUI stage2AssesEnergy;
+        // public TextMeshProUGUI stage2AssesResist;
 
         public TextMeshProUGUI vehicleTitleText;
         public TextMeshProUGUI carText;
@@ -52,18 +60,27 @@ namespace SSGFE.Alpha.Phases.Games
             bathText.text = defs["bathName"];
 
             introText1.text = defs["stage2MissionText1"];
-            introText2.text = defs["stage2MissionText1ChooseCar"];
-            introText3.text = defs["stage2MissionText2"];
-            introText4.text = defs["stage2MissionText3"];
-            introText5.text = defs["stage2MissionText4"];
-            introText6.text = defs["stage2MissionText5"];
-            introText7.text = defs["stage2MissionText6"];
-            introText8.text = defs["stage2MissionText7"];
-            introText9.text = defs["stage2MissionText8"];
-            introText10.text = defs["stage2MissionText9Asses"];
-            introText11.text = defs["stage2MissionText10Correct"];
-            introText12.text = defs["stage2MissionText10Correct2"];
-            introText13.text = defs["stage2MissionText11Wrong"];
+            introText2.text = defs["stage2MissionText2ChooseCar"];
+            introText3.text = defs["stage2MissionText3"];
+            introText4.text = defs["stage2MissionText4"];
+            introText5.text = defs["stage2MissionText5"];
+            introText6.text = defs["stage2MissionText6"];
+            introText7.text = defs["stage2MissionText7"];
+            introText8.text = defs["stage2MissionText8"];
+            introText9.text = defs["stage2MissionText9"];
+            introText10.text = defs["stage2MissionText10"];
+            introText11.text = defs["stage2MissionText11"];
+            introText12.text = defs["stage2MissionText12"];
+            introText13.text = defs["stage2MissionText13"];
+            introText14.text = defs["stage2MissionText14"];
+            introText15.text = defs["stage2MissionText15"];
+            introText16.text = defs["stage2MissionText16"];
+            introText17.text = defs["stage2MissionText17"];
+            introText18.text = defs["stage2MissionText18"];
+            introText19.text = defs["stage2MissionText19"];
+            introText20.text = defs["stage2MissionText20"];
+            introText21.text = defs["stage2MissionText21"];
+            introText22.text = defs["stage2MissionText22"];
         }
     }
 }

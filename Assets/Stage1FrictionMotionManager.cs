@@ -26,6 +26,7 @@ namespace SSGFE.Alpha.Phases.Games
             textMan.arrayPos = 13;
             newCarCont.maxSpeed = 50;
             textMan.textBool15 = false;
+            Debug.Log("Choose Motion Runs once");
         }
 
         public void ChooseFriction()
@@ -33,6 +34,7 @@ namespace SSGFE.Alpha.Phases.Games
             stopTrigger.wrongAnswer = true;
             textMan.arrayPos = 13;
             newCarCont.maxSpeed = 30;
+            Debug.Log("Choose Motion Runs once");
         }
     }
 }

@@ -9,6 +9,10 @@ namespace SSGFE.Alpha.Phases.Games
         //public SwitchVehicles switchVeh;
         public NewCarController newCarCont;
         public Stage1TextManager stage1TextMan;
+
+        public bool runOnce;
+        public bool runOnce2;
+
         public Button carButton;
         public Button skateBoardButton;
         public Button toiletButton;
@@ -32,7 +36,7 @@ namespace SSGFE.Alpha.Phases.Games
 
 
         public GameObject selectionPanal;
-        public bool panalOpen;
+       // public bool panalOpen;
         // Start is called before the first frame update
         void Start()
         {
@@ -46,21 +50,31 @@ namespace SSGFE.Alpha.Phases.Games
 
         // Update is called once per frame
         void Update()
-        {
+        {/*
             if (Input.GetKeyDown(KeyCode.P))
             {
-                panalOpen = !panalOpen;
+                //panalOpen = !panalOpen;
+            }
+            
+            if (!runOnce)
+            {
+                if (panalOpen)
+                {
+                    selectionPanal.gameObject.SetActive(true);
+                    runOnce = true;
+                }
             }
 
-            if (panalOpen)
+            if (!runOnce2)
             {
-                selectionPanal.gameObject.SetActive(true);
-            }
+                if (!panalOpen)
+                {
 
-            else
-            {
-                selectionPanal.gameObject.SetActive(false);
+                    selectionPanal.gameObject.SetActive(false);
+                    runOnce2 = true;
+                }
             }
+          */
         }
 
 
@@ -78,7 +92,7 @@ namespace SSGFE.Alpha.Phases.Games
             stage1TextMan.forwardParent.gameObject.SetActive(true);
             car.gameObject.SetActive(true);
             //switchVeh.hasScrolled = false;
-            panalOpen = false;
+           // panalOpen = false;
             Debug.Log("This runs");
 
         }
@@ -95,7 +109,7 @@ namespace SSGFE.Alpha.Phases.Games
             stage1TextMan.arrayPos = 5;
             skateBoard.gameObject.SetActive(true);
             // switchVeh.hasScrolled = false;
-            panalOpen = false;
+            //panalOpen = false;
         }
 
         public void ChooseToilet()
@@ -107,7 +121,7 @@ namespace SSGFE.Alpha.Phases.Games
             stage1TextMan.arrayPos = 5;
             toilet.gameObject.SetActive(true);
             // switchVeh.hasScrolled = false;
-            panalOpen = false;
+           // panalOpen = false;
         }
 
         public void ChooseToyCar()
@@ -119,7 +133,7 @@ namespace SSGFE.Alpha.Phases.Games
             stage1TextMan.arrayPos = 5;
             toyCar.gameObject.SetActive(true);
             //switchVeh.hasScrolled = false;
-            panalOpen = false;
+          //  panalOpen = false;
         }
 
         public void ChooseBed()
@@ -136,7 +150,7 @@ namespace SSGFE.Alpha.Phases.Games
             stage1TextMan.forwardParent.gameObject.SetActive(true);
             bed.gameObject.SetActive(true);
             //switchVeh.hasScrolled = false;
-            panalOpen = false;
+          //  panalOpen = false;
             Debug.Log("This runs");
 
         }
@@ -149,7 +163,7 @@ namespace SSGFE.Alpha.Phases.Games
             stage1TextMan.forwardParent.gameObject.SetActive(true);
             bath.gameObject.SetActive(true);
             //switchVeh.hasScrolled = false;
-            panalOpen = false;
+            //panalOpen = false;
             Debug.Log("This runs");
 
         }

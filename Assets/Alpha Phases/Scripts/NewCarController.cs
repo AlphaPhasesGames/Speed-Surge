@@ -68,6 +68,7 @@ namespace SSGFE.Alpha.Phases.Games
         void Update()
         {
             transform.position = sphereRB.transform.position;
+            //transform.position = sphereRB.transform.position;
             if (isCarActive)
             {
                
@@ -179,6 +180,7 @@ namespace SSGFE.Alpha.Phases.Games
                     Debug.Log("Audio starts once");
                     engineIsIdle = false;
                 }
+               // Debug.Log("Controller Runs Loads");
 
             }
 
