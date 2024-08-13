@@ -7,7 +7,7 @@ namespace SSGFE.Alpha.Phases.Games
         public Rigidbody sphereRB; // declare rigidbody for car
         public Rigidbody carRB;
         public Rigidbody toiletRB;
-        //  public TextMeshProUGUI speed; // UI textmeshpro for the speed of the car
+        public TextMeshProUGUI speed; // UI textmeshpro for the speed of the car
         [SerializeField]
         public AudioSource engineIdle;
 
@@ -113,7 +113,7 @@ namespace SSGFE.Alpha.Phases.Games
                 moveInput = Input.GetAxisRaw("Vertical"); //  set move input float value to the forward and backwards movement of the car - set to W,S Uparrow and Downarrow respectivly
                 turnInput = Input.GetAxisRaw("Horizontal"); // set turn input for left and right movement of the car - set to W,A left arrow and right arrow respectivly
 
-                //speed.text = fwdSpeed.ToString("0"); //  link fwdspeed of car to UI speed text and set it to integers only
+                speed.text = fwdSpeed.ToString("0"); //  link fwdspeed of car to UI speed text and set it to integers only
                 if (Input.GetKey(KeyCode.W)) // if W is pressed
                 {
                     fwdSpeed += acceleration; // move forward / increase forward speed by increments set by the acceleration value
