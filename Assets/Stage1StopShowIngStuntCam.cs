@@ -9,7 +9,7 @@ namespace SSGFE.Alpha.Phases.Games
 
         public Camera stuntCam;
         public Camera vehicleCam;
-
+        public NewCarController carCont;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -17,6 +17,7 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 vehicleCam.gameObject.SetActive(true);
                 stuntCam.gameObject.SetActive(false);
+                carCont.skate.mute = false;
             }
         }
     }

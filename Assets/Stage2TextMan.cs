@@ -30,6 +30,7 @@ namespace SSGFE.Alpha.Phases.Games
         public bool panalOpen;
         public bool runOnce;
         public bool runOnce2;
+        public bool runOnce3;
 
         public GameObject forwardParent;
         public Button forwardButton;
@@ -141,7 +142,16 @@ namespace SSGFE.Alpha.Phases.Games
 
                 }
             }
-
+            if (!runOnce3)
+            {
+                if (newCarCont.maxSpeed < 20)
+                {
+                    arrayPos = 15;      
+                    hasScrolled = false;
+                    runOnce3 = true;
+                }
+            }
+          
         
             if (!textBool1)
             {
@@ -304,6 +314,19 @@ namespace SSGFE.Alpha.Phases.Games
                 }
             }
 
+            if (!textBool16)
+            {
+                if (arrayPos == 15)
+                {
+                    LOLSDK.Instance.SpeakText("stage2MissionText16");
+                  
+                    forwardParent.gameObject.SetActive(false);
+                    StartCoroutine(MoveToBlankInvislbePanal());
+                    hasScrolled = false;
+                    textBool16 = true;
+                }
+            }
+
             if (restrictionBool1)
             {
                 if (answerCorrect)
@@ -331,7 +354,7 @@ namespace SSGFE.Alpha.Phases.Games
                     //textBool20 = false;
                 }
             }
-
+            /*
             if (panalOpen)
             {
                 if (!runOnce)
@@ -355,6 +378,7 @@ namespace SSGFE.Alpha.Phases.Games
                 }
 
             }
+            */
         }
 
         public void ProgressTextForward()

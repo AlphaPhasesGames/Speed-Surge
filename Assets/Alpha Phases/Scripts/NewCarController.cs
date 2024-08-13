@@ -8,8 +8,18 @@ namespace SSGFE.Alpha.Phases.Games
         public Rigidbody carRB;
         public Rigidbody toiletRB;
         //  public TextMeshProUGUI speed; // UI textmeshpro for the speed of the car
-
+        [SerializeField]
         public AudioSource engineIdle;
+
+        public AudioSource engine;
+        public AudioSource skate;
+
+        public bool skateAudioSelected;
+        public bool engineAudioSelected;
+
+        public bool runOnce;
+        public bool runTwice;
+
         public bool engineIsIdle;
         public int startingPitch = 1;
         public int timeToIncrease = 5;
@@ -17,6 +27,10 @@ namespace SSGFE.Alpha.Phases.Games
         public float pitchLimitMax = 2.2f;
         public int pitchLimitMin = 1;
         //  public AudioClip engineIdleClip;
+
+        public float volumeTracker;
+        public int minVolume = 0;
+        public int maxVolume = 1;
 
         public float fwdSpeed; // declare float for the fwdspeed of the car
         public float revSpeed; // declare float for the reverse speed of the car
@@ -60,13 +74,34 @@ namespace SSGFE.Alpha.Phases.Games
             // Detach Sphere from car
             sphereRB.transform.parent = null;
             //carRB.transform.parent = null;
-            engineIdle.pitch = startingPitch;
+           // engineIdle.pitch = startingPitch;
             //normalDrag = sphereRB.drag;
          
         }
 
         void Update()
         {
+            if (!runOnce)
+            {
+                if (engineAudioSelected)
+                {
+                    engineIdle = engine;
+                    runOnce = true;
+                }
+            }
+
+            if (!runTwice)
+            {
+                if (skateAudioSelected)
+                {
+                    engineIdle = skate;
+                    runTwice = true;
+
+                }
+            }
+
+            skate.volume = volumeTracker;
+            
             transform.position = sphereRB.transform.position;
             //transform.position = sphereRB.transform.position;
             if (isCarActive)
@@ -83,10 +118,38 @@ namespace SSGFE.Alpha.Phases.Games
                 {
                     fwdSpeed += acceleration; // move forward / increase forward speed by increments set by the acceleration value
                    // turnSpeed -= turnAcceleration; // increase turn speed by increments set by the turnacceleration value
-                    engineIdle.pitch += Time.deltaTime * startingPitch / timeToIncrease;
-                    if (engineIdle.pitch > 2.1f)
+                   
+                    if (engineAudioSelected)
                     {
-                        engineIdle.pitch = pitchLimitMax;
+                        engineIdle.pitch += Time.deltaTime * startingPitch / timeToIncrease;
+                        if (engineIdle.pitch > 2.1f)
+                        {
+                            engineIdle.pitch = pitchLimitMax;
+                        }
+                    }
+
+                    if (skateAudioSelected)
+                    {
+                        if(moveInput > 0)
+                        {
+                            volumeTracker = volumeTracker + 0.001f;
+                            if(volumeTracker > 1)
+                            {
+                                volumeTracker = maxVolume;
+                            }
+                        }
+
+                      
+                       // skate.volume = volumeTracker;
+                    }
+                }
+
+                if (moveInput < 1)
+                {
+                    volumeTracker = volumeTracker - 0.005f;
+                    if (volumeTracker < 0)
+                    {
+                        volumeTracker = minVolume;
                     }
                 }
 
@@ -94,10 +157,26 @@ namespace SSGFE.Alpha.Phases.Games
                 {
                     fwdSpeed -= acceleration; // move backwards by decreasing forward speed by increments set by the acceleration value
                    // turnSpeed += turnAcceleration; // reduce turn speeed by increments set by the turnacceleration value
-                    engineIdle.pitch -= Time.deltaTime * startingPitch / timeToDecrease;
-                    if (engineIdle.pitch < 1.1f)
+                  
+                    if (engineAudioSelected)
                     {
-                        engineIdle.pitch = startingPitch;
+                        engineIdle.pitch -= Time.deltaTime * startingPitch / timeToDecrease;
+                        if (engineIdle.pitch < 1.1f)
+                        {
+
+                            engineIdle.pitch = startingPitch;
+                        }
+                    }
+
+                    if (skateAudioSelected)
+                    {
+                        volumeTracker = volumeTracker - 0.001f;
+
+                        if (volumeTracker < 0.1)
+                        {
+                            volumeTracker = minVolume;
+                        }
+                        // skate.volume = volumeTracker;
                     }
                 }
                 /*
@@ -117,11 +196,17 @@ namespace SSGFE.Alpha.Phases.Games
                 {
                     fwdSpeed -= acceleration; // reduce forward speed by value set by accelleration value
                    // turnSpeed -= turnAcceleration; // reduce turn speed by value set by turnacceleration value
-                    engineIdle.pitch -= Time.deltaTime * startingPitch / timeToDecrease;
-                    if (engineIdle.pitch < 1.1f)
+                   
+                    if (engineAudioSelected)
                     {
-                        engineIdle.pitch = startingPitch;
+                        engineIdle.pitch -= Time.deltaTime * startingPitch / timeToDecrease;
+                        if (engineIdle.pitch < 1.1f)
+                        {
+                            engineIdle.pitch = startingPitch;
+                        }
                     }
+
+                   
                 }
 
                 if (fwdSpeed > maxSpeed) // if forward speed is greated than the max speed
@@ -173,14 +258,26 @@ namespace SSGFE.Alpha.Phases.Games
                 {
                     sphereRB.drag = airDrag;
                 }
-
-                if (engineIsIdle)
+                if (engineAudioSelected)
                 {
-                    PlayIdle();
-                    Debug.Log("Audio starts once");
-                    engineIsIdle = false;
+                    if (engineIsIdle)
+                    {
+                        PlayIdle();
+                        Debug.Log("Audio starts once");
+                        engineIsIdle = false;
+                    }
                 }
-               // Debug.Log("Controller Runs Loads");
+
+                if (skateAudioSelected)
+                {
+                    if (engineIsIdle)
+                    {
+                        PlayIdle();
+                        Debug.Log("Audio starts once");
+                        engineIsIdle = false;
+                    }
+                }
+                // Debug.Log("Controller Runs Loads");
 
             }
 
@@ -213,6 +310,8 @@ namespace SSGFE.Alpha.Phases.Games
         {
             engineIdle.Play();
         }
+
+
 
         public void StartStopCar()
         {

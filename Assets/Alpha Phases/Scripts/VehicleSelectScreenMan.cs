@@ -91,8 +91,10 @@ namespace SSGFE.Alpha.Phases.Games
             stage1TextMan.arrayPos = 5;
             stage1TextMan.forwardParent.gameObject.SetActive(true);
             car.gameObject.SetActive(true);
+            newCarCont.engineAudioSelected = true;
+
             //switchVeh.hasScrolled = false;
-           // panalOpen = false;
+            // panalOpen = false;
             Debug.Log("This runs");
 
         }
@@ -108,6 +110,8 @@ namespace SSGFE.Alpha.Phases.Games
             stage1TextMan.forwardParent.gameObject.SetActive(true);
             stage1TextMan.arrayPos = 5;
             skateBoard.gameObject.SetActive(true);
+            newCarCont.skateAudioSelected = true;
+
             // switchVeh.hasScrolled = false;
             //panalOpen = false;
         }

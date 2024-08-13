@@ -27,6 +27,8 @@ namespace SSGFE.Alpha.Phases.Games
                         stage1TextMan.textPanal.gameObject.SetActive(true);
                         stage1TextMan.arrayPos = 17;
                         StartCoroutine(ReserCar());
+                        newCarCont.skate.mute = false;
+                        newCarCont.skate.volume = 0;
                         runOnce = true;
                     }
                 }
@@ -40,6 +42,8 @@ namespace SSGFE.Alpha.Phases.Games
                         stage1TextMan.hasScrolled = false;
                         stage1TextMan.textPanal.gameObject.SetActive(true);
                         stage1TextMan.arrayPos = 19;
+                        newCarCont.skate.mute = false;
+                        newCarCont.skate.volume = 0;
                         runTwice = true;
                     }
                 }
