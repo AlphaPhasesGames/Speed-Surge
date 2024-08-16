@@ -79,6 +79,7 @@ namespace SSGFE.Alpha.Phases.Games
             car.gameObject.SetActive(true);
             //switchVeh.hasScrolled = false;
             panalOpen = false;
+            newCarCont.engineAudioSelected = true;
             Debug.Log("This runs");
 
         }
@@ -94,6 +95,7 @@ namespace SSGFE.Alpha.Phases.Games
             stage2TextMan.forwardParent.gameObject.SetActive(true);
             stage2TextMan.arrayPos = 2;
             skateBoard.gameObject.SetActive(true);
+            newCarCont.skateAudioSelected = true;
             // switchVeh.hasScrolled = false;
             panalOpen = false;
         }
@@ -107,6 +109,7 @@ namespace SSGFE.Alpha.Phases.Games
             stage2TextMan.arrayPos = 2;
             toilet.gameObject.SetActive(true);
             // switchVeh.hasScrolled = false;
+            newCarCont.skateAudioSelected = true;
             panalOpen = false;
         }
 
@@ -119,6 +122,7 @@ namespace SSGFE.Alpha.Phases.Games
             stage2TextMan.arrayPos = 2;
             toyCar.gameObject.SetActive(true);
             //switchVeh.hasScrolled = false;
+            newCarCont.skateAudioSelected = true;
             panalOpen = false;
         }
 
@@ -137,6 +141,7 @@ namespace SSGFE.Alpha.Phases.Games
             bed.gameObject.SetActive(true);
             //switchVeh.hasScrolled = false;
             panalOpen = false;
+            newCarCont.skateAudioSelected = true;
             Debug.Log("This runs");
 
         }
@@ -150,6 +155,7 @@ namespace SSGFE.Alpha.Phases.Games
             bath.gameObject.SetActive(true);
             //switchVeh.hasScrolled = false;
             panalOpen = false;
+            newCarCont.skateAudioSelected = true;
             Debug.Log("This runs");
 
         }

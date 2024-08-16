@@ -555,12 +555,7 @@ namespace SSGFE.Alpha.Phases.Games
 
         }
 
-        public IEnumerator ResetCarAndQuestion()
-        {
-            yield return new WaitForSeconds(5);
-            newCarCont.isCarActive = true;
-            arrayPos = 18;
-        }
+
 
 
         public void IntroTTSSpeak1()
