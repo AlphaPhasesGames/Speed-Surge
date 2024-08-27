@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace SSGFE.Alpha.Phases.Games
 {
-    public class Stage2VehicleSelectScript : MonoBehaviour
+    public class Stage3VehicleSelectScript : MonoBehaviour
     {
         //public SwitchVehicles switchVeh;
         public NewCarController newCarCont;
-        public Stage2TextMan stage2TextMan;
+        public Stage3TextMan stage2TextMan;
         public Button carButton;
         public Button skateBoardButton;
         public Button toiletButton;
@@ -44,7 +44,7 @@ namespace SSGFE.Alpha.Phases.Games
             bathButton.onClick.AddListener(ChooseBath);
         }
 
-     
+
 
         public void ChooseCar()
         {

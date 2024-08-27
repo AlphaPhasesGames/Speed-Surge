@@ -16,8 +16,8 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (stage1TextMan.answerCorrect)
                 {
-                    stage1TextMan.hasScrolled = false;
-                    stage1TextMan.restrictionBool1 = true;
+                   // stage1TextMan.hasScrolled = false;
+                   // stage1TextMan.restrictionBool1 = true;
                     stage1TextMan.arrayPos = 15;
                    // stage1TextMan.forwardParent.gameObject.SetActive(false);
                    // stage1TextMan.forwardButton.gameObject.SetActive(false);

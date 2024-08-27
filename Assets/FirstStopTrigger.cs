@@ -16,9 +16,9 @@ namespace SSGFE.Alpha.Phases.Games
         {
             if (other.CompareTag("Player"))
             {
-                if (!runOnce)
-                {
-                    if (wrongAnswer)
+               // if (!runOnce)
+              //  {
+                    if (!stage1TextMan.answerCorrect)
                     {
                         //  newCarCont.StartStopCar();
 
@@ -26,27 +26,29 @@ namespace SSGFE.Alpha.Phases.Games
                         stage1TextMan.hasScrolled = false;
                         stage1TextMan.textPanal.gameObject.SetActive(true);
                         stage1TextMan.arrayPos = 17;
-                        StartCoroutine(ReserCar());
+                       // StartCoroutine(ReserCar());
                         newCarCont.skate.mute = false;
-                        newCarCont.skate.volume = 0;
-                        runOnce = true;
+                   // stage1TextMan.answerCorrect = false;
+                    newCarCont.skate.volume = 0;
+                      //  runOnce = true;
                     }
-                }
+              //  }
 
-                if (!runTwice)
-                {
-                    if (!wrongAnswer)
+                //if (!runTwice)
+                //{
+                    if (stage1TextMan.answerCorrect)
                     {
                         //  newCarCont.StartStopCar();
                         newCarCont.isCarActive = true;
                         stage1TextMan.hasScrolled = false;
                         stage1TextMan.textPanal.gameObject.SetActive(true);
                         stage1TextMan.arrayPos = 19;
+                       // stage1TextMan.answerCorrect = true;
                         newCarCont.skate.mute = false;
                         newCarCont.skate.volume = 0;
-                        runTwice = true;
+                       // runTwice = true;
                     }
-                }
+               // }
                
                
             }

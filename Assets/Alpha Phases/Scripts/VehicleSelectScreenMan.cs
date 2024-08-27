@@ -48,34 +48,7 @@ namespace SSGFE.Alpha.Phases.Games
             bathButton.onClick.AddListener(ChooseBath);
         }
 
-        // Update is called once per frame
-        void Update()
-        {/*
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                //panalOpen = !panalOpen;
-            }
-            
-            if (!runOnce)
-            {
-                if (panalOpen)
-                {
-                    selectionPanal.gameObject.SetActive(true);
-                    runOnce = true;
-                }
-            }
-
-            if (!runOnce2)
-            {
-                if (!panalOpen)
-                {
-
-                    selectionPanal.gameObject.SetActive(false);
-                    runOnce2 = true;
-                }
-            }
-          */
-        }
+    
 
 
         public void ChooseCar()
@@ -124,8 +97,9 @@ namespace SSGFE.Alpha.Phases.Games
             stage1TextMan.forwardParent.gameObject.SetActive(true);
             stage1TextMan.arrayPos = 5;
             toilet.gameObject.SetActive(true);
+            newCarCont.skateAudioSelected = true;
             // switchVeh.hasScrolled = false;
-           // panalOpen = false;
+            // panalOpen = false;
         }
 
         public void ChooseToyCar()
@@ -136,8 +110,9 @@ namespace SSGFE.Alpha.Phases.Games
             stage1TextMan.forwardParent.gameObject.SetActive(true);
             stage1TextMan.arrayPos = 5;
             toyCar.gameObject.SetActive(true);
+            newCarCont.skateAudioSelected = true;
             //switchVeh.hasScrolled = false;
-          //  panalOpen = false;
+            //  panalOpen = false;
         }
 
         public void ChooseBed()
@@ -153,8 +128,9 @@ namespace SSGFE.Alpha.Phases.Games
             stage1TextMan.arrayPos = 5;
             stage1TextMan.forwardParent.gameObject.SetActive(true);
             bed.gameObject.SetActive(true);
+            newCarCont.skateAudioSelected = true;
             //switchVeh.hasScrolled = false;
-          //  panalOpen = false;
+            //  panalOpen = false;
             Debug.Log("This runs");
 
         }
@@ -166,6 +142,7 @@ namespace SSGFE.Alpha.Phases.Games
             stage1TextMan.arrayPos = 5;
             stage1TextMan.forwardParent.gameObject.SetActive(true);
             bath.gameObject.SetActive(true);
+            newCarCont.skateAudioSelected = true;
             //switchVeh.hasScrolled = false;
             //panalOpen = false;
             Debug.Log("This runs");

@@ -16,10 +16,18 @@ namespace SSGFE.Alpha.Phases.Games
         {
             if (other.CompareTag("Player"))
             {
-                textMan.restrictionBool2 = true;
+               // textMan.restrictionBool2 = true;
                 textMan.hasScrolled = false;
-              //  textMan.arrayPos = 19;
-                    vehicleCam.gameObject.SetActive(true);
+                textMan.textBools = new bool[21]; // All elements are automatically set to false
+                                                                  //  textMan.textBools[13] = false;
+                                                                  //  textMan.textBools[14] = false;
+                                                                  //  textMan.textBools[12] = false;
+                                                                  //   textMan.textBools[11] = false;
+                                                                  //  textMan.textBools[19] = false;
+                                                                  //   textMan.textBools[18] = false;
+               textMan.ResetCarPosition();
+                                                                  // textMan.arrayPos = 17;
+                vehicleCam.gameObject.SetActive(true);
                     stuntCam.gameObject.SetActive(false);
                 
             }

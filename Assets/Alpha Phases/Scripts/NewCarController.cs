@@ -5,8 +5,8 @@ namespace SSGFE.Alpha.Phases.Games
     public class NewCarController : MonoBehaviour
     {
         public Rigidbody sphereRB; // declare rigidbody for car
-        public Rigidbody carRB;
-        public Rigidbody toiletRB;
+       //public Rigidbody carRB;
+       // public Rigidbody toiletRB;
         public TextMeshProUGUI speed; // UI textmeshpro for the speed of the car
         [SerializeField]
         public AudioSource engineIdle;

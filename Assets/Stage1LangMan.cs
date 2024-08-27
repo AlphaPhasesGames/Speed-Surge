@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using LoLSDK;
 using SimpleJSON;
 using TMPro;
+
 namespace SSGFE.Alpha.Phases.Games
 {
     public class Stage1LangMan : MonoBehaviour
