@@ -13,7 +13,7 @@ namespace SSGFE.Alpha.Phases.Games
             if (other.CompareTag("Player"))
             {
                 //stage2TextManager.runOnce3 = true;
-      
+                //stage2TextManager.textBools = new bool[22];
                 stage2TextManager.arrayPos = 15;
                 //newCarCont.isCarActive = false;
                 Destroy(this.gameObject);

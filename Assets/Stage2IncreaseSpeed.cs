@@ -9,7 +9,7 @@ namespace SSGFE.Alpha.Phases.Games
         public NewCarController newCarCont;
         public Stage2TextMan stage2TextManager;
         public GameObject slowCollider;
-        public GameObject boxesToDestroy;
+     
         public GameObject boxesToEnable;
         private void OnTriggerEnter(Collider other)
         {
@@ -18,11 +18,15 @@ namespace SSGFE.Alpha.Phases.Games
                 stage2TextManager.arrayPos = 16;
                 Destroy(this.gameObject);
                 Destroy(slowCollider);
-                Destroy(boxesToDestroy);
+                
                 boxesToEnable.gameObject.SetActive(true);
                 newCarCont.maxSpeed = newCarCont.maxSpeed + 5;
+                //StartCoroutine(RemoveBoxes());
+              //  Destroy(boxesToDestroy);
             }
 
         }
+
+     
     }
 }
