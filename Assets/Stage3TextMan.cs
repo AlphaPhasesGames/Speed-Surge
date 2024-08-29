@@ -11,7 +11,7 @@ namespace SSGFE.Alpha.Phases.Games
     {
         public bool hasScrolled;
         public Stage3VehicleSelectScript vehSelectMan;
-        public NewCarController newCarCont;
+        public NewCarControllerStage3 newCarCont;
         public GameObject currentTextSection;
 
       //  public GameObject carObject;

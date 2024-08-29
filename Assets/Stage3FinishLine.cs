@@ -5,7 +5,7 @@ namespace SSGFE.Alpha.Phases.Games
 {
     public class Stage3FinishLine : MonoBehaviour
     {
-        public NewCarController newCarCont;
+        public NewCarControllerStage3 newCarCont;
         //public GameObject wall;
         //public GameObject breakableWall;
         public Stage3TextMan textMan;

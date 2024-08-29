@@ -6,7 +6,7 @@ namespace SSGFE.Alpha.Phases.Games
 {
     public class Stage3CollisonObjectStep3 : MonoBehaviour
     {
-        public NewCarController newCarCont;
+        public NewCarControllerStage3 newCarCont;
         //  public Stage2TextMan stage2TextManager;
         private void OnTriggerEnter(Collider other)
         {

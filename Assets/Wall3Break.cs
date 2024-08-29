@@ -5,7 +5,7 @@ namespace SSGFE.Alpha.Phases.Games
 {
     public class Wall3Break : MonoBehaviour
     {
-        public NewCarController newCarCont;
+        public NewCarControllerStage3 newCarCont;
         public GameObject wall;
         public GameObject breakableWall; 
         public Stage3TextMan textMan;

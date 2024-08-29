@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40eaabd91ff926b4d83a1acc6e9bab59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!1001 &22246280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1169,7 +1169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644dd8602db59e242afe939cd78d40e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!64 &57133326
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1491,7 +1491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10962b1c3d339b45b80200bcbd3c3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
   textMan: {fileID: 288598803}
 --- !u!65 &66443220
 BoxCollider:
@@ -2025,7 +2025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644dd8602db59e242afe939cd78d40e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!64 &107992933
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2790,7 +2790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644dd8602db59e242afe939cd78d40e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!64 &154190280
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3737,7 +3737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860b0b5578fbe854a8b6a5243ebadb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!1 &192381095
 GameObject:
   m_ObjectHideFlags: 0
@@ -4249,6 +4249,60 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3524805284931891687, guid: 68ba69442ccf6c743ba0757dde130d06, type: 3}
   m_PrefabInstance: {fileID: 1457857974}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &215064641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215064640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e78b091b3f03e14d9f9d5328ebc0cbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereRB: {fileID: 223509673}
+  speed: {fileID: 1748146561}
+  engineIdle: {fileID: 0}
+  engine: {fileID: 887250594}
+  skate: {fileID: 574183216}
+  skateAudioSelected: 0
+  engineAudioSelected: 0
+  runOnce: 0
+  runTwice: 0
+  engineIsIdle: 0
+  startingPitch: 1
+  timeToIncrease: 5
+  timeToDecrease: 1
+  pitchLimitMax: 2.2
+  pitchLimitMin: 1
+  volumeTracker: 0
+  minVolume: 0
+  maxVolume: 1
+  fwdSpeed: 0
+  revSpeed: 10
+  turnSpeed: 2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  isCarActive: 0
+  turnAcceleration: 0.1
+  acceleration: 0.08
+  maxSpeed: 30
+  minSpeed: 1
+  maxTurn: 3
+  minTurn: 1
+  velocity: {x: 0, y: 0, z: 0}
+  chooseCar: 0
+  chooseToyCar: 0
+  chooseToilet: 0
+  chooseBath: 0
+  chooseBed: 0
+  chooseSkate: 0
+  carTurningReverse: 0
+  airDrag: 0.1
+  groundDrag: 2
+  alignToGroundTime: 10
 --- !u!1001 &219411831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4485,6 +4539,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 222635406}
   m_CullTransparentMesh: 1
+--- !u!54 &223509673 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 4499824117564989123, guid: 68ba69442ccf6c743ba0757dde130d06, type: 3}
+  m_PrefabInstance: {fileID: 1457857974}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &225261066
 GameObject:
   m_ObjectHideFlags: 0
@@ -5355,7 +5414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasScrolled: 0
   vehSelectMan: {fileID: 288598805}
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
   currentTextSection: {fileID: 0}
   carRespawner: {fileID: 214379111}
   sphereParent: {fileID: 1806497005}
@@ -5393,6 +5452,7 @@ MonoBehaviour:
   textScript12: {fileID: 484823689}
   textScript13: {fileID: 673388141}
   textScript14: {fileID: 1088687377}
+  textScript15: {fileID: 1774488396}
   restrictionBool1: 0
   restrictionBool2: 0
   restrictionBool3: 0
@@ -5480,7 +5540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9689c86c4be61bf4bba4ffdadd5b5ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
   stage2TextMan: {fileID: 288598803}
   carButton: {fileID: 1069676724}
   skateBoardButton: {fileID: 99681678}
@@ -6410,7 +6470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644dd8602db59e242afe939cd78d40e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!64 &371041520
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12274,7 +12334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40eaabd91ff926b4d83a1acc6e9bab59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!1 &723479505
 GameObject:
   m_ObjectHideFlags: 0
@@ -13470,7 +13530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40eaabd91ff926b4d83a1acc6e9bab59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!1001 &806161280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14007,7 +14067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2172cd74dfdc0f40abf8e98fb1e9824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 0}
   stage1TextMan: {fileID: 0}
   wrongAnswer: 0
   runOnce: 0
@@ -15145,7 +15205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860b0b5578fbe854a8b6a5243ebadb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!1001 &878401745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15307,7 +15367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40eaabd91ff926b4d83a1acc6e9bab59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!1 &881839652
 GameObject:
   m_ObjectHideFlags: 0
@@ -15554,7 +15614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860b0b5578fbe854a8b6a5243ebadb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!1 &887250592
 GameObject:
   m_ObjectHideFlags: 0
@@ -16183,7 +16243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644dd8602db59e242afe939cd78d40e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!64 &972029092
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16587,7 +16647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644dd8602db59e242afe939cd78d40e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!64 &994625368
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17850,7 +17910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644dd8602db59e242afe939cd78d40e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!64 &1027013994
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20376,7 +20436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860b0b5578fbe854a8b6a5243ebadb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!1001 &1169023216
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21168,7 +21228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860b0b5578fbe854a8b6a5243ebadb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!1 &1218515799
 GameObject:
   m_ObjectHideFlags: 0
@@ -25551,7 +25611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860b0b5578fbe854a8b6a5243ebadb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!4 &1454380883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6a9455853eeb4914ba94dcf36336d13f, type: 3}
@@ -25733,11 +25793,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1073980974713768938, guid: 68ba69442ccf6c743ba0757dde130d06, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6062429365142735504, guid: 68ba69442ccf6c743ba0757dde130d06, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3524805284931891687, guid: 68ba69442ccf6c743ba0757dde130d06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 215064641}
   m_SourcePrefab: {fileID: 100100000, guid: 68ba69442ccf6c743ba0757dde130d06, type: 3}
 --- !u!1 &1457857975 stripped
 GameObject:
@@ -26009,7 +26073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644dd8602db59e242afe939cd78d40e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!64 &1461496646
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27452,7 +27516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac85e49e3568aa44bb0e8bce45d319b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
   wall: {fileID: 514015498}
   breakableWall: {fileID: 2025010771}
   textMan: {fileID: 288598803}
@@ -27588,17 +27652,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3ca9380a5b946e8449d952ddd5c7993a, type: 3}
   m_PrefabInstance: {fileID: 1539866844}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1549527914 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1073980974713768938, guid: 68ba69442ccf6c743ba0757dde130d06, type: 3}
-  m_PrefabInstance: {fileID: 1457857974}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215064640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc8c71c2279fdca4894c58f190d7f49a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1549527915 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4046796129618908525, guid: 68ba69442ccf6c743ba0757dde130d06, type: 3}
@@ -28873,7 +28926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0669fd27492ca47b3eb609403f4b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
   wall: {fileID: 175301667}
   breakableWall: {fileID: 2141305927}
   textMan: {fileID: 288598803}
@@ -32426,6 +32479,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3ca9380a5b946e8449d952ddd5c7993a, type: 3}
   m_PrefabInstance: {fileID: 1838223177}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1841428571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1841428574}
+  - component: {fileID: 1841428573}
+  - component: {fileID: 1841428572}
+  m_Layer: 0
+  m_Name: Reverse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1841428572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841428571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0a8e000dcff054281fbf167d4e284c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carCont: {fileID: 215064641}
+--- !u!65 &1841428573
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841428571}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 47.24299, y: 16.891756, z: 17.467758}
+  m_Center: {x: 10.084194, y: 6.903838, z: -0.20832825}
+--- !u!4 &1841428574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841428571}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 104.804276, y: 13.26, z: -102.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1845392632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32587,7 +32707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860b0b5578fbe854a8b6a5243ebadb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!1001 &1850950669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32806,7 +32926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644dd8602db59e242afe939cd78d40e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!64 &1851049785
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33807,7 +33927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644dd8602db59e242afe939cd78d40e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
 --- !u!64 &1936573035
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35055,7 +35175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18bad2b2bf7fdeb4494d3909c6277256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCarCont: {fileID: 1549527914}
+  newCarCont: {fileID: 215064641}
   textMan: {fileID: 288598803}
   wall: {fileID: 8002257375332754943}
   breakableWall: {fileID: 1230277959}
@@ -38092,3 +38212,4 @@ SceneRoots:
   - {fileID: 1081779639}
   - {fileID: 66443221}
   - {fileID: 850874537}
+  - {fileID: 1841428574}
