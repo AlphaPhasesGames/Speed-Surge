@@ -14,6 +14,9 @@ namespace SSGFE.Alpha.Phases.Games
         public NewCarController newCarCont;
         public GameObject currentTextSection;
 
+      //  public GameObject carObject;
+        public GameObject carRespawner;
+
         public GameObject sphereParent;
        // public GameObject resetPosition;
        // public GameObject buttonsPanal;
@@ -33,6 +36,14 @@ namespace SSGFE.Alpha.Phases.Games
         public GameObject forwardParent;
         public Button forwardButton;
         public Button backwardsButton;
+
+        public GameObject textScript11;
+        public GameObject textScript12;
+
+        public GameObject textScript13;
+        public GameObject textScript14;
+
+        public GameObject textScript15;
 
         public bool restrictionBool1;
         public bool restrictionBool2;
@@ -134,6 +145,7 @@ namespace SSGFE.Alpha.Phases.Games
                 {
                     LOLSDK.Instance.SpeakText("stage3MissionText1");
                     // hasScrolled = false;
+                    newCarCont.isCarActive = false;
                     textBool1 = true;
                 }
             }
@@ -247,6 +259,8 @@ namespace SSGFE.Alpha.Phases.Games
                 if (!textBool11)
                 {
                     HideButton();
+                    newCarCont.isCarActive = true;
+                    newCarCont.engineIsIdle = true;
                     LOLSDK.Instance.SpeakText("stage3MissionText11");
                     StartCoroutine(MoveToBlankInvislbePanal());
                     textBool11 = true;
@@ -260,8 +274,10 @@ namespace SSGFE.Alpha.Phases.Games
                 {
                     LOLSDK.Instance.SpeakText("stage3MissionText12");
                     textPanal.gameObject.SetActive(true);
+                    textScript11.gameObject.SetActive(false);
+                    textScript12.gameObject.SetActive(true);
                     forwardParent.gameObject.SetActive(false);
-                    StartCoroutine(MoveToBlankInvislbePanal());
+                    StartCoroutine(RespawnCar());
                     textBool12 = true;
                 }
             }
@@ -272,6 +288,7 @@ namespace SSGFE.Alpha.Phases.Games
                 if (!textBool13)
                 {
                     LOLSDK.Instance.SpeakText("stage1MissionText13");
+                    textPanal.gameObject.SetActive(true);
                     // StartCoroutine(DelayTextButton());
                     StartCoroutine(MoveToBlankInvislbePanal());
 
@@ -286,8 +303,10 @@ namespace SSGFE.Alpha.Phases.Games
                 if (!textBool14)
                 {
                     hasScrolled = false;
-                   // buttonsPanal.gameObject.SetActive(false);
-                   // forwardParent.gameObject.SetActive(true);
+                    textPanal.gameObject.SetActive(true);
+                    // buttonsPanal.gameObject.SetActive(false);
+                    // forwardParent.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanal());
                     LOLSDK.Instance.SpeakText("stage1MissionText14");
 
                     textBool14 = true;
@@ -299,6 +318,9 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (!textBool15)
                 {
+                    textPanal.gameObject.SetActive(true);
+                    textScript13.gameObject.SetActive(false);
+                    textScript14.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanal());
                   ////  newCarCont.isCarActive = true;
                   //  newCarCont.engineIsIdle = true;
@@ -314,6 +336,9 @@ namespace SSGFE.Alpha.Phases.Games
                 if (!textBool16)
                 {
                     // StartCoroutine(MoveToBlankInvislbePanal());
+                    textPanal.gameObject.SetActive(true);
+                    textScript14.gameObject.SetActive(false);
+                    textScript15.gameObject.SetActive(true);
                     forwardParent.gameObject.SetActive(true);
                     newCarCont.isCarActive = false;
                     newCarCont.engineIsIdle = true;
@@ -539,6 +564,21 @@ namespace SSGFE.Alpha.Phases.Games
             yield return new WaitForSeconds(5);
             SceneManager.LoadScene("Main Menu");
         }
+
+        public IEnumerator RespawnCar()
+        {
+            //forwardButton.gameObject.SetActive(false);
+            //   buttonsPanal.gameObject.SetActive(false);
+            yield return new WaitForSeconds(5);
+            textPanal.gameObject.SetActive(false);
+            arrayPos = 24;
+            Debug.Log("This start coRoutine Runs");
+            sphereParent.transform.position = carRespawner.transform.position;
+            sphereParent.transform.rotation = carRespawner.transform.rotation;
+        }
+
+       
+
     }
 
 }

@@ -6,7 +6,7 @@ namespace SSGFE.Alpha.Phases.Games
 {
     public class Stage2IncreaseSpeedNoTextBox : MonoBehaviour
     {
-        public NewCarController newCarCont;
+        public NewCarControllerStage2 newCarCont;
         public GameObject slowCollider;
         public GameObject boxesToEnable;
         private void OnTriggerEnter(Collider other)
@@ -14,6 +14,7 @@ namespace SSGFE.Alpha.Phases.Games
             if (other.CompareTag("Player"))
             {
                 boxesToEnable.gameObject.SetActive(true);
+                newCarCont.volume2Once = true;
                 Destroy(this.gameObject);
                 Destroy(slowCollider);
                 newCarCont.maxSpeed = newCarCont.maxSpeed + 5;

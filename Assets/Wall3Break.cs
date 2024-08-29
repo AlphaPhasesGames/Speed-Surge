@@ -7,8 +7,8 @@ namespace SSGFE.Alpha.Phases.Games
     {
         public NewCarController newCarCont;
         public GameObject wall;
-        public GameObject breakableWall;
-        public bool runOnce;
+        public GameObject breakableWall; 
+        public Stage3TextMan textMan;
 
 
         private void OnTriggerEnter(Collider other)
@@ -20,7 +20,13 @@ namespace SSGFE.Alpha.Phases.Games
                     wall.gameObject.SetActive(false);
                     breakableWall.gameObject.SetActive(true);
                     newCarCont.maxSpeed = 60;
-                    runOnce = true;
+                    textMan.arrayPos = 14;
+                }
+
+
+                if (newCarCont.fwdSpeed < 45)
+                {
+                    textMan.arrayPos = 11;
                 }
             }
           

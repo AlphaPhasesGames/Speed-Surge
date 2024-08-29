@@ -7,7 +7,7 @@ namespace SSGFE.Alpha.Phases.Games
     public class Stage2VehicleSelectScript : MonoBehaviour
     {
         //public SwitchVehicles switchVeh;
-        public NewCarController newCarCont;
+        public NewCarControllerStage2 newCarCont;
         public Stage2TextMan stage2TextMan;
         public Button carButton;
         public Button skateBoardButton;

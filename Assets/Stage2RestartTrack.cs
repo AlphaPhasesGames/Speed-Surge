@@ -6,7 +6,7 @@ namespace SSGFE.Alpha.Phases.Games
 {
     public class Stage2RestartTrack : MonoBehaviour
     {
-        public NewCarController newCarCont;
+        public NewCarControllerStage2 newCarCont;
         public Stage2TextMan stage1TextMan;
         public bool wrongAnswer;
         public bool runOnce;

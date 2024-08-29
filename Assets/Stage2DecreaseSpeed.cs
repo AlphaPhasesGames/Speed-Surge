@@ -6,7 +6,7 @@ namespace SSGFE.Alpha.Phases.Games
 {
     public class Stage2DecreaseSpeed : MonoBehaviour
     {
-        public NewCarController newCarCont;
+        public NewCarControllerStage2 newCarCont;
         public Stage2TextMan stage2TextManager;
         private void OnTriggerEnter(Collider other)
         {

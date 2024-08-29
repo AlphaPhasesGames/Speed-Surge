@@ -20,6 +20,7 @@ namespace SSGFE.Alpha.Phases.Games
                     wall.gameObject.SetActive(false);
                     breakableWall.gameObject.SetActive(true);
                     newCarCont.maxSpeed = 40;
+                    textMan.arrayPos = 12;
                     runOnce = true;
                 }
 

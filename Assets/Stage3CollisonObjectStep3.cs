@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace SSGFE.Alpha.Phases.Games
 {
-    public class Stage3ObjectCollision : MonoBehaviour
+    public class Stage3CollisonObjectStep3 : MonoBehaviour
     {
         public NewCarController newCarCont;
-      //  public Stage2TextMan stage2TextManager;
+        //  public Stage2TextMan stage2TextManager;
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
@@ -21,9 +21,9 @@ namespace SSGFE.Alpha.Phases.Games
 
         public IEnumerator SlowCar()
         {
-            newCarCont.maxSpeed = 20;
+            newCarCont.maxSpeed = 40;
             yield return new WaitForSeconds(0.5f);
-            newCarCont.maxSpeed = 30;
+            newCarCont.maxSpeed = 50;
         }
     }
 }
