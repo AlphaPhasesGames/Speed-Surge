@@ -6,9 +6,11 @@ namespace SSGFE.Alpha.Phases.Games
     public class Wall2Break : MonoBehaviour
     {
         public NewCarControllerStage3 newCarCont;
+        public Stage3ConeAndRespawnManager coneMan;
         public GameObject wall;
         public GameObject breakableWall;
-       // public bool runOnce;
+        public BoxCollider stage2Collider;
+        // public bool runOnce;
         public Stage3TextMan textMan;
 
         private void OnTriggerEnter(Collider other)
@@ -17,11 +19,16 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if (newCarCont.fwdSpeed > 35)
                 {
+                  
+                    coneMan.step2 = false;
+                    coneMan.step3 = true;
+                    
                     wall.gameObject.SetActive(false);
                     breakableWall.gameObject.SetActive(true);
                     newCarCont.maxSpeed = 50;
                     textMan.arrayPos = 13;
-                   // runOnce = true;
+                    StartCoroutine(DestroyWall());
+                    // runOnce = true;
                 }
 
 
@@ -31,6 +38,13 @@ namespace SSGFE.Alpha.Phases.Games
                 }
             }
            
+        }
+
+        public IEnumerator DestroyWall()
+        {
+            yield return new WaitForSeconds(2f);
+            stage2Collider.gameObject.SetActive(false);
+            Destroy(breakableWall);
         }
     }
 }

@@ -102,10 +102,7 @@ namespace SSGFE.Alpha.Phases.Games
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                carTurningReverse = true;
-            }
+       
 
             skate.volume = volumeTracker;
 

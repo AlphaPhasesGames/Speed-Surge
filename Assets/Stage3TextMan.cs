@@ -13,13 +13,9 @@ namespace SSGFE.Alpha.Phases.Games
         public Stage3VehicleSelectScript vehSelectMan;
         public NewCarControllerStage3 newCarCont;
         public GameObject currentTextSection;
-
-      //  public GameObject carObject;
-        public GameObject carRespawner;
-
+        public Transform carRespawner;
         public GameObject sphereParent;
-       // public GameObject resetPosition;
-       // public GameObject buttonsPanal;
+        public GameObject respawnerPos;
         public int arrayPos;
         public int maxLengthArray;
         public int minLengthArray = 1;
@@ -27,6 +23,14 @@ namespace SSGFE.Alpha.Phases.Games
         public bool answerCorrect;
 
         public GameObject[] modelArray;
+
+        public GameObject textScript11;
+        public GameObject textScript12;
+
+        public GameObject textScript13;
+        public GameObject textScript14;
+        public GameObject textScript15;
+        public GameObject textScript16;
 
         public GameObject textPanal;
         public bool panalOpen;
@@ -37,363 +41,152 @@ namespace SSGFE.Alpha.Phases.Games
         public Button forwardButton;
         public Button backwardsButton;
 
-        public GameObject textScript11;
-        public GameObject textScript12;
-
-        public GameObject textScript13;
-        public GameObject textScript14;
-
-        public GameObject textScript15;
-
-        public bool restrictionBool1;
-        public bool restrictionBool2;
-        public bool restrictionBool3;
-        public bool restrictionBool4;
-        public bool restrictionBool5;
-
-        public bool textBool1;
-        public bool textBool2;
-        public bool textBool3;
-        public bool textBool4;
-        public bool textBool5;
-        public bool textBool6;
-        public bool textBool7;
-        public bool textBool8;
-        public bool textBool9;
-        public bool textBool10;
-        public bool textBool11;
-        public bool textBool12;
-        public bool textBool13;
-        public bool textBool14;
-        public bool textBool15;
-        public bool textBool16;
-        public bool textBool17;
-
-
-        public Button textButton1;
-        public Button textButton2;
-        public Button textButton3;
-        public Button textButton4;
-        public Button textButton5;
-        public Button textButton6;
-        public Button textButton7;
-        public Button textButton8;
-        public Button textButton9;
-        public Button textButton10;
-        public Button textButton11;
-        public Button textButton12;
-        public Button textButton13;
-        public Button textButton14;
-        public Button textButton15;
-        public Button textButton16;
-        public Button textButton17;
-
+        public Button[] textButtons;
+        public bool[] textBools;
 
 
         private void Awake()
         {
             forwardButton.onClick.AddListener(ProgressTextForward);
             backwardsButton.onClick.AddListener(ProgressTextBack);
-            textButton1.onClick.AddListener(IntroTTSSpeak1);
-            textButton2.onClick.AddListener(IntroTTSSpeak2);
-            textButton3.onClick.AddListener(IntroTTSSpeak3);
-            textButton4.onClick.AddListener(IntroTTSSpeak4);
-            textButton5.onClick.AddListener(IntroTTSSpeak5);
-            textButton6.onClick.AddListener(IntroTTSSpeak6);
-            textButton7.onClick.AddListener(IntroTTSSpeak7);
-            textButton8.onClick.AddListener(IntroTTSSpeak8);
-            textButton9.onClick.AddListener(IntroTTSSpeak9);
-            textButton10.onClick.AddListener(IntroTTSSpeak10);
-            textButton11.onClick.AddListener(IntroTTSSpeak11);
-            textButton12.onClick.AddListener(IntroTTSSpeak12);
-            textButton13.onClick.AddListener(IntroTTSSpeak13);
-            textButton14.onClick.AddListener(IntroTTSSpeak14);
-            textButton15.onClick.AddListener(IntroTTSSpeak15);
-            textButton16.onClick.AddListener(IntroTTSSpeak16);
-            textButton17.onClick.AddListener(IntroTTSSpeak17);
+
+            for (int i = 0; i < textButtons.Length; i++)
+            {
+                int index = i + 1;  // Adjust index to match textButton number
+                textButtons[i].onClick.AddListener(() => IntroTTSSpeak(index));
+            }
+            answerCorrect = false;
             StartCoroutine(StartLevelText());
         }
         // Start is called before the first frame update
 
         void Start()
         {
-            //arrayPos = 0; // on start set array pos to 0
-            currentTextSection = modelArray[arrayPos]; // the current object we have selected is the building brick assigned by the arrayPos
-            maxLengthArray = modelArray.Length; // max length of array is the length of the buildingBricks array
-
+            arrayPos = 0;
+            maxLengthArray = modelArray.Length;
+            textBools = new bool[maxLengthArray];
         }
 
         void Update()
         {
             if (!hasScrolled)
             {
-                for (int i = 0; i < 17; i++)
+                // Deactivate all previous text objects
+                foreach (var obj in modelArray)
                 {
-                    modelArray[i].SetActive(i == arrayPos);
-                    Debug.Log("Do We SCroll Forever");
-                    // StartCoroutine(DelayTextButton());
-                    hasScrolled = true;
-
+                    obj.SetActive(false);
                 }
+
+                // Activate the current text object
+                if (arrayPos >= 0 && arrayPos < modelArray.Length)
+                {
+                    modelArray[arrayPos].SetActive(true);
+                }
+
+                hasScrolled = true;
             }
 
-
-
-            if (arrayPos == 0)
+            if (!textBools[arrayPos])
             {
-                if (!textBool1)
-                {
-                    LOLSDK.Instance.SpeakText("stage3MissionText1");
-                    // hasScrolled = false;
+                HandleArrayPosActions();
+                textBools[arrayPos] = true;
+            }
+
+           
+        }
+
+        private void HandleArrayPosActions()
+        {
+            switch (arrayPos)
+            {
+                case 0:
                     newCarCont.isCarActive = false;
-                    textBool1 = true;
-                }
-            }
-
-
-            if (arrayPos == 1)
-            {
-                if (!textBool2)
-                {
-                    LOLSDK.Instance.SpeakText("stage3MissionText2ChooseCar");
+                    SpeakText("stage3MissionText1"); break;
+                case 1:
                     HideButton();
-                    //  vehSelectMan.panalOpen = true;
+                    // vehSelectMan.panalOpen = true;
                     vehSelectMan.selectionPanal.gameObject.SetActive(true);
-                    textBool2 = true;
-                }
-            }
-
-            if (arrayPos == 2)
-            {
-                if (!textBool3)
-                {
-                    forwardParent.gameObject.SetActive(true);
+                    SpeakText("stage3MissionText2ChooseCar"); break;
+                case 2:
                     vehSelectMan.selectionPanal.gameObject.SetActive(false);
-                    LOLSDK.Instance.SpeakText("stage3MissionText3");
-                    textBool3 = true;
-                }
-            }
-
-
-            if (arrayPos == 3)
-            {
-                if (!textBool4)
-                {
-                    LOLSDK.Instance.SpeakText("stage3MissionText4");
-                   
-                    textBool4 = true;
-                }
-            }
-
-
-            if (arrayPos == 4)
-            {
-                if (!textBool5)
-                {
-                  
-                    LOLSDK.Instance.SpeakText("stage3MissionText5");
-                    // hasScrolled = false;
-                    textBool5 = true;
-                }
-            }
-
-
-            if (arrayPos == 5)
-            {
-                if (!textBool6)
-                {
-                    LOLSDK.Instance.SpeakText("stage3MissionText6");
-                  
-                    textBool6 = true;
-                }
-            }
-
-
-
-            if (arrayPos == 6)
-            {
-                if (!textBool7)
-                {
-                    LOLSDK.Instance.SpeakText("stage3MissionText7");
-                    textBool7 = true;
-                }
-            }
-
-
-
-            if (arrayPos == 7)
-            {
-                if (!textBool8)
-                {
-                    LOLSDK.Instance.SpeakText("stage3MissionText8");
-
-                    textBool8 = true;
-                }
-            }
-
-
-            if (arrayPos == 8)
-            {
-                if (!textBool9)
-                {
-                    LOLSDK.Instance.SpeakText("stage3MissionText9");
-                    // hasScrolled = false;
-                    textBool9 = true;
-                }
-            }
-
-
-            if (arrayPos == 9)
-            {
-                if (!textBool10)
-                {
-                    LOLSDK.Instance.SpeakText("stage3MissionText10");
-
-                    textBool10 = true;
-                }
-            }
-
-
-            if (arrayPos == 10)
-            {
-                if (!textBool11)
-                {
+                    SpeakText("stage3MissionText3"); break;
+                case 3: SpeakText("stage3MissionText4"); break;
+                case 4: SpeakText("stage3MissionText5"); break;
+                case 5: SpeakText("stage3MissionText6"); break;
+                case 6: SpeakText("stage3MissionText7"); break;
+                case 7: SpeakText("stage3MissionText8"); break;
+                case 8: SpeakText("stage3MissionText9"); break;
+                case 9: SpeakText("stage3MissionText10"); break;
+                case 10: SpeakText("stage3MissionText11");
+                    StartCoroutine(MoveToBlankInvislbePanal());
                     HideButton();
                     newCarCont.isCarActive = true;
-                    newCarCont.engineIsIdle = true;
-                    LOLSDK.Instance.SpeakText("stage3MissionText11");
-                    StartCoroutine(MoveToBlankInvislbePanal());
-                    textBool11 = true;
-                }
-            }
-
-
-            if (arrayPos == 11)
-            {
-                if (!textBool12)
-                {
-                    LOLSDK.Instance.SpeakText("stage3MissionText12");
+                    newCarCont.engineIsIdle = true; break;
+                case 11:
                     textPanal.gameObject.SetActive(true);
                     textScript11.gameObject.SetActive(false);
+                    textScript13.gameObject.SetActive(false);
+                    textScript14.gameObject.SetActive(false);
+                    textScript15.gameObject.SetActive(false);
                     textScript12.gameObject.SetActive(true);
                     forwardParent.gameObject.SetActive(false);
                     StartCoroutine(RespawnCar());
-                    textBool12 = true;
-                }
-            }
-
-
-            if (arrayPos == 12)
-            {
-                if (!textBool13)
-                {
-                    LOLSDK.Instance.SpeakText("stage1MissionText13");
+                    SpeakText("stage3MissionText12"); break;
+                case 12:
+                    textScript11.gameObject.SetActive(false);
+                    textScript12.gameObject.SetActive(false);
+                    textScript14.gameObject.SetActive(false);
+                    textScript13.gameObject.SetActive(true);
                     textPanal.gameObject.SetActive(true);
                     // StartCoroutine(DelayTextButton());
                     StartCoroutine(MoveToBlankInvislbePanal());
-
-                    hasScrolled = false;
-                    textBool13 = true;
-                }
-            }
-
-
-            if (arrayPos == 13)
-            {
-                if (!textBool14)
-                {
-                    hasScrolled = false;
+                    SpeakText("stage3MissionText13"); break;
+                case 13:
                     textPanal.gameObject.SetActive(true);
-                    // buttonsPanal.gameObject.SetActive(false);
-                    // forwardParent.gameObject.SetActive(true);
-                    StartCoroutine(MoveToBlankInvislbePanal());
-                    LOLSDK.Instance.SpeakText("stage1MissionText14");
-
-                    textBool14 = true;
-                }
-            }
-
-
-            if (arrayPos == 14)
-            {
-                if (!textBool15)
-                {
-                    textPanal.gameObject.SetActive(true);
+                    textScript12.gameObject.SetActive(false);
                     textScript13.gameObject.SetActive(false);
                     textScript14.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanal());
-                  ////  newCarCont.isCarActive = true;
-                  //  newCarCont.engineIsIdle = true;
-                  // forwardParent.gameObject.SetActive(false);
-                    LOLSDK.Instance.SpeakText("stage1MissionText15");
-                    textBool15 = true;
-                }
-            }
-
-
-            if (arrayPos == 15)
-            {
-                if (!textBool16)
-                {
-                    // StartCoroutine(MoveToBlankInvislbePanal());
+                    SpeakText("stage3MissionText14"); break;
+                case 14:
                     textPanal.gameObject.SetActive(true);
+                    textScript12.gameObject.SetActive(false);
+                    textScript13.gameObject.SetActive(false);
                     textScript14.gameObject.SetActive(false);
                     textScript15.gameObject.SetActive(true);
+                    StartCoroutine(MoveToBlankInvislbePanal());
+                    SpeakText("stage3MissionText15");
+                    break;
+                case 15:
+                    textPanal.gameObject.SetActive(true);
+                    textScript15.gameObject.SetActive(false);
+                    textScript16.gameObject.SetActive(true);
                     forwardParent.gameObject.SetActive(true);
                     newCarCont.isCarActive = false;
                     newCarCont.engineIsIdle = true;
-                    LOLSDK.Instance.SpeakText("stage1MissionText16Correct");
-
-                    textBool16 = true;
-                }
-            }
-
-
-            if (arrayPos == 16)
-            {
-                if (!textBool17)
-                {
-                    LOLSDK.Instance.SpeakText("stage1MissionText17");
+                    //  newCarCont.engineIsIdle = true;
+                    SpeakText("stage3MissionText16");
+                    break;
+                case 16:
+                    SpeakText("stage3MissionText17");
                     forwardParent.gameObject.SetActive(false);
-                    StartCoroutine(ChangeScene());
-                    // newCarCont.isCarActive = true;
-                    textBool17 = true;
-                }
-            }
-
-
-
-            if (restrictionBool1)
-            {
-                if (answerCorrect)
-                {
-
-                    //arrayPos = 18;
+            
                     textPanal.gameObject.SetActive(true);
-                    forwardParent.gameObject.SetActive(true);
-                    //  StartCoroutine(CorrectAnswerCoRoutine());
-                    restrictionBool1 = false;
-                    newCarCont.isCarActive = false;
-                }
-
+                    StartCoroutine(ChangeScene());
+                    //hasScrolled = false;
+                    break;
+               
             }
-           
-
-
-
-
         }
 
         public void ProgressTextForward()
         {
             arrayPos++;
-            StopCoroutine(DelayTextButton());
             StartCoroutine(DelayTextButton());
             hasScrolled = false;
             forwardButton.gameObject.SetActive(false);
-            //  panalOpen = false;
-
         }
+
 
         public void ProgressTextBack()
         {
@@ -419,6 +212,7 @@ namespace SSGFE.Alpha.Phases.Games
         }
 
 
+
         public IEnumerator StartLevelText()
         {
             //forwardButton.gameObject.SetActive(false);
@@ -435,146 +229,42 @@ namespace SSGFE.Alpha.Phases.Games
          //   buttonsPanal.gameObject.SetActive(false);
             yield return new WaitForSeconds(5);
             textPanal.gameObject.SetActive(false);
-            arrayPos = 24;
-            Debug.Log("This start coRoutine Runs");
-
-        }
-
-        public IEnumerator CorrectAnswerCoRoutine()
-        {
-            //forwardButton.gameObject.SetActive(false);
-            hasScrolled = false;
-            yield return new WaitForSeconds(5);
-            textPanal.gameObject.SetActive(true);
-            textBool13 = false;
-            arrayPos = 12;
+            arrayPos = 17;
             Debug.Log("This start coRoutine Runs");
 
         }
 
 
-
-
-        public void IntroTTSSpeak1()
+        public void IntroTTSSpeak(int textIndex)
         {
-            LOLSDK.Instance.SpeakText("stage1MissionText1");
-            Debug.Log(" introText1 Button is pressed");
+            string textKey = $"stage2MissionText{textIndex}";
+            LOLSDK.Instance.SpeakText(textKey);
+            Debug.Log($"Intro Text {textIndex} Button is pressed");
         }
 
-        public void IntroTTSSpeak2()
+        private void SpeakText(string textKey)
         {
-            LOLSDK.Instance.SpeakText("stage1MissionText2");
-            Debug.Log("introText2 Button is pressed");
-        }
-
-        public void IntroTTSSpeak3()
-        {
-            LOLSDK.Instance.SpeakText("stage1MissionText3");
-            Debug.Log("introText3 Button is pressed");
-        }
-
-        public void IntroTTSSpeak4()
-        {
-            LOLSDK.Instance.SpeakText("stage1MissionText4");
-            Debug.Log("introText2 Button is pressed");
-        }
-
-        public void IntroTTSSpeak5()
-        {
-            LOLSDK.Instance.SpeakText("stage1MissionText5");
-            Debug.Log("introText3 Button is pressed");
-        }
-
-        public void IntroTTSSpeak6()
-        {
-            LOLSDK.Instance.SpeakText("stage1MissionText6");
-            Debug.Log(" introText1 Button is pressed");
-        }
-
-        public void IntroTTSSpeak7()
-        {
-            LOLSDK.Instance.SpeakText("stage1MissionText7");
-            Debug.Log("introText2 Button is pressed");
-        }
-
-        public void IntroTTSSpeak8()
-        {
-            LOLSDK.Instance.SpeakText("stage1MissionText8");
-            Debug.Log("introText3 Button is pressed");
-        }
-
-        public void IntroTTSSpeak9()
-        {
-            LOLSDK.Instance.SpeakText("stage1MissionText9");
-            Debug.Log("introText2 Button is pressed");
-        }
-
-        public void IntroTTSSpeak10()
-        {
-            LOLSDK.Instance.SpeakText("stage1MissionText10");
-            Debug.Log("introText3 Button is pressed");
-        }
-
-
-        public void IntroTTSSpeak11()
-        {
-            LOLSDK.Instance.SpeakText("stage1MissionText11");
-            Debug.Log(" introText1 Button is pressed");
-        }
-
-        public void IntroTTSSpeak12()
-        {
-            LOLSDK.Instance.SpeakText("stage1MissionText12");
-            Debug.Log("introText2 Button is pressed");
-        }
-
-        public void IntroTTSSpeak13()
-        {
-            LOLSDK.Instance.SpeakText("stage1MissionText13");
-            Debug.Log("introText3 Button is pressed");
-        }
-
-        public void IntroTTSSpeak14()
-        {
-            LOLSDK.Instance.SpeakText("stage1MissionText14");
-            Debug.Log("introText2 Button is pressed");
-        }
-
-        public void IntroTTSSpeak15()
-        {
-            LOLSDK.Instance.SpeakText("stage1MissionText15");
-            Debug.Log("introText3 Button is pressed");
-        }
-
-        public void IntroTTSSpeak16()
-        {
-            LOLSDK.Instance.SpeakText("stage1MissionText16");
-            Debug.Log(" introText1 Button is pressed");
-        }
-
-        public void IntroTTSSpeak17()
-        {
-            LOLSDK.Instance.SpeakText("stage1MissionText17Question");
-            Debug.Log("introText2 Button is pressed");
+            LOLSDK.Instance.SpeakText(textKey);
         }
 
 
         public IEnumerator ChangeScene()
         {
             yield return new WaitForSeconds(5);
-            SceneManager.LoadScene("Main Menu");
+            SceneManager.LoadScene("Stage 3 Increased Energy");
         }
-
         public IEnumerator RespawnCar()
         {
             //forwardButton.gameObject.SetActive(false);
             //   buttonsPanal.gameObject.SetActive(false);
+            newCarCont.enabled = false;
             yield return new WaitForSeconds(5);
             textPanal.gameObject.SetActive(false);
-            arrayPos = 24;
+            arrayPos = 17;
             Debug.Log("This start coRoutine Runs");
-            sphereParent.transform.position = carRespawner.transform.position;
-            sphereParent.transform.rotation = carRespawner.transform.rotation;
+            sphereParent.transform.position = respawnerPos.transform.position;
+            sphereParent.transform.rotation = Quaternion.Euler(0, 70, 0);
+            newCarCont.enabled = true;
         }
 
        
