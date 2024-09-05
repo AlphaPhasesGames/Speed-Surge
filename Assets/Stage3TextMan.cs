@@ -16,6 +16,8 @@ namespace SSGFE.Alpha.Phases.Games
         public Transform carRespawner;
         public GameObject sphereParent;
         public GameObject respawnerPos;
+        public GameObject respawnerPos2;
+        public GameObject respawnerPos3;
         public int arrayPos;
         public int maxLengthArray;
         public int minLengthArray = 1;
@@ -130,7 +132,7 @@ namespace SSGFE.Alpha.Phases.Games
                     textScript15.gameObject.SetActive(false);
                     textScript12.gameObject.SetActive(true);
                     forwardParent.gameObject.SetActive(false);
-                    StartCoroutine(RespawnCar());
+                    //StartCoroutine(RespawnCar());
                     SpeakText("stage3MissionText12"); break;
                 case 12:
                     textScript11.gameObject.SetActive(false);
@@ -237,7 +239,7 @@ namespace SSGFE.Alpha.Phases.Games
 
         public void IntroTTSSpeak(int textIndex)
         {
-            string textKey = $"stage2MissionText{textIndex}";
+            string textKey = $"stage3MissionText{textIndex}";
             LOLSDK.Instance.SpeakText(textKey);
             Debug.Log($"Intro Text {textIndex} Button is pressed");
         }
@@ -251,7 +253,7 @@ namespace SSGFE.Alpha.Phases.Games
         public IEnumerator ChangeScene()
         {
             yield return new WaitForSeconds(5);
-            SceneManager.LoadScene("Stage 3 Increased Energy");
+            SceneManager.LoadScene("Stage 4 Transfering Energy");
         }
         public IEnumerator RespawnCar()
         {
@@ -267,8 +269,33 @@ namespace SSGFE.Alpha.Phases.Games
             newCarCont.enabled = true;
         }
 
-       
+        public IEnumerator RespawnCar2()
+        {
+            //forwardButton.gameObject.SetActive(false);
+            //   buttonsPanal.gameObject.SetActive(false);
+            newCarCont.enabled = false;
+            yield return new WaitForSeconds(5);
+            textPanal.gameObject.SetActive(false);
+            arrayPos = 17;
+            Debug.Log("This start coRoutine Runs");
+            sphereParent.transform.position = respawnerPos2.transform.position;
+            sphereParent.transform.rotation = Quaternion.Euler(0, 70, 0);
+            newCarCont.enabled = true;
+        }
 
+        public IEnumerator RespawnCar3()
+        {
+            //forwardButton.gameObject.SetActive(false);
+            //   buttonsPanal.gameObject.SetActive(false);
+            newCarCont.enabled = false;
+            yield return new WaitForSeconds(5);
+            textPanal.gameObject.SetActive(false);
+            arrayPos = 17;
+            Debug.Log("This start coRoutine Runs");
+            sphereParent.transform.position = respawnerPos3.transform.position;
+            sphereParent.transform.rotation = Quaternion.Euler(0, 70, 0);
+            newCarCont.enabled = true;
+        }
     }
 
 }

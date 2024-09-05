@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Alpha Phases/Scenes/Stage 3 Increased Energy.unity
     guid: 0e2efb824cf81ac45b41054dc4e64151
+  - enabled: 1
+    path: Assets/Alpha Phases/Scenes/Stage 4 Transfering Energy.unity
+    guid: 83f798f76fb5f8741bb923b79b7fe972
   m_configObjects: {}

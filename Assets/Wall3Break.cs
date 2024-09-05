@@ -33,6 +33,7 @@ namespace SSGFE.Alpha.Phases.Games
                 if (newCarCont.fwdSpeed < 45)
                 {
                     textMan.arrayPos = 11;
+                    textMan.StartCoroutine(textMan.RespawnCar3());
                 }
             }
           

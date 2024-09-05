@@ -134,19 +134,19 @@ namespace SSGFE.Alpha.Phases.Games
 
                }
            }
-           /*
+           
            if (sSQFESaveData.current_stage == 4)
            {
-               SceneManager.LoadScene("Stage4DockingBay");
+              
                if (!loadSavesOnce)
                {
-                   taskNumberDock = sSQFESaveData.task_number_dock;
-                   // currentStage = tusomSaveData.current_stage;
-                   loadSavesOnce = true;
+                    SceneManager.LoadScene("Stage 4 Transfering Energy");
+                    // currentStage = tusomSaveData.current_stage;
+                    loadSavesOnce = true;
                    Debug.Log("Stage 4 update runs - load save data from save");
                }
            }
-           */
+           
             Debug.Log("Load Function Called");
         }
 
@@ -182,8 +182,13 @@ namespace SSGFE.Alpha.Phases.Games
 
                 Debug.Log("Loaded Stage 3");
             }
+            if (currentStage == 4)
+            {
+                SceneManager.LoadScene("Stage 4 Transfering Energy");
 
-  
+                Debug.Log("Loaded Stage 4");
+            }
+
             Debug.Log("Loaded Save");
         }
 
@@ -208,6 +213,15 @@ namespace SSGFE.Alpha.Phases.Games
         public void SaveStage3()
         {
             currentStage = 3;
+            sSQFESaveData.current_stage = currentStage;
+            //sSQFESaveData.current_stage = currentStage;
+            Save();
+            Debug.Log("Forces Saved Fired");
+        }
+
+        public void SaveStage4()
+        {
+            currentStage = 4;
             sSQFESaveData.current_stage = currentStage;
             //sSQFESaveData.current_stage = currentStage;
             Save();

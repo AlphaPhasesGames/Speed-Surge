@@ -10,6 +10,9 @@ namespace SSGFE.Alpha.Phases.Games
         public Stage3TextMan textMan;
         public GameObject wall;
         public GameObject breakableWall;
+        public GameObject conesToDelete;
+        public GameObject conesToEnable;
+        public GameObject WallsToEnable;
         public BoxCollider stage1Collider;
         public bool runOnce;
 
@@ -23,7 +26,9 @@ namespace SSGFE.Alpha.Phases.Games
                    
                     coneMan.step1 = false;
                     coneMan.step2 = true;
-                   
+                    Destroy(conesToDelete);
+                    conesToEnable.gameObject.SetActive(true);
+                    WallsToEnable.gameObject.SetActive(true);
                     wall.gameObject.SetActive(false);
                     breakableWall.gameObject.SetActive(true);
                     newCarCont.maxSpeed = 40;
@@ -35,6 +40,7 @@ namespace SSGFE.Alpha.Phases.Games
                 if (newCarCont.fwdSpeed < 25)
                 {
                     textMan.arrayPos = 11;
+                    textMan.StartCoroutine(textMan.RespawnCar());
                 }
             }
             
