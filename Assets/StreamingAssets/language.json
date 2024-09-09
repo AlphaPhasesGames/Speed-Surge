@@ -85,11 +85,12 @@
       "stage4MissionText10": "70",
       "stage4MissionText11": "30",
       "stage4MissionText12": "110",
-      "stage4MissionText13": "75",
-      "stage4MissionText14": "60",
-      "stage4MissionText15": "80",
-      "stage4MissionText16": "150",
-      "stage4MissionText17": "45",
+      "stage4MissionText13": "130",
+      "stage4MissionText14": "90",
+      "stage4MissionText15": "60",
+      "stage4MissionText16": "80",
+      "stage4MissionText17": "150",
+      "stage4MissionText18": "45",
       "autoSave": "40"
     }
   },
@@ -178,11 +179,12 @@
      "stage4MissionText10": "You need to reach at least 50mph to knock down enough pins.",
      "stage4MissionText11": "Let's get going!",
      "stage4MissionText12": "Looks like you didn't knock down enough pins. Let's put you back and the start and try again.",
-     "stage4MissionText13": "Fantastic. You knocked over enough pins to clear the course.",
-     "stage4MissionText14": "Now the Robo League championship can begin.",
-     "stage4MissionText15": "I hope you have a better understanding of the motion and energy.",
-     "stage4MissionText16": "Motion and energy exist in everything we see and do. It's an integral area of physics that helps us understand how the world works.",
-     "stage4MissionText17": "Thank you for your hard work!",
+     "stage4MissionText13": "Fantastic! We transferred the energy from our speeding vehicle into the bowling ball, sending it flying into the pins.",
+     "stage4MissionText14": "We just witnessed firsthand how motion generates energy and transfers it!",
+     "stage4MissionText15": "Now the Robo League championship can begin.",
+     "stage4MissionText16": "I hope you have a better understanding of the motion and energy.",
+     "stage4MissionText17": "Motion and energy exist in everything we see and do. It's an integral area of physics that helps us understand how the world works.",
+     "stage4MissionText18": "Thank you for your hard work!",
      "autoSave": "...Auto Saving Complete"
   },
   "es": {
@@ -270,11 +272,13 @@
      "stage4MissionText10": "You need to reach at least 50mph to knock down enough pins.",
      "stage4MissionText11": "Let's get going!",
      "stage4MissionText12": "Looks like you didn't knock down enough pins. Let's put you back and the start and try again.",
-     "stage4MissionText13": "Fantastic. You knocked over enough pins to clear the course.",
-     "stage4MissionText14": "Now the Robo League championship can begin.",
-     "stage4MissionText15": "I hope you have a better understanding of the motion and energy.",
-     "stage4MissionText16": "Motion and energy exist in everything we see and do. It's an integral area of physics that helps us understand how the world works.",
-     "stage4MissionText17": "Thank you for your hard work!",
+     "stage4MissionText13": "Fantastic! We transferred the energy from our speeding vehicle into the bowling ball, sending it flying into the pins.",
+     "stage4MissionText14": "We just witnessed firsthand how motion generates energy and transfers it!",
+     "stage4MissionText15": "Now the Robo League championship can begin.",
+     "stage4MissionText16": "I hope you have a better understanding of the motion and energy.",
+     "stage4MissionText17": "Motion and energy exist in everything we see and do. It's an integral area of physics that helps us understand how the world works.",
+     "stage4MissionText18": "Thank you for your hard work!",
      "autoSave": "...Auto Saving Complete"
+
   }
 }

@@ -18,10 +18,10 @@ namespace SSGFE.Alpha.Phases.Games
         // public GameObject buttonsPanal;
         public GameObject textPanal;
         public GameObject forwardParent;
-      //  public GameObject sidePanalBoxes;
-      //  public GameObject textForStep0;
-      //  public GameObject textForStep15;
-       // public GameObject textForStep16;
+        //  public GameObject sidePanalBoxes;/
+        public GameObject textForStep11;
+        public GameObject textForStep12;
+        public GameObject textForStep13;
         public Button forwardButton;
         public Button backwardsButton;
         public Button[] textButtons;
@@ -85,19 +85,22 @@ namespace SSGFE.Alpha.Phases.Games
             }
 
 
-            /*
             if (restrictionBool2)
             {
                 //   arrayPos = 19;
-                sphereParent.transform.position = resetPosition.transform.position;
+              
                 // sphereParent.transform.rotation = resetPosition.transform.rotation;
-                newCarCont.isCarActive = false;
-                forwardParent.gameObject.SetActive(true);
+               // newCarCont.isCarActive = false;
+               // forwardParent.gameObject.SetActive(true);
                 restrictionBool2 = false;
                 //textBool20 = false;
 
             }
-            */
+
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                MoveCar();
+            }
         }
 
         private void HandleArrayPosActions()
@@ -130,27 +133,33 @@ namespace SSGFE.Alpha.Phases.Games
                     forwardParent.gameObject.SetActive(false);
                     StartCoroutine(MoveToBlankInvislbePanal());
                     SpeakText("stage4MissionText11"); break;
-                case 11:                   
-                    SpeakText("stage4MissionText12"); break;
-                case 12: SpeakText("stage4MissionText13"); break;
-                case 13: SpeakText("stage4MissionText14"); break;
-                case 14:SpeakText("stage4MissionText15");break;
-                case 15:
+                case 11:
+                    textForStep12.gameObject.SetActive(false);
+                    textForStep11.gameObject.SetActive(true);
                     textPanal.gameObject.SetActive(true);
                     forwardParent.gameObject.SetActive(false);
-                   // StartCoroutine(ResetCarArrayMove());
-                    //  newCarCont.engineIsIdle = true;
-                    SpeakText("stage4MissionText16");
-                    break;
-                case 16:
-                    SpeakText("stage4MissionText17");
+                    SpeakText("stage4MissionText12"); break;
+                case 12:
+                    textForStep11.gameObject.SetActive(false);
+                    textForStep12.gameObject.SetActive(false);
+                    textForStep13.gameObject.SetActive(true);
+                    newCarCont.isCarActive = false;
+                    newCarCont.engineIsIdle = false;
+                    textPanal.gameObject.SetActive(true);
+                    forwardParent.gameObject.SetActive(true);
 
+                    SpeakText("stage4MissionText13"); break;
+                case 13: SpeakText("stage4MissionText14"); break;
+                case 14: SpeakText("stage4MissionText15");break;
+                case 15: SpeakText("stage4MissionText16");break;
+                case 16:SpeakText("stage4MissionText17");break;
+                case 17:SpeakText("stage4MissionText18");                    
                     textPanal.gameObject.SetActive(true);
                     forwardParent.gameObject.SetActive(false);
                     StartCoroutine(MoveToBlankInvislbePanal());
                     hasScrolled = false;
+                    EndOfGame();
                     break;
-             
 
             }
 
@@ -207,7 +216,7 @@ namespace SSGFE.Alpha.Phases.Games
             //   buttonsPanal.gameObject.SetActive(false);
             yield return new WaitForSeconds(5);
             textPanal.gameObject.SetActive(false);
-            arrayPos = 17;
+            arrayPos = 18;
             Debug.Log("This start coRoutine Runs");
 
         }
@@ -215,7 +224,7 @@ namespace SSGFE.Alpha.Phases.Games
 
         public void IntroTTSSpeak(int textIndex)
         {
-            string textKey = $"stage3MissionText{textIndex}";
+            string textKey = $"stage4MissionText{textIndex}";
             LOLSDK.Instance.SpeakText(textKey);
             Debug.Log($"Intro Text {textIndex} Button is pressed");
         }
@@ -223,6 +232,35 @@ namespace SSGFE.Alpha.Phases.Games
         private void SpeakText(string textKey)
         {
             LOLSDK.Instance.SpeakText(textKey);
+        }
+
+
+
+        public IEnumerator ResetCarArrayMove()
+        {
+            //forwardButton.gameObject.SetActive(false);
+
+            MoveCar();
+            yield return new WaitForSeconds(5);
+            //  hasScrolled = false;
+          //  newCarCont.isCarActive = false;
+            restrictionBool2 = true;
+            //textPanal.gameObject.SetActive(false);
+            /// arrayPos = 1;
+            Debug.Log("This start coRoutine Runs");
+
+        }
+
+        public void MoveCar() 
+        {
+            sphereParent.transform.position = resetPosition.transform.position;
+
+        }
+
+        public void EndOfGame()
+        {
+            LOLSDK.Instance.SubmitProgress(0, 100, 100);
+            LOLSDK.Instance.CompleteGame();
         }
     }
 }
