@@ -313,7 +313,10 @@ namespace SSGFE.Alpha.Phases.Games
         {
             engineIdle.Play();
         }
-
+        public void StopIdle()
+        {
+            engineIdle.Stop();
+        }
 
 
         public void StartStopCar()

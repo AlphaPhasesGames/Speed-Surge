@@ -8,12 +8,13 @@ namespace SSGFE.Alpha.Phases.Games
     {
         public NewCarControllerStage2 newCarCont;
         public Stage2TextMan stage2TextManager;
+        public GameObject boxesToEnable;
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
                 //stage2TextManager.runOnce3 = true;
-                //stage2TextManager.textBools = new bool[22];
+                boxesToEnable.gameObject.SetActive(true);
                 stage2TextManager.arrayPos = 15;
                 //newCarCont.isCarActive = false;
                 Destroy(this.gameObject);

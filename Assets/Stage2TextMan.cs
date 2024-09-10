@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using LoLSDK;
@@ -26,6 +26,8 @@ namespace SSGFE.Alpha.Phases.Games
         public GameObject textForStep0;
         public GameObject textForStep15;
         public GameObject textForStep16;
+        public GameObject textForStep17;
+        public GameObject textForStep18;
         public Button forwardButton;
         public Button backwardsButton;
         public Button[] textButtons;
@@ -49,6 +51,7 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 int index = i + 1;  // Adjust index to match textButton number
                 textButtons[i].onClick.AddListener(() => IntroTTSSpeak(index));
+               
             }
             answerCorrect = false;
             StartCoroutine(StartLevelText());
@@ -108,28 +111,31 @@ namespace SSGFE.Alpha.Phases.Games
             switch (arrayPos)
             {
                 case 0:
+                    LOLSDK.Instance.SubmitProgress(0, 30, 100);
                     textForStep0.gameObject.SetActive(true);
                     textForStep16.gameObject.SetActive(false);
+                    backwardsButton.gameObject.SetActive(false);
+                    forwardButton.gameObject.SetActive(true);
                     SpeakText("stage2MissionText1"); break;
                 case 1:
                     HideButton();
-                   // vehSelectMan.panalOpen = true;
+                    // vehSelectMan.panalOpen = true;
+                    backwardsButton.gameObject.SetActive(false);
                     vehSelectMan.selectionPanal.gameObject.SetActive(true);
                     SpeakText("stage2MissionText2ChooseCar"); break;
                 case 2:
-                    vehSelectMan.selectionPanal.gameObject.SetActive(false); 
+                    vehSelectMan.selectionPanal.gameObject.SetActive(false);
+                    backwardsButton.gameObject.SetActive(false);
                     SpeakText("stage2MissionText3"); break;
-                case 3: SpeakText("stage2MissionText4"); break;
+                case 3: backwardsButton.gameObject.SetActive(true); SpeakText("stage2MissionText4"); break;
                 case 4:SpeakText("stage2MissionText5");break;
                 case 5:SpeakText("stage2MissionText6");break;
                 case 6: SpeakText("stage2MissionText7"); break;
-                case 7: SpeakText("stage2MissionText8"); break;
+                case 7: sidePanalBoxes.gameObject.SetActive(true); SpeakText("stage2MissionText8"); break;
                 case 8: SpeakText("stage2MissionText9"); break;
                 case 9: SpeakText("stage2MissionText10"); break;
                 case 10: SpeakText("stage2MissionText11"); break;
                 case 11:
-                    LOLSDK.Instance.SpeakText("stage2MissionText12");
-                    sidePanalBoxes.gameObject.SetActive(true);
                     SpeakText("stage2MissionText12"); break;
                 case 12:SpeakText("stage2MissionText13");break;
                 case 13:SpeakText("stage2MissionText14");break;
@@ -141,6 +147,7 @@ namespace SSGFE.Alpha.Phases.Games
                     SpeakText("stage2MissionText15");
                     break;
                 case 15:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     textForStep16.gameObject.SetActive(false);
                     textForStep15.gameObject.SetActive(true);
@@ -151,7 +158,7 @@ namespace SSGFE.Alpha.Phases.Games
                     break;
                 case 16:
                     SpeakText("stage2MissionText17");
-
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     forwardParent.gameObject.SetActive(false);
                     StartCoroutine(MoveToBlankInvislbePanal());
@@ -160,13 +167,16 @@ namespace SSGFE.Alpha.Phases.Games
                 case 17:
                     SpeakText("stage2MissionText18");
                     textPanal.gameObject.SetActive(true);
-
+                    textForStep17.gameObject.SetActive(false);
+                    textForStep18.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(false);
                     forwardParent.gameObject.SetActive(false);
                     StartCoroutine(MoveToBlankInvislbePanal());
                     break;
                 case 18:
                     SpeakText("stage2MissionText19");
                     textPanal.gameObject.SetActive(true);
+                    backwardsButton.gameObject.SetActive(false);
                     newCarCont.isCarActive = false;
                     forwardParent.gameObject.SetActive(true);
                     hasScrolled = false;
@@ -181,6 +191,7 @@ namespace SSGFE.Alpha.Phases.Games
                 case 20:
                     textPanal.gameObject.SetActive(true);
                     // StartCoroutine(ChangeScene());
+                    backwardsButton.gameObject.SetActive(false);
                     forwardParent.gameObject.SetActive(true);
                     hasScrolled = false;
                     SpeakText("stage2MissionText21");
@@ -215,6 +226,7 @@ namespace SSGFE.Alpha.Phases.Games
 
             arrayPos--;
             hasScrolled = false;
+            Array.Fill(textBools, false);
             //  panalOpen = false;
         }
 
@@ -271,26 +283,7 @@ namespace SSGFE.Alpha.Phases.Games
             Debug.Log("This start coRoutine Runs");
 
         }
-        /*
-        public IEnumerator CorrectAnswerCoRoutine()
-        {
-            //forwardButton.gameObject.SetActive(false);
-            hasScrolled = false;
-            yield return new WaitForSeconds(5);
-            textPanal.gameObject.SetActive(true);
-            arrayPos = 22;
-            Debug.Log("This start coRoutine Runs");
-
-        }
-
-        public IEnumerator ResetCarAndQuestion()
-        {
-            yield return new WaitForSeconds(5);
-            newCarCont.isCarActive = true;
-            arrayPos = 18;
-        }
-        */
-
+     
         public void IntroTTSSpeak(int textIndex)
         {
             string textKey = $"stage2MissionText{textIndex}";

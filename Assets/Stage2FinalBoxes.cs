@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LoLSDK;
 
 namespace SSGFE.Alpha.Phases.Games
 {
@@ -8,6 +9,8 @@ namespace SSGFE.Alpha.Phases.Games
     {
         public NewCarControllerStage2 newCarCont;
         public Stage2TextMan stage2TextManager;
+
+        public Rigidbody[] boxesToKinematic;
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
@@ -15,20 +18,36 @@ namespace SSGFE.Alpha.Phases.Games
 
                 if(newCarCont.maxSpeed >= 40)
                 {
+                    SetAllRigidbodiesKinematic(false);
                     stage2TextManager.arrayPos = 18;
+                    LOLSDK.Instance.SubmitProgress(0, 50, 100);
                     //newCarCont.isCarActive = false;
                     Destroy(this.gameObject);
                 }
 
                 if (newCarCont.maxSpeed < 40 )
                 {
+                   // SetAllRigidbodiesKinematic(true);
                     stage2TextManager.arrayPos = 20;
+                    stage2TextManager.ResetCarArrayMove();
                     //newCarCont.isCarActive = false;
-                    Destroy(this.gameObject);
+                    //Destroy(this.gameObject);
                 }
 
             }
 
+        }
+
+
+        void SetAllRigidbodiesKinematic(bool kinematic)
+        {
+            foreach (Rigidbody rb in boxesToKinematic)
+            {
+                if (rb != null)
+                {
+                    rb.isKinematic = kinematic;
+                }
+            }
         }
     }
 }

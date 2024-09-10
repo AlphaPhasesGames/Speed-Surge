@@ -97,10 +97,7 @@ namespace SSGFE.Alpha.Phases.Games
 
             }
 
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                MoveCar();
-            }
+          
         }
 
         private void HandleArrayPosActions()
