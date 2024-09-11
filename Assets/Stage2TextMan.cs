@@ -34,12 +34,14 @@ namespace SSGFE.Alpha.Phases.Games
 
         public bool restrictionBool2;
         public bool hasScrolled;
-        public bool answerCorrect;
+        //public bool answerCorrect;
         public int arrayPos;
 
         public bool[] textBools;
         private int maxLengthArray;
 
+        public GameObject mphUI;
+        public GameObject taskUI;
 
 
         private void Awake()
@@ -53,7 +55,7 @@ namespace SSGFE.Alpha.Phases.Games
                 textButtons[i].onClick.AddListener(() => IntroTTSSpeak(index));
                
             }
-            answerCorrect = false;
+            //answerCorrect = false;
             StartCoroutine(StartLevelText());
         }
         // Start is called before the first frame update
@@ -131,7 +133,7 @@ namespace SSGFE.Alpha.Phases.Games
                 case 4:SpeakText("stage2MissionText5");break;
                 case 5:SpeakText("stage2MissionText6");break;
                 case 6: SpeakText("stage2MissionText7"); break;
-                case 7: sidePanalBoxes.gameObject.SetActive(true); SpeakText("stage2MissionText8"); break;
+                case 7: taskUI.gameObject.SetActive(true); sidePanalBoxes.gameObject.SetActive(true); SpeakText("stage2MissionText8"); break;
                 case 8: SpeakText("stage2MissionText9"); break;
                 case 9: SpeakText("stage2MissionText10"); break;
                 case 10: SpeakText("stage2MissionText11"); break;
@@ -140,6 +142,7 @@ namespace SSGFE.Alpha.Phases.Games
                 case 12:SpeakText("stage2MissionText13");break;
                 case 13:SpeakText("stage2MissionText14");break;
                 case 14:
+                    mphUI.gameObject.SetActive(true);
                     newCarCont.isCarActive = true;
                     newCarCont.engineIsIdle = true;
                     forwardParent.gameObject.SetActive(false);

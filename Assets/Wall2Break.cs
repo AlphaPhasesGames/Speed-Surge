@@ -1,26 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LoLSDK;
 namespace SSGFE.Alpha.Phases.Games
 {
     public class Wall2Break : MonoBehaviour
     {
         public NewCarControllerStage3 newCarCont;
         public Stage3ConeAndRespawnManager coneMan;
+        public GameObject sphereParent;
         public GameObject wall;
         public GameObject breakableWall;
         public BoxCollider stage2Collider;
         public GameObject conesToDelete;
         public GameObject conesToEnable;
         public GameObject wallToEnable;
+        public GameObject respawnSection2;
         // public bool runOnce;
         public Stage3TextMan textMan;
-
+        public GameObject wall2Broken;
         private void OnTriggerEnter(Collider other)
         { 
             if(other.CompareTag("Player"))
             {
-                if (newCarCont.fwdSpeed > 35)
+                if (newCarCont.fwdSpeed >= 35)
                 {
                   
                     coneMan.step2 = false;
@@ -32,7 +35,9 @@ namespace SSGFE.Alpha.Phases.Games
                     wallToEnable.gameObject.SetActive(true);
                     newCarCont.maxSpeed = 50;
                     textMan.arrayPos = 13;
+                    LOLSDK.Instance.SubmitProgress(0, 65, 100);
                     StartCoroutine(DestroyWall());
+                    wall2Broken.gameObject.SetActive(true);
                     // runOnce = true;
                 }
 
@@ -40,7 +45,7 @@ namespace SSGFE.Alpha.Phases.Games
                 if (newCarCont.fwdSpeed < 35)
                 {
                     textMan.arrayPos = 11;
-                    textMan.StartCoroutine(textMan.RespawnCar2());
+                    StartCoroutine(Respawn());
                 }
             }
            
@@ -51,6 +56,12 @@ namespace SSGFE.Alpha.Phases.Games
             yield return new WaitForSeconds(2f);
             stage2Collider.gameObject.SetActive(false);
             Destroy(breakableWall);
+        }
+
+        public IEnumerator Respawn()
+        {
+            yield return new WaitForSeconds(5f);
+            sphereParent.transform.position = respawnSection2.transform.position;
         }
     }
 }

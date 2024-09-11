@@ -42,7 +42,7 @@ namespace SSGFE.Alpha.Phases.Games
         public TextMeshProUGUI toyCarText;
         public TextMeshProUGUI bedText;
         public TextMeshProUGUI bathText;
-
+        public TextMeshProUGUI taskStage2;
 
         private void Awake()
         {
@@ -81,6 +81,8 @@ namespace SSGFE.Alpha.Phases.Games
             introText20.text = defs["stage2MissionText20"];
             introText21.text = defs["stage2MissionText21"];
             introText22.text = defs["stage2MissionText22"];
+
+            taskStage2.text = defs["Stage2Task"];
         }
     }
 }

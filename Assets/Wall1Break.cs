@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LoLSDK;
 namespace SSGFE.Alpha.Phases.Games
 {
     public class Wall1Break : MonoBehaviour
@@ -15,7 +16,7 @@ namespace SSGFE.Alpha.Phases.Games
         public GameObject WallsToEnable;
         public BoxCollider stage1Collider;
         public bool runOnce;
-
+        public GameObject wall1Broken;
         // Start is called before the first frame update
         private void OnTriggerEnter(Collider other)
         {
@@ -33,6 +34,8 @@ namespace SSGFE.Alpha.Phases.Games
                     breakableWall.gameObject.SetActive(true);
                     newCarCont.maxSpeed = 40;
                     textMan.arrayPos = 12;
+                    LOLSDK.Instance.SubmitProgress(0, 60, 100);
+                    wall1Broken.gameObject.SetActive(true);
                     StartCoroutine(DestroyWall());
                 }
 

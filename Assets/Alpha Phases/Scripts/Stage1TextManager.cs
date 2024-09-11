@@ -19,6 +19,10 @@ namespace SSGFE.Alpha.Phases.Games
         public GameObject textPanal;
         public GameObject forwardParent;
 
+        public GameObject mphUI;
+
+        public GameObject task1;
+
         public Button forwardButton;
         public Button backwardsButton;
         public Button[] textButtons;
@@ -130,9 +134,11 @@ namespace SSGFE.Alpha.Phases.Games
                     backwardsButton.gameObject.SetActive(false);
                     buttonsPanal.gameObject.SetActive(false);
                     forwardParent.gameObject.SetActive(true);
+                    task1.gameObject.SetActive(true);
                     SpeakText("stage1MissionText14");
                     break;
                 case 14:
+                    mphUI.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanal());
                     newCarCont.PlayIdle();
                     newCarCont.isCarActive = true;

@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using LoLSDK;
@@ -24,8 +24,11 @@ namespace SSGFE.Alpha.Phases.Games
 
         public bool answerCorrect;
 
-        public GameObject[] modelArray;
+        public GameObject mphUI;
+        public GameObject taskUIl;
 
+        public GameObject[] modelArray;
+        public GameObject wallPanal;
         public GameObject textScript11;
         public GameObject textScript12;
 
@@ -102,29 +105,41 @@ namespace SSGFE.Alpha.Phases.Games
             switch (arrayPos)
             {
                 case 0:
+                    LOLSDK.Instance.SubmitProgress(0, 55, 100);
                     newCarCont.isCarActive = false;
+                    backwardsButton.gameObject.SetActive(false);
                     SpeakText("stage3MissionText1"); break;
                 case 1:
                     HideButton();
-                    // vehSelectMan.panalOpen = true;
+                    backwardsButton.gameObject.SetActive(false);
                     vehSelectMan.selectionPanal.gameObject.SetActive(true);
                     SpeakText("stage3MissionText2ChooseCar"); break;
                 case 2:
+                    backwardsButton.gameObject.SetActive(false);
                     vehSelectMan.selectionPanal.gameObject.SetActive(false);
                     SpeakText("stage3MissionText3"); break;
-                case 3: SpeakText("stage3MissionText4"); break;
+                case 3:
+                    backwardsButton.gameObject.SetActive(true);
+                    SpeakText("stage3MissionText4"); break;
                 case 4: SpeakText("stage3MissionText5"); break;
                 case 5: SpeakText("stage3MissionText6"); break;
-                case 6: SpeakText("stage3MissionText7"); break;
+                case 6:
+                 
+                    SpeakText("stage3MissionText7"); break;
                 case 7: SpeakText("stage3MissionText8"); break;
                 case 8: SpeakText("stage3MissionText9"); break;
-                case 9: SpeakText("stage3MissionText10"); break;
+                case 9:
+                    taskUIl.gameObject.SetActive(true);
+                    wallPanal.gameObject.SetActive(true);
+                    SpeakText("stage3MissionText10"); break;
                 case 10: SpeakText("stage3MissionText11");
+                    mphUI.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanal());
                     HideButton();
                     newCarCont.isCarActive = true;
                     newCarCont.engineIsIdle = true; break;
                 case 11:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     textScript11.gameObject.SetActive(false);
                     textScript13.gameObject.SetActive(false);
@@ -132,9 +147,11 @@ namespace SSGFE.Alpha.Phases.Games
                     textScript15.gameObject.SetActive(false);
                     textScript12.gameObject.SetActive(true);
                     forwardParent.gameObject.SetActive(false);
-                    //StartCoroutine(RespawnCar());
+                    StartCoroutine(MoveToBlankInvislbePanal());
                     SpeakText("stage3MissionText12"); break;
                 case 12:
+
+                    backwardsButton.gameObject.SetActive(false);
                     textScript11.gameObject.SetActive(false);
                     textScript12.gameObject.SetActive(false);
                     textScript14.gameObject.SetActive(false);
@@ -144,6 +161,7 @@ namespace SSGFE.Alpha.Phases.Games
                     StartCoroutine(MoveToBlankInvislbePanal());
                     SpeakText("stage3MissionText13"); break;
                 case 13:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     textScript12.gameObject.SetActive(false);
                     textScript13.gameObject.SetActive(false);
@@ -151,6 +169,7 @@ namespace SSGFE.Alpha.Phases.Games
                     StartCoroutine(MoveToBlankInvislbePanal());
                     SpeakText("stage3MissionText14"); break;
                 case 14:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     textScript12.gameObject.SetActive(false);
                     textScript13.gameObject.SetActive(false);
@@ -160,6 +179,7 @@ namespace SSGFE.Alpha.Phases.Games
                     SpeakText("stage3MissionText15");
                     break;
                 case 15:
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     textScript15.gameObject.SetActive(false);
                     textScript16.gameObject.SetActive(true);
@@ -172,7 +192,7 @@ namespace SSGFE.Alpha.Phases.Games
                 case 16:
                     SpeakText("stage3MissionText17");
                     forwardParent.gameObject.SetActive(false);
-            
+                    LOLSDK.Instance.SubmitProgress(0, 75, 100);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(ChangeScene());
                     //hasScrolled = false;
@@ -195,7 +215,7 @@ namespace SSGFE.Alpha.Phases.Games
 
             arrayPos--;
             hasScrolled = false;
-            //  panalOpen = false;
+            Array.Fill(textBools, false);
         }
 
         public void HideButton()
@@ -268,7 +288,7 @@ namespace SSGFE.Alpha.Phases.Games
             sphereParent.transform.rotation = Quaternion.Euler(0, 70, 0);
             newCarCont.enabled = true;
         }
-
+/*
         public IEnumerator RespawnCar2()
         {
             //forwardButton.gameObject.SetActive(false);
@@ -282,7 +302,7 @@ namespace SSGFE.Alpha.Phases.Games
             sphereParent.transform.rotation = Quaternion.Euler(0, 70, 0);
             newCarCont.enabled = true;
         }
-
+*/
         public IEnumerator RespawnCar3()
         {
             //forwardButton.gameObject.SetActive(false);
