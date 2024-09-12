@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using LoLSDK;
@@ -22,6 +22,10 @@ namespace SSGFE.Alpha.Phases.Games
         public GameObject textForStep11;
         public GameObject textForStep12;
         public GameObject textForStep13;
+        public GameObject textForStep14;
+
+        public GameObject mphUI;
+        public GameObject task;
         public Button forwardButton;
         public Button backwardsButton;
         public Button[] textButtons;
@@ -84,19 +88,6 @@ namespace SSGFE.Alpha.Phases.Games
                 textBools[arrayPos] = true;
             }
 
-
-            if (restrictionBool2)
-            {
-                //   arrayPos = 19;
-              
-                // sphereParent.transform.rotation = resetPosition.transform.rotation;
-               // newCarCont.isCarActive = false;
-               // forwardParent.gameObject.SetActive(true);
-                restrictionBool2 = false;
-                //textBool20 = false;
-
-            }
-
           
         }
 
@@ -105,29 +96,36 @@ namespace SSGFE.Alpha.Phases.Games
             switch (arrayPos)
             {
                 case 0:
+                    backwardsButton.gameObject.SetActive(false);
                     SpeakText("stage4MissionText1"); break;
                 case 1:
+                    backwardsButton.gameObject.SetActive(true);
                     SpeakText("stage4MissionText2"); break;
                 case 2:
                     SpeakText("stage4MissionText3"); break;
                 case 3: SpeakText("stage4MissionText4"); break;
                 case 4: SpeakText("stage4MissionText5"); break;
                 case 5: SpeakText("stage4MissionText6"); break;
-                case 6: SpeakText("stage4MissionText7"); break;
+                case 6: task.gameObject.SetActive(true);
+                    SpeakText("stage4MissionText7"); break;
                 case 7:
+                    backwardsButton.gameObject.SetActive(false);
                     HideButton();
                     // vehSelectMan.panalOpen = true;
                     vehSelectMan.selectionPanal.gameObject.SetActive(true);
                     SpeakText("stage4MissionText8ChooseVehicle"); break;
                 case 8:
+                    backwardsButton.gameObject.SetActive(false);
                     vehSelectMan.selectionPanal.gameObject.SetActive(false);
                     SpeakText("stage4MissionText9"); break;
                 case 9:
+                    backwardsButton.gameObject.SetActive(true);
                     SpeakText("stage4MissionText10"); break;
                 case 10:
                     newCarCont.isCarActive = true;
                     newCarCont.engineIsIdle = true;
                     forwardParent.gameObject.SetActive(false);
+                    mphUI.gameObject.SetActive(true);
                     StartCoroutine(MoveToBlankInvislbePanal());
                     SpeakText("stage4MissionText11"); break;
                 case 11:
@@ -135,22 +133,34 @@ namespace SSGFE.Alpha.Phases.Games
                     textForStep11.gameObject.SetActive(true);
                     textPanal.gameObject.SetActive(true);
                     forwardParent.gameObject.SetActive(false);
+
                     SpeakText("stage4MissionText12"); break;
                 case 12:
-                    textForStep11.gameObject.SetActive(false);
+                    backwardsButton.gameObject.SetActive(false);
                     textForStep12.gameObject.SetActive(false);
                     textForStep13.gameObject.SetActive(true);
+                   // textForStep13.gameObject.SetActive(true);
                     newCarCont.isCarActive = false;
                     newCarCont.engineIsIdle = false;
                     textPanal.gameObject.SetActive(true);
-                    forwardParent.gameObject.SetActive(true);
-
+                    forwardParent.gameObject.SetActive(false);
+                    StartCoroutine(MoveToBlankInvislbePanal());
+                    Debug.Log(" The fired Section 12 in the array");
                     SpeakText("stage4MissionText13"); break;
-                case 13: SpeakText("stage4MissionText14"); break;
+                case 13:
+                    backwardsButton.gameObject.SetActive(false);
+                    textPanal.gameObject.SetActive(true);
+                    textForStep12.gameObject.SetActive(false);
+                    textForStep13.gameObject.SetActive(false);
+                    textForStep14.gameObject.SetActive(true);
+                    forwardParent.gameObject.SetActive(true);
+                    Debug.Log(" The fired Section 13 in the array");
+                    SpeakText("stage4MissionText14"); break;
                 case 14: SpeakText("stage4MissionText15");break;
                 case 15: SpeakText("stage4MissionText16");break;
                 case 16:SpeakText("stage4MissionText17");break;
-                case 17:SpeakText("stage4MissionText18");                    
+                case 17:SpeakText("stage4MissionText18");
+                    backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     forwardParent.gameObject.SetActive(false);
                     StartCoroutine(MoveToBlankInvislbePanal());
@@ -177,7 +187,8 @@ namespace SSGFE.Alpha.Phases.Games
 
             arrayPos--;
             hasScrolled = false;
-            //  panalOpen = false;
+            Array.Fill(textBools, false);
+
         }
 
         public void HideButton()

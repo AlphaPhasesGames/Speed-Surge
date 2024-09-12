@@ -18,8 +18,8 @@ namespace SSGFE.Alpha.Phases.Games
             {
                 if(newCarCont.maxSpeed <= 30)
                 {
-                   
-                    stage4TextMan.arrayPos = 11;
+
+                    stage4TextMan.arrayPos = 12;
                    // newCarCont.isCarActive = false;
                     stage4TextMan.MoveCar();
                    // newCarCont.maxSpeed = 50;

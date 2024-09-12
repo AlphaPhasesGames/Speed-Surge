@@ -10,7 +10,7 @@ namespace SSGFE.Alpha.Phases.Games
         {
             if (other.CompareTag("Ball"))
             {
-                stage4TextMan.arrayPos = 12;
+                stage4TextMan.arrayPos = 13;
             }
         }
     }

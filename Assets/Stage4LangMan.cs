@@ -32,6 +32,8 @@ namespace SSGFE.Alpha.Phases.Games
         public TextMeshProUGUI introText16;
         public TextMeshProUGUI introText17;
         public TextMeshProUGUI introText18;
+
+        public TextMeshProUGUI task;
         private void Awake()
         {
             JSONNode defs = SharedState.LanguageDefs;
@@ -63,6 +65,7 @@ namespace SSGFE.Alpha.Phases.Games
             introText16.text = defs["stage4MissionText16"];
             introText17.text = defs["stage4MissionText17"];
             introText18.text = defs["stage4MissionText18"];
+            task.text = defs["Stage4Task"];
         }
     }
 }
