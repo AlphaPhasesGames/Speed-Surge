@@ -108,20 +108,20 @@ namespace SSGFE.Alpha.Phases.Games
             //transform.position = sphereRB.transform.position;
             if (isCarActive)
             {
-               
+
                 float newRot = turnInput * turnSpeed * Time.deltaTime * moveInput;
                 velocity = sphereRB.velocity; // set velocity valye to the cars rigidbody velocity speed
                 // Get Input
                 moveInput = Input.GetAxisRaw("Vertical"); //  set move input float value to the forward and backwards movement of the car - set to W,S Uparrow and Downarrow respectivly
-               turnInput = Input.GetAxisRaw("Horizontal"); // set turn input for left and right movement of the car - set to W,A left arrow and right arrow respectivly
-               
+                turnInput = Input.GetAxisRaw("Horizontal"); // set turn input for left and right movement of the car - set to W,A left arrow and right arrow respectivly
+
 
                 speed.text = fwdSpeed.ToString("0"); //  link fwdspeed of car to UI speed text and set it to integers only
-                if (Input.GetKey(KeyCode.W)) // if W is pressed
+                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) // if W is pressed
                 {
                     fwdSpeed += acceleration; // move forward / increase forward speed by increments set by the acceleration value
-                   // turnSpeed -= turnAcceleration; // increase turn speed by increments set by the turnacceleration value
-                   
+                                              // turnSpeed -= turnAcceleration; // increase turn speed by increments set by the turnacceleration value
+
                     if (engineAudioSelected)
                     {
                         engineIdle.pitch += Time.deltaTime * startingPitch / timeToIncrease;
@@ -133,17 +133,17 @@ namespace SSGFE.Alpha.Phases.Games
 
                     if (skateAudioSelected)
                     {
-                        if(moveInput > 0)
+                        if (moveInput > 0)
                         {
                             volumeTracker = volumeTracker + 0.001f;
-                            if(volumeTracker > 1)
+                            if (volumeTracker > 1)
                             {
                                 volumeTracker = maxVolume;
                             }
                         }
 
-                      
-                       // skate.volume = volumeTracker;
+
+                        // skate.volume = volumeTracker;
                     }
                 }
 
@@ -156,7 +156,7 @@ namespace SSGFE.Alpha.Phases.Games
                     }
                 }
 
-                if (Input.GetKey(KeyCode.S)) // if S is pressed and held
+                if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))// if S is pressed and held
                 {
                     fwdSpeed -= acceleration; // move backwards by decreasing forward speed by increments set by the acceleration value
                    // turnSpeed += turnAcceleration; // reduce turn speeed by increments set by the turnacceleration value
@@ -287,10 +287,10 @@ namespace SSGFE.Alpha.Phases.Games
          
 
 
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                StartStopCar();
-            }
+          //  if (Input.GetKeyDown(KeyCode.Q))
+          //  {
+         //       StartStopCar();
+          //  }
 
             // Calculate Drag
             //sphereRB.drag = isCarGrounded ? normalDrag : modifiedDrag;

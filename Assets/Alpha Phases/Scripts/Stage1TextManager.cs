@@ -27,11 +27,18 @@ namespace SSGFE.Alpha.Phases.Games
         public Button backwardsButton;
         public Button[] textButtons;
 
+        public Button ttsButtonForFail1;
+        public Button ttsButtonForFail2;
+        public Button ttsComplete1;
+
         public bool showButtonsOnce;
 
         public bool hasScrolled;
         public bool answerCorrect;
         public int arrayPos;
+
+        public bool runOnce;
+
 
         public bool[] textBools;
         private int maxLengthArray;
@@ -40,6 +47,10 @@ namespace SSGFE.Alpha.Phases.Games
         {
             forwardButton.onClick.AddListener(ProgressTextForward);
             backwardsButton.onClick.AddListener(ProgressTextBack);
+
+            ttsButtonForFail1.onClick.AddListener(TTSForFail1);
+            ttsButtonForFail2.onClick.AddListener(TTSForFail2);
+            ttsComplete1.onClick.AddListener(TTSForCorrec1);
 
             for (int i = 0; i < textButtons.Length; i++)
             {
@@ -87,99 +98,110 @@ namespace SSGFE.Alpha.Phases.Games
 
         private void HandleArrayPosActions()
         {
-            switch (arrayPos)
+            if (!textBools[arrayPos])  // Ensures SpeakText is called only once per array position
             {
-                case 0:
-                    LOLSDK.Instance.SubmitProgress(0, 10, 100);
-                    backwardsButton.gameObject.SetActive(false);
-                    SpeakText("stage1MissionText1"); break;
-                case 1: backwardsButton.gameObject.SetActive(true);
+                switch (arrayPos)
+                {
+                    case 0:
+                        LOLSDK.Instance.SubmitProgress(0, 10, 100);
+                        backwardsButton.gameObject.SetActive(false);
+                        SpeakText("stage1MissionText1"); break;
+                    case 1:
+                        backwardsButton.gameObject.SetActive(true);
 
-                    SpeakText("stage1MissionText2"); break;
-                case 2: SpeakText("stage1MissionText3"); break;
-                case 3: SpeakText("stage1MissionText4"); break;
-                case 4:
-                    HideButton();
-                    backwardsButton.gameObject.SetActive(false);
-                    vehSelectMan.selectionPanal.gameObject.SetActive(true);
-                    SpeakText("stage1MissionText5");
-                    break;
-                case 5:
-                    backwardsButton.gameObject.SetActive(false);
-                    SpeakText("stage1MissionText6");
-                    vehSelectMan.selectionPanal.gameObject.SetActive(false);
-                    break;
-                case 6:
-                    backwardsButton.gameObject.SetActive(true);
-                    SpeakText("stage1MissionText7"); break;
-                case 7: SpeakText("stage1MissionText8"); break;
-                case 8: SpeakText("stage1MissionText9"); break;
-                case 9: SpeakText("stage1MissionText10"); break;
-                case 10: SpeakText("stage1MissionText11"); break;
-                case 11:
-                    forwardParent.gameObject.SetActive(true);
-                    SpeakText("stage1MissionText12"); break;
-                case 12:
-                    SpeakText("stage1MissionText13");
-                    if (!showButtonsOnce)
-                    {
+                        SpeakText("stage1MissionText2"); break;
+                    case 2: SpeakText("stage1MissionText3"); break;
+                    case 3: SpeakText("stage1MissionText4"); break;
+                    case 4:
+                        HideButton();
+                        backwardsButton.gameObject.SetActive(false);
+                        vehSelectMan.selectionPanal.gameObject.SetActive(true);
+                        SpeakText("stage1MissionText5");
+                        break;
+                    case 5:
+                        backwardsButton.gameObject.SetActive(false);
+                        SpeakText("stage1MissionText6");
+                        vehSelectMan.selectionPanal.gameObject.SetActive(false);
+                        break;
+                    case 6:
+                        backwardsButton.gameObject.SetActive(true);
+                        SpeakText("stage1MissionText7"); break;
+                    case 7: SpeakText("stage1MissionText8"); break;
+                    case 8: SpeakText("stage1MissionText9"); break;
+                    case 9: SpeakText("stage1MissionText10"); break;
+                    case 10: SpeakText("stage1MissionText11"); break;
+                    case 11:
+                        forwardParent.gameObject.SetActive(true);
+                        SpeakText("stage1MissionText12"); break;
+                    case 12:
+                        SpeakText("stage1MissionText13");
+                        if (!showButtonsOnce)
+                        {
+                            buttonsPanal.gameObject.SetActive(true);
+                            showButtonsOnce = true;
+                        }
+
+
+                        forwardParent.gameObject.SetActive(false);
+                        break;
+                    case 13:
+                        backwardsButton.gameObject.SetActive(false);
+                        buttonsPanal.gameObject.SetActive(false);
+                        forwardParent.gameObject.SetActive(true);
+                        task1.gameObject.SetActive(true);
+                        SpeakText("stage1MissionText14");
+                        break;
+                    case 14:
+                        mphUI.gameObject.SetActive(true);
+                        StartCoroutine(MoveToBlankInvislbePanal());
+                        newCarCont.PlayIdle();
+                        newCarCont.isCarActive = true;
+                        // newCarCont.engineIsIdle = true;
+                        forwardParent.gameObject.SetActive(false);
+                        SpeakText("stage1MissionText15");
+                        break;
+                    case 15:
+                        backwardsButton.gameObject.SetActive(false);
+                        forwardParent.gameObject.SetActive(true);
+                        newCarCont.isCarActive = false;
+                        newCarCont.StopIdle();
+                        hasScrolled = false;
+                        textPanal.gameObject.SetActive(true);
+                        //  newCarCont.engineIsIdle = true;
+                        SpeakText("stage1MissionText16Correct");
+                        break;
+                    case 16:
+                        backwardsButton.gameObject.SetActive(true);
+                        SpeakText("stage1MissionText17");
+                        forwardParent.gameObject.SetActive(false);
+                        StartCoroutine(ChangeScene());
+                        break;
+                    case 17:
+                        if (!runOnce)
+                        {
+                            SpeakText("stage1MissionText18Incorrect1");
+                            StartCoroutine(CorrectAnswerCoRoutine());
+                            forwardParent.gameObject.SetActive(true);
+                            backwardsButton.gameObject.SetActive(false);
+                            hasScrolled = true;
+                            runOnce = true;
+                        }
+                        
+                        break;
+                    case 18:
                         buttonsPanal.gameObject.SetActive(true);
-                        showButtonsOnce = true;
-                    }
-                  
+                        SpeakText("stage1MissionText19Incorrect2");
 
-                    forwardParent.gameObject.SetActive(false);
-                    break;
-                case 13:
-                    backwardsButton.gameObject.SetActive(false);
-                    buttonsPanal.gameObject.SetActive(false);
-                    forwardParent.gameObject.SetActive(true);
-                    task1.gameObject.SetActive(true);
-                    SpeakText("stage1MissionText14");
-                    break;
-                case 14:
-                    mphUI.gameObject.SetActive(true);
-                    StartCoroutine(MoveToBlankInvislbePanal());
-                    newCarCont.PlayIdle();
-                    newCarCont.isCarActive = true;
-                   // newCarCont.engineIsIdle = true;
-                    forwardParent.gameObject.SetActive(false);
-                    SpeakText("stage1MissionText15");
-                    break;
-                case 15:
-                    backwardsButton.gameObject.SetActive(false);
-                    forwardParent.gameObject.SetActive(true);
-                    newCarCont.isCarActive = false;
-                    newCarCont.StopIdle();
-                    hasScrolled = false;
-                    textPanal.gameObject.SetActive(true);
-                    //  newCarCont.engineIsIdle = true;
-                    SpeakText("stage1MissionText16Correct");
-                    break;
-                case 16:
-                    backwardsButton.gameObject.SetActive(true);
-                    SpeakText("stage1MissionText17");
-                    forwardParent.gameObject.SetActive(false);
-                    StartCoroutine(ChangeScene());
-                    break;
-                case 17:
-                    SpeakText("stage1MissionText18Incorrect1");
-                    StartCoroutine(CorrectAnswerCoRoutine());
-                    forwardParent.gameObject.SetActive(true);
-                    backwardsButton.gameObject.SetActive(false);
-                    break;
-                case 18:
-                    buttonsPanal.gameObject.SetActive(true);
-                    SpeakText("stage1MissionText19Incorrect2");
-                   
-                    forwardParent.gameObject.SetActive(false);
-                    backwardsButton.gameObject.SetActive(true);
-                    break;
-                case 19:
-                    buttonsPanal.gameObject.SetActive(false);
-                    StartCoroutine(MoveToBlankInvislbePanal());
-                    SpeakText("stage1MissionText20CorrectNMJ");
-                    break;
+                        forwardParent.gameObject.SetActive(false);
+                        backwardsButton.gameObject.SetActive(true);
+                        hasScrolled = true;
+                        break;
+                    case 19:
+                        buttonsPanal.gameObject.SetActive(false);
+                        StartCoroutine(MoveToBlankInvislbePanal());
+                        SpeakText("stage1MissionText20CorrectNMJ");
+                        break;
+                }
             }
 
             if (answerCorrect)
@@ -195,19 +217,24 @@ namespace SSGFE.Alpha.Phases.Games
                 case 17:
                     textPanal.gameObject.SetActive(true);
                     forwardParent.gameObject.SetActive(true);
+                    hasScrolled = true;
                    // newCarCont.isCarActive = false;
                     break;
                 case 18:
                     arrayPos = 18;
+            
                    // newCarCont.isCarActive = false;
                     sphereParent.transform.position = resetPosition.transform.position;
                     forwardParent.gameObject.SetActive(true);
+                    hasScrolled = true;
                     break;
             }
         }
 
         public void ProgressTextForward()
         {
+
+            Array.Fill(textBools, false);  // Reset textBools on forward progress
             arrayPos++;
             StartCoroutine(DelayTextButton());
             hasScrolled = false;
@@ -252,7 +279,7 @@ namespace SSGFE.Alpha.Phases.Games
 
             yield return new WaitForSeconds(1);
             newCarCont.isCarActive = false;
-            textBools[12] = false;
+            Array.Fill(textBools, false);
             //textPanal.gameObject.SetActive(true);
             //  textBools[12] = false;
             //  arrayPos = 12;
@@ -272,7 +299,7 @@ namespace SSGFE.Alpha.Phases.Games
 
         public IEnumerator ChangeScene()
         {
-            LOLSDK.Instance.SubmitProgress(0, 25, 100);
+          
             yield return new WaitForSeconds(5);
             SceneManager.LoadScene("Stage 2 Energy");
         }
@@ -280,6 +307,23 @@ namespace SSGFE.Alpha.Phases.Games
         public void ResetCarPosition()
         {
             sphereParent.transform.position = resetPosition.transform.position;
+        }
+
+
+        private void TTSForFail1()
+        {
+            LOLSDK.Instance.SpeakText("stage1MissionText18Incorrect1");
+            Debug.Log(" TTSForFai1 Played");
+        }
+
+        private void TTSForFail2()
+        {
+            LOLSDK.Instance.SpeakText("stage1MissionText19Incorrect2");
+        }
+
+        private void TTSForCorrec1()
+        {
+            LOLSDK.Instance.SpeakText("stage1MissionText16Correct");
         }
     }
 }

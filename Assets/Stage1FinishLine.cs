@@ -10,27 +10,22 @@ namespace SSGFE.Alpha.Phases.Games
     {
 
         public Stage1TextManager stage1TextMan;
+        public bool runOnce;
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
                 if (stage1TextMan.answerCorrect)
                 {
-                   // stage1TextMan.hasScrolled = false;
-                   // stage1TextMan.restrictionBool1 = true;
-                    stage1TextMan.arrayPos = 15;
-                   // stage1TextMan.forwardParent.gameObject.SetActive(false);
-                   // stage1TextMan.forwardButton.gameObject.SetActive(false);
-                  //  StartCoroutine(CorrectAnswerCoRoutine());
+                    if (!runOnce)
+                    {
+                        stage1TextMan.arrayPos = 15;
+                        LOLSDK.Instance.SubmitProgress(0, 25, 100);
+                        runOnce = true;
+                        Debug.Log("Submit Progress ran once");
+                    }
+
                 }
-                /*
-                if (!stage1TextMan.answerCorrect)
-                {
-                    stage1TextMan.restrictionBool2 = true;
-                    stage1TextMan.hasScrolled = false;
-                    stage1TextMan.arrayPos = 19;
-                }
-                */
             }
         }
 

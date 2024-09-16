@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +18,8 @@ namespace SSGFE.Alpha.Phases.Games
             {
                // textMan.restrictionBool2 = true;
                 textMan.hasScrolled = false;
+                //Array.Fill(textMan.textBools, false);
+
                 textMan.textBools = new bool[21]; // All elements are automatically set to false
                                                                   //  textMan.textBools[13] = false;
                                                                   //  textMan.textBools[14] = false;

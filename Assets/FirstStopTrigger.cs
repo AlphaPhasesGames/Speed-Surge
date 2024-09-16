@@ -20,8 +20,8 @@ namespace SSGFE.Alpha.Phases.Games
               //  {
                     if (!stage1TextMan.answerCorrect)
                     {
-                        //  newCarCont.StartStopCar();
-
+                    //  newCarCont.StartStopCar();
+                        stage1TextMan.runOnce = false;
                         newCarCont.isCarActive = true;
                         stage1TextMan.hasScrolled = false;
                         stage1TextMan.textPanal.gameObject.SetActive(true);
