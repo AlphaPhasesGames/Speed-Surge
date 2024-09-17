@@ -42,6 +42,8 @@ namespace SSGFE.Alpha.Phases.Games
         public bool runOnce;
         public bool runOnce2;
 
+        public bool submitOnce;
+        public bool submitOnce2;
         public GameObject forwardParent;
         public Button forwardButton;
         public Button backwardsButton;
@@ -105,7 +107,12 @@ namespace SSGFE.Alpha.Phases.Games
             switch (arrayPos)
             {
                 case 0:
-                    LOLSDK.Instance.SubmitProgress(0, 55, 100);
+                    if (!submitOnce)
+                    {
+                        LOLSDK.Instance.SubmitProgress(0, 55, 100);
+                        submitOnce = true;
+                    }
+                   
                     newCarCont.isCarActive = false;
                     backwardsButton.gameObject.SetActive(false);
                     SpeakText("stage3MissionText1"); break;
@@ -192,6 +199,11 @@ namespace SSGFE.Alpha.Phases.Games
                 case 16:
                     SpeakText("stage3MissionText17");
                     forwardParent.gameObject.SetActive(false);
+                    if (!submitOnce2)
+                    {
+                        submitOnce2 = true;
+                        LOLSDK.Instance.SubmitProgress(0, 75, 100);
+                    }
                     LOLSDK.Instance.SubmitProgress(0, 75, 100);
                     textPanal.gameObject.SetActive(true);
                     StartCoroutine(ChangeScene());

@@ -19,6 +19,7 @@ namespace SSGFE.Alpha.Phases.Games
         // public bool runOnce;
         public Stage3TextMan textMan;
         public GameObject wall2Broken;
+        public bool submitOnce;
         private void OnTriggerEnter(Collider other)
         { 
             if(other.CompareTag("Player"))
@@ -35,7 +36,12 @@ namespace SSGFE.Alpha.Phases.Games
                     wallToEnable.gameObject.SetActive(true);
                     newCarCont.maxSpeed = 50;
                     textMan.arrayPos = 13;
-                    LOLSDK.Instance.SubmitProgress(0, 65, 100);
+                    if (!submitOnce)
+                    {
+                        LOLSDK.Instance.SubmitProgress(0, 65, 100);
+                        submitOnce = true;
+                    }
+                 
                     StartCoroutine(DestroyWall());
                     wall2Broken.gameObject.SetActive(true);
                     // runOnce = true;

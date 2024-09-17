@@ -16,13 +16,14 @@ namespace SSGFE.Alpha.Phases.Games
         public GameObject WallsToEnable;
         public BoxCollider stage1Collider;
         public bool runOnce;
+        public bool submitOnce;
         public GameObject wall1Broken;
         // Start is called before the first frame update
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
-                if (newCarCont.fwdSpeed > 25)
+                if (newCarCont.fwdSpeed >= 25)
                 {
                    
                     coneMan.step1 = false;
@@ -34,7 +35,12 @@ namespace SSGFE.Alpha.Phases.Games
                     breakableWall.gameObject.SetActive(true);
                     newCarCont.maxSpeed = 40;
                     textMan.arrayPos = 12;
-                    LOLSDK.Instance.SubmitProgress(0, 60, 100);
+                    if (!submitOnce)
+                    {
+                        LOLSDK.Instance.SubmitProgress(0, 60, 100);
+                        submitOnce = true;
+                    }
+                   
                     wall1Broken.gameObject.SetActive(true);
                     StartCoroutine(DestroyWall());
                 }

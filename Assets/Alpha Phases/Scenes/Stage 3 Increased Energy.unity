@@ -1664,7 +1664,7 @@ Transform:
   m_GameObject: {fileID: 66443218}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.15, y: -10.46, z: -125.8}
+  m_LocalPosition: {x: 21.5, y: -10.46, z: -125.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5404,6 +5404,8 @@ MonoBehaviour:
   panalOpen: 0
   runOnce: 0
   runOnce2: 0
+  submitOnce: 0
+  submitOnce2: 0
   forwardParent: {fileID: 214237620}
   forwardButton: {fileID: 222635408}
   backwardsButton: {fileID: 340070448}
@@ -24413,6 +24415,7 @@ MonoBehaviour:
   respawnSection2: {fileID: 1904548014}
   textMan: {fileID: 288598803}
   wall2Broken: {fileID: 1240991880}
+  submitOnce: 0
 --- !u!65 &1533708058
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25765,6 +25768,7 @@ MonoBehaviour:
   sphereParent: {fileID: 1108224451}
   respawnSection2: {fileID: 1121017396}
   wall3Broken: {fileID: 418412356}
+  submitOnce: 0
 --- !u!65 &1598511198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32148,6 +32152,7 @@ MonoBehaviour:
   WallsToEnable: {fileID: 514015498}
   stage1Collider: {fileID: 2100817195}
   runOnce: 0
+  submitOnce: 0
   wall1Broken: {fileID: 529679277}
 --- !u!65 &2100817195
 BoxCollider:

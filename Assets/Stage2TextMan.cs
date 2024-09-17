@@ -9,11 +9,7 @@ namespace SSGFE.Alpha.Phases.Games
 {
     public class Stage2TextMan : MonoBehaviour
     {
-
-
-     
-
-   public Stage2VehicleSelectScript vehSelectMan;
+        public Stage2VehicleSelectScript vehSelectMan;
         public NewCarControllerStage2 newCarCont;
         public GameObject[] modelArray;
 
@@ -28,10 +24,11 @@ namespace SSGFE.Alpha.Phases.Games
         public GameObject textForStep16;
         public GameObject textForStep17;
         public GameObject textForStep18;
+        public GameObject textForStep22;
         public Button forwardButton;
         public Button backwardsButton;
         public Button[] textButtons;
-
+        public Button vehicleChoiceButtonTTS;
         public bool restrictionBool2;
         public bool hasScrolled;
         //public bool answerCorrect;
@@ -48,6 +45,7 @@ namespace SSGFE.Alpha.Phases.Games
         {
             forwardButton.onClick.AddListener(ProgressTextForward);
             backwardsButton.onClick.AddListener(ProgressTextBack);
+            vehicleChoiceButtonTTS.onClick.AddListener(SpeakTextChoice);
 
             for (int i = 0; i < textButtons.Length; i++)
             {
@@ -169,8 +167,9 @@ namespace SSGFE.Alpha.Phases.Games
                     break;
                 case 17:
                     SpeakText("stage2MissionText18");
-                    textPanal.gameObject.SetActive(true);
+                    textPanal.gameObject.SetActive(true); 
                     textForStep17.gameObject.SetActive(false);
+                    textForStep22.gameObject.SetActive(false);
                     textForStep18.gameObject.SetActive(true);
                     backwardsButton.gameObject.SetActive(false);
                     forwardParent.gameObject.SetActive(false);
@@ -202,7 +201,7 @@ namespace SSGFE.Alpha.Phases.Games
 
                 case 21:
                     forwardParent.gameObject.SetActive(false);
-                    StartCoroutine(ResetCarArrayMove());
+                    StartCoroutine(MoveToBlankInvislbePanal());
                     hasScrolled = false;
                     SpeakText("stage2MissionText22");
                     break;
@@ -263,7 +262,7 @@ namespace SSGFE.Alpha.Phases.Games
         public IEnumerator MoveToBlankInvislbePanal()
         {
             //forwardButton.gameObject.SetActive(false);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(3);
             hasScrolled = false;
             textPanal.gameObject.SetActive(false);
 
@@ -299,6 +298,10 @@ namespace SSGFE.Alpha.Phases.Games
             LOLSDK.Instance.SpeakText(textKey);
         }
 
+        private void SpeakTextChoice()
+        {
+            LOLSDK.Instance.SpeakText("stage2MissionText2ChooseCar");
+        }
 
         public IEnumerator ChangeScene()
         {

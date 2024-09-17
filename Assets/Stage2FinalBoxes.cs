@@ -11,6 +11,13 @@ namespace SSGFE.Alpha.Phases.Games
         public Stage2TextMan stage2TextManager;
 
         public Rigidbody[] boxesToKinematic;
+
+        public GameObject respawnPosition;
+        public GameObject carObject;
+
+        public GameObject boxesSet1;
+        public GameObject boxesSet2;
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
@@ -27,9 +34,13 @@ namespace SSGFE.Alpha.Phases.Games
 
                 if (newCarCont.maxSpeed < 40 )
                 {
-                   // SetAllRigidbodiesKinematic(true);
+                    // SetAllRigidbodiesKinematic(true);
+                    //  stage2TextManager.restrictionBool2 = true;
+                    carObject.transform.position = respawnPosition.transform.position;
                     stage2TextManager.arrayPos = 20;
                     stage2TextManager.ResetCarArrayMove();
+                    boxesSet1.gameObject.SetActive(false);
+                    boxesSet2.gameObject.SetActive(true);
                     //newCarCont.isCarActive = false;
                     //Destroy(this.gameObject);
                 }

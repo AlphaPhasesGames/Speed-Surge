@@ -15,16 +15,22 @@ namespace SSGFE.Alpha.Phases.Games
         public GameObject sphereParent;
         public GameObject respawnSection2;
         public GameObject wall3Broken;
+        public bool submitOnce;
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
-                if (newCarCont.fwdSpeed > 45)
+                if (newCarCont.fwdSpeed >= 45)
                 {
                    
                     coneMan.step2 = false;
                     coneMan.step3 = true;
-                    LOLSDK.Instance.SubmitProgress(0, 70, 100);
+                    if (!submitOnce)
+                    {
+                        LOLSDK.Instance.SubmitProgress(0, 70, 100);
+                        submitOnce = true;
+                    }
+                   
                     wall.gameObject.SetActive(false);
                     breakableWall.gameObject.SetActive(true);
                     newCarCont.maxSpeed = 60;

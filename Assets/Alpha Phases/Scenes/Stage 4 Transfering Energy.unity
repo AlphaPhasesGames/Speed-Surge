@@ -4292,6 +4292,7 @@ MonoBehaviour:
   - {fileID: 375491089}
   - {fileID: 1204551099}
   - {fileID: 629210286}
+  - {fileID: 629210286}
   sphereParent: {fileID: 1275342261}
   resetPosition: {fileID: 829504740}
   textPanal: {fileID: 1301389329}
@@ -4299,7 +4300,9 @@ MonoBehaviour:
   textForStep11: {fileID: 264033633}
   textForStep12: {fileID: 63795858}
   textForStep13: {fileID: 484823689}
-  textForStep14: {fileID: 459958754}
+  textForStep13a: {fileID: 459958754}
+  textForStep14: {fileID: 673388141}
+  textForStep15: {fileID: 1088687377}
   mphUI: {fileID: 12821715}
   task: {fileID: 1844133551}
   forwardButton: {fileID: 222635408}

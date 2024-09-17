@@ -14,11 +14,12 @@ namespace SSGFE.Alpha.Phases.Games
             if (other.CompareTag("Player"))
             {
                 //stage2TextManager.runOnce3 = true;
-                boxesToEnable.gameObject.SetActive(true);
+               
                 stage2TextManager.arrayPos = 15;
                 //newCarCont.isCarActive = false;
                 Destroy(this.gameObject);
                 newCarCont.maxSpeed = newCarCont.maxSpeed - 5;
+                boxesToEnable.gameObject.SetActive(true);
             }
 
         }

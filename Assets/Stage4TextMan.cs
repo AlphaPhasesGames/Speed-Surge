@@ -22,7 +22,9 @@ namespace SSGFE.Alpha.Phases.Games
         public GameObject textForStep11;
         public GameObject textForStep12;
         public GameObject textForStep13;
+        public GameObject textForStep13a;
         public GameObject textForStep14;
+        public GameObject textForStep15;
 
         public GameObject mphUI;
         public GameObject task;
@@ -146,26 +148,44 @@ namespace SSGFE.Alpha.Phases.Games
                     forwardParent.gameObject.SetActive(false);
                     StartCoroutine(MoveToBlankInvislbePanal());
                     Debug.Log(" The fired Section 12 in the array");
-                    SpeakText("stage4MissionText13"); break;
+                    SpeakText("stage4MissionText12"); break;
                 case 13:
                     backwardsButton.gameObject.SetActive(false);
                     textPanal.gameObject.SetActive(true);
                     textForStep12.gameObject.SetActive(false);
                     textForStep13.gameObject.SetActive(false);
+                    textForStep13a.gameObject.SetActive(true);
+                    forwardParent.gameObject.SetActive(true);
+                    Debug.Log(" The fired Section 13 in the array");
+                    SpeakText("stage4MissionText13"); break;
+                case 14:
+                    backwardsButton.gameObject.SetActive(false);
+                    textPanal.gameObject.SetActive(true);
+                    textForStep12.gameObject.SetActive(false);
+                    textForStep13.gameObject.SetActive(false);
+                    textForStep13a.gameObject.SetActive(false);
                     textForStep14.gameObject.SetActive(true);
+                    textForStep15.gameObject.SetActive(false);
                     forwardParent.gameObject.SetActive(true);
                     Debug.Log(" The fired Section 13 in the array");
                     SpeakText("stage4MissionText14"); break;
-                case 14: SpeakText("stage4MissionText15");break;
-                case 15: SpeakText("stage4MissionText16");break;
-                case 16:SpeakText("stage4MissionText17");break;
+                case 15: SpeakText("stage4MissionText16");
+                   // textForStep14.gameObject.SetActive(false);
+                   // textForStep15.gameObject.SetActive(true);
+                    break;
+                case 16: SpeakText("stage4MissionText17");
+                    //textForStep16.gameObject.SetActive(true);
+                    break;
                 case 17:SpeakText("stage4MissionText18");
-                    backwardsButton.gameObject.SetActive(false);
-                    textPanal.gameObject.SetActive(true);
                     forwardParent.gameObject.SetActive(false);
                     StartCoroutine(MoveToBlankInvislbePanal());
                     hasScrolled = false;
-                    EndOfGame();
+                    backwardsButton.gameObject.SetActive(false);
+                    EndOfGame(); break;
+                case 18:SpeakText("stage4MissionText18");
+                    
+                    textPanal.gameObject.SetActive(true);
+                 
                     break;
 
             }
@@ -224,7 +244,7 @@ namespace SSGFE.Alpha.Phases.Games
             //   buttonsPanal.gameObject.SetActive(false);
             yield return new WaitForSeconds(5);
             textPanal.gameObject.SetActive(false);
-            arrayPos = 18;
+            arrayPos = 19;
             Debug.Log("This start coRoutine Runs");
 
         }

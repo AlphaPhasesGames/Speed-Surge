@@ -19,17 +19,28 @@ namespace SSGFE.Alpha.Phases.Games
         {
             if (other.CompareTag("Player"))
             {
-                if (!runOnce)
+               
+                if(newCarCont.maxSpeed < 35 & newCarCont.maxSpeed >= 20)
                 {
+                    newCarCont.isCarActive = true;
+                    newCarCont.maxSpeed = 20;
+                    // StartCoroutine(ReserCar());
+                    //newCarCont.skate.mute = false;
+                    newCarCont.skate.volume = 0;
+                    carObject.transform.rotation = carRoation.transform.rotation;
+                }
 
-                        newCarCont.isCarActive = true;
-                        newCarCont.maxSpeed = 20;
-                       // StartCoroutine(ReserCar());
-                        //newCarCont.skate.mute = false;
-                        newCarCont.skate.volume = 0;
-                        carObject.transform.rotation = carRoation.transform.rotation;
-                        runOnce = true;                  
-                }              
+                if(newCarCont.maxSpeed < 20)
+                {
+                    newCarCont.isCarActive = true;
+                      newCarCont.maxSpeed = 20;
+                    // StartCoroutine(ReserCar());
+                    //newCarCont.skate.mute = false;
+                    newCarCont.skate.volume = 0;
+                    carObject.transform.rotation = carRoation.transform.rotation;
+                }
+                    
+                
             }
 
         }
