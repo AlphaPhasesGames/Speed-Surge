@@ -18,6 +18,9 @@ namespace SSGFE.Alpha.Phases.Games
         public GameObject boxesSet1;
         public GameObject boxesSet2;
 
+        public AudioSource carSounds;
+        public AudioSource wheelSounds;
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
@@ -30,6 +33,8 @@ namespace SSGFE.Alpha.Phases.Games
                     LOLSDK.Instance.SubmitProgress(0, 50, 100);
                     //newCarCont.isCarActive = false;
                     Destroy(this.gameObject);
+                    wheelSounds.Stop();
+                    carSounds.Stop();
                 }
 
                 if (newCarCont.maxSpeed < 40 )

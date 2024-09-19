@@ -219,7 +219,7 @@ namespace SSGFE.Alpha.Phases.Games
         public IEnumerator DelayTextButton()
         {
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(4);
             forwardButton.gameObject.SetActive(true);
             // hasScrolled = false;
             Debug.Log("This coRoutine Runs");

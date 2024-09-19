@@ -5,11 +5,12 @@ namespace SSGFE.Alpha.Phases.Games
     {
         public NewCarControllerStage3 newCarCont;
         public BoxCollider cubeColliderToDisable;
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
-                    newCarCont.maxSpeed = newCarCont.maxSpeed - 5;
+                    newCarCont.maxSpeed -= 5;
                     cubeColliderToDisable.isTrigger = false;
             }
 

@@ -9,7 +9,8 @@ namespace SSGFE.Alpha.Phases.Games
         //public GameObject wall;
         //public GameObject breakableWall;
         public Stage3TextMan textMan;
-
+        public AudioSource carSounds;
+        public AudioSource wheelSounds;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -17,9 +18,10 @@ namespace SSGFE.Alpha.Phases.Games
             {
                     newCarCont.isCarActive = false;
                     textMan.arrayPos = 15;
+                    wheelSounds.Stop();
+                    carSounds.Stop();
 
 
-               
             }
 
         }
