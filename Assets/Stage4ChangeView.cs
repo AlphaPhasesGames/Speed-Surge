@@ -13,6 +13,7 @@ namespace SSGFE.Alpha.Phases.Games
         public Stage4TextMan stage4TextMan;
         public AudioSource bowling;
         public AudioSource skate;
+        public AudioSource car;
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
@@ -29,12 +30,15 @@ namespace SSGFE.Alpha.Phases.Games
                 if (newCarCont.maxSpeed > 30)
                 {
                     skate.Stop();
+                    car.Stop();
                     bowling.Play();
+
                     rb.isKinematic = false;
-                    rb.AddForce(-transform.right * 15000f);
+                    rb.AddForce(-transform.right * 22000f);
                     newCarCont.enabled = false;
                     carCam.gameObject.SetActive(false);
                     bowlingCam.gameObject.SetActive(true);
+                   // Destroy(this.gameObject);
                 }
 
                

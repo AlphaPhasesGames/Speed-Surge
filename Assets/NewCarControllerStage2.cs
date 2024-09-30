@@ -80,7 +80,7 @@ namespace SSGFE.Alpha.Phases.Games
 
         public float airDrag; // declare float for the drag the car recieves in the air 
         public float groundDrag; // declare float for the drag of the car when on the ground
-
+        public float reverseMP = 3;
         public float alignToGroundTime; // declare float to set time it takes for the car to align to the ground
 
         void Start()
@@ -211,7 +211,7 @@ namespace SSGFE.Alpha.Phases.Games
 
                 if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) // if S is pressed and held
                 {
-                    fwdSpeed -= acceleration; // move backwards by decreasing forward speed by increments set by the acceleration value
+                    fwdSpeed -= acceleration * reverseMP; // move backwards by decreasing forward speed by increments set by the acceleration value
                                               // turnSpeed += turnAcceleration; // reduce turn speeed by increments set by the turnacceleration value
 
                     if (engineAudioSelected)

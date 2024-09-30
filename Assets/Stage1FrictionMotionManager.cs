@@ -29,6 +29,7 @@ namespace SSGFE.Alpha.Phases.Games
             textMan.hasScrolled = false;
             textMan.arrayPos = 13;
             newCarCont.maxSpeed = 50;
+            newCarCont.revSpeed = 50;
             hideButtons.gameObject.SetActive(false);
             //textMan.textBool15 = false;
             Debug.Log("Choose Motion Runs once");
@@ -41,6 +42,7 @@ namespace SSGFE.Alpha.Phases.Games
             textMan.hasScrolled = false;
             textMan.arrayPos = 13;
             newCarCont.maxSpeed = 30;
+            newCarCont.revSpeed = 30;
             hideButtons.gameObject.SetActive(false);
             Debug.Log("Choose Motion Runs once");
         }

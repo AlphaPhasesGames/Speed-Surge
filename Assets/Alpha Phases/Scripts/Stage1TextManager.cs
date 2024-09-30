@@ -140,8 +140,6 @@ namespace SSGFE.Alpha.Phases.Games
                             buttonsPanal.gameObject.SetActive(true);
                             showButtonsOnce = true;
                         }
-
-
                         forwardParent.gameObject.SetActive(false);
                         break;
                     case 13:
@@ -255,7 +253,7 @@ namespace SSGFE.Alpha.Phases.Games
 
         public IEnumerator DelayTextButton()
         {
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(3);
             forwardButton.gameObject.SetActive(true);
         }
 

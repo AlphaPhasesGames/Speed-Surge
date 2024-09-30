@@ -238,7 +238,7 @@ namespace SSGFE.Alpha.Phases.Games
         public IEnumerator DelayTextButton()
         {
 
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(3);
             forwardButton.gameObject.SetActive(true);
             // hasScrolled = false;
             Debug.Log("This coRoutine Runs");
@@ -326,6 +326,18 @@ namespace SSGFE.Alpha.Phases.Games
             Debug.Log("This start coRoutine Runs");
             sphereParent.transform.position = respawnerPos3.transform.position;
             sphereParent.transform.rotation = Quaternion.Euler(0, 70, 0);
+            newCarCont.enabled = true;
+        }
+        public void RespawnFunction()
+        {
+            //forwardButton.gameObject.SetActive(false);
+            //   buttonsPanal.gameObject.SetActive(false);
+            newCarCont.enabled = false;
+            textPanal.gameObject.SetActive(false);
+           // arrayPos = 17;
+            Debug.Log("This start coRoutine Runs");
+            sphereParent.transform.position = respawnerPos.transform.position;
+         //   sphereParent.transform.rotation = Quaternion.Euler(0, 70, 0);
             newCarCont.enabled = true;
         }
     }

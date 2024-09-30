@@ -18,6 +18,7 @@ namespace SSGFE.Alpha.Phases.Games
         public bool runOnce;
         public bool submitOnce;
         public GameObject wall1Broken;
+        public BoxCollider triggerBox;
         // Start is called before the first frame update
         private void OnTriggerEnter(Collider other)
         {
@@ -40,7 +41,7 @@ namespace SSGFE.Alpha.Phases.Games
                         LOLSDK.Instance.SubmitProgress(0, 60, 100);
                         submitOnce = true;
                     }
-                   
+                   // newCarCont.volume2Once = true;
                     wall1Broken.gameObject.SetActive(true);
                     StartCoroutine(DestroyWall());
                 }
@@ -50,6 +51,8 @@ namespace SSGFE.Alpha.Phases.Games
                 {
                     textMan.arrayPos = 11;
                     textMan.StartCoroutine(textMan.RespawnCar());
+                    triggerBox.enabled = true;
+
                 }
             }
             

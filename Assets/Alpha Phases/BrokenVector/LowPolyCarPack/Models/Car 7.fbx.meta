@@ -1,104 +1,14 @@
 fileFormatVersion: 2
-guid: c5f8cfdbf35eea042bfcea749a4e7bc2
+guid: ad5968ace6ebad1498982d70be17ca72
 ModelImporter:
   serializedVersion: 22200
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: //RootNode
-  - first:
-      1: 100002
-    second: Wheel6-1
-  - first:
-      1: 100004
-    second: Wheel6-2
-  - first:
-      1: 100006
-    second: Wheel6-3
-  - first:
-      1: 100008
-    second: Wheel6-4
-  - first:
-      4: 400000
-    second: //RootNode
-  - first:
-      4: 400002
-    second: Wheel6-1
-  - first:
-      4: 400004
-    second: Wheel6-2
-  - first:
-      4: 400006
-    second: Wheel6-3
-  - first:
-      4: 400008
-    second: Wheel6-4
-  - first:
-      23: 2300000
-    second: //RootNode
-  - first:
-      23: 2300002
-    second: Wheel6-1
-  - first:
-      23: 2300004
-    second: Wheel6-2
-  - first:
-      23: 2300006
-    second: Wheel6-3
-  - first:
-      23: 2300008
-    second: Wheel6-4
-  - first:
-      33: 3300000
-    second: //RootNode
-  - first:
-      33: 3300002
-    second: Wheel6-1
-  - first:
-      33: 3300004
-    second: Wheel6-2
-  - first:
-      33: 3300006
-    second: Wheel6-3
-  - first:
-      33: 3300008
-    second: Wheel6-4
-  - first:
-      43: 4300000
-    second: Car 6
-  - first:
-      43: 4300002
-    second: Wheel6-4
-  - first:
-      43: 4300004
-    second: Wheel6-3
-  - first:
-      43: 4300006
-    second: Wheel6-2
-  - first:
-      43: 4300008
-    second: Wheel6-1
-  - first:
-      64: 6400000
-    second: //RootNode
-  - first:
-      64: 6400002
-    second: Wheel6-1
-  - first:
-      64: 6400004
-    second: Wheel6-2
-  - first:
-      64: 6400006
-    second: Wheel6-3
-  - first:
-      64: 6400008
-    second: Wheel6-4
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
-    materialImportMode: 0
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -127,16 +37,16 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 3
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importPhysicalCameras: 0
-    importVisibility: 0
-    importBlendShapes: 0
-    importCameras: 0
-    importLights: 0
-    nodeNameCollisionStrategy: 0
-    fileIdsGeneration: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -149,11 +59,11 @@ ModelImporter:
     minBoneWeight: 0.001
     optimizeBones: 1
     meshOptimizationFlags: -1
-    indexFormat: 1
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 0
+    secondaryUVMarginMethod: 1
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
@@ -162,9 +72,9 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 4
-    normalCalculationMode: 0
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
@@ -184,15 +94,15 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
-    skeletonHasParents: 0
+    skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
-  importBlendShapeDeformPercent: 0
-  remapMaterialsIfMaterialImportModeIsNone: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

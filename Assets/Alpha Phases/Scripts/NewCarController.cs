@@ -54,6 +54,8 @@ namespace SSGFE.Alpha.Phases.Games
         public float minTurn; // declare float for the minimum turn of the car. to stop it going into negative numbers and messing up the turning of the car
         public Vector3 velocity;
 
+        public float doubleSpeedReverse = 3;
+
         public bool chooseCar;
         public bool chooseToyCar;
         public bool chooseToilet;
@@ -158,7 +160,7 @@ namespace SSGFE.Alpha.Phases.Games
 
                 if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))// if S is pressed and held
                 {
-                    fwdSpeed -= acceleration; // move backwards by decreasing forward speed by increments set by the acceleration value
+                    fwdSpeed -= acceleration * doubleSpeedReverse; // move backwards by decreasing forward speed by increments set by the acceleration value
                    // turnSpeed += turnAcceleration; // reduce turn speeed by increments set by the turnacceleration value
                   
                     if (engineAudioSelected)

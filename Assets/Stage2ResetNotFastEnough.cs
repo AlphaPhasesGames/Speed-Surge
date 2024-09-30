@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 namespace SSGFE.Alpha.Phases.Games
 {
     public class Stage2ResetNotFastEnough : MonoBehaviour
@@ -19,8 +20,9 @@ namespace SSGFE.Alpha.Phases.Games
                 if(newCarCont.maxSpeed <= 15)
                 {
                     //stage2TextManager.ResetCarArrayMove();
-                    stage2TextManager.arrayPos = 17;
-                    sphereParent.transform.position = resetPosition.transform.position;
+                    stage2TextManager.ResetArrays();
+                   stage2TextManager.restrictionBool2 = false;
+                    stage2TextManager.arrayPos = 15;
                 }
             }
         }

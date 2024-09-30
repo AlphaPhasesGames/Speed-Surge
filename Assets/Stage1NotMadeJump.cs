@@ -11,7 +11,7 @@ namespace SSGFE.Alpha.Phases.Games
         public Camera stuntCam;
         public Camera vehicleCam;
 
-
+        public BoxCollider restartColToEnable;
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
@@ -19,7 +19,7 @@ namespace SSGFE.Alpha.Phases.Games
                // textMan.restrictionBool2 = true;
                 textMan.hasScrolled = false;
                 //Array.Fill(textMan.textBools, false);
-
+                restartColToEnable.enabled = true;
                 textMan.textBools = new bool[21]; // All elements are automatically set to false
                                                                   //  textMan.textBools[13] = false;
                                                                   //  textMan.textBools[14] = false;

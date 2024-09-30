@@ -101,6 +101,7 @@ namespace SSGFE.Alpha.Phases.Games
                 newCarCont.isCarActive = false;
                 forwardParent.gameObject.SetActive(true);
                 restrictionBool2 = false;
+                newCarCont.isCarActive = true;
                 //textBool20 = false;
 
             }
@@ -209,6 +210,7 @@ namespace SSGFE.Alpha.Phases.Games
                 case 22:
                     textPanal.gameObject.SetActive(false);
                     break;
+
             }
 
 
@@ -240,7 +242,7 @@ namespace SSGFE.Alpha.Phases.Games
         public IEnumerator DelayTextButton()
         {
 
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(3);
             forwardButton.gameObject.SetActive(true);
             // hasScrolled = false;
             Debug.Log("This coRoutine Runs");
@@ -281,7 +283,8 @@ namespace SSGFE.Alpha.Phases.Games
             newCarCont.isCarActive = false;
             restrictionBool2 = true;
             textPanal.gameObject.SetActive(false);
-           /// arrayPos = 1;
+            /// arrayPos = 1;
+           
             Debug.Log("This start coRoutine Runs");
 
         }
@@ -308,6 +311,13 @@ namespace SSGFE.Alpha.Phases.Games
             yield return new WaitForSeconds(5);
             SceneManager.LoadScene("Stage 3 Increased Energy");
         }
+
+        public void ResetArrays()
+        {
+         //   sphereParent.transform.position = resetPosition.transform.position;
+            Array.Fill(textBools, false);
+        }
+
     }
 }
 

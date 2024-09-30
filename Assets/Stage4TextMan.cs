@@ -12,7 +12,7 @@ namespace SSGFE.Alpha.Phases.Games
         public Stage4VehicleSelectScript vehSelectMan;
         public NewCarControllerStage3 newCarCont;
         public GameObject[] modelArray;
-
+        public Stage4EndFade endFade;
         public GameObject sphereParent;
         public GameObject resetPosition;
         // public GameObject buttonsPanal;
@@ -62,6 +62,8 @@ namespace SSGFE.Alpha.Phases.Games
             arrayPos = 0;
             maxLengthArray = modelArray.Length;
             textBools = new bool[maxLengthArray];
+            newCarCont.isCarActive = false;
+            newCarCont.engineIsIdle = false;
         }
 
 
@@ -181,6 +183,7 @@ namespace SSGFE.Alpha.Phases.Games
                     StartCoroutine(MoveToBlankInvislbePanal());
                     hasScrolled = false;
                     backwardsButton.gameObject.SetActive(false);
+           
                     EndOfGame(); break;
                 case 18:SpeakText("stage4MissionText18");
                     
@@ -219,7 +222,7 @@ namespace SSGFE.Alpha.Phases.Games
         public IEnumerator DelayTextButton()
         {
 
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(3);
             forwardButton.gameObject.SetActive(true);
             // hasScrolled = false;
             Debug.Log("This coRoutine Runs");
@@ -287,6 +290,8 @@ namespace SSGFE.Alpha.Phases.Games
 
         public void EndOfGame()
         {
+            endFade.runEnd = true;
+            endFade.FadeBlack();
             LOLSDK.Instance.SubmitProgress(0, 100, 100);
             LOLSDK.Instance.CompleteGame();
         }
